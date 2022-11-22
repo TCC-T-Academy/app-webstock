@@ -23,7 +23,7 @@ export interface IUsuario{
     senha: string
 }
 
-export interface IMovimentacoes{
+export interface IMovimentacao{
     id_movimentacao?: number,
     data_movimentacao: Date,
     origem_destino: string,
