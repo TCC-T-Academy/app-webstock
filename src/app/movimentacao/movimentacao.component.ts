@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IMovimentacao } from '../../interfaces/interface'
 import { MovimentacaoService } from '../movimentacao.service';
+import { FormGroup, FormControl } from'@angular/forms';
 
 @Component({
   selector: 'app-movimentacao',
