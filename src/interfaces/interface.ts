@@ -1,22 +1,22 @@
 export interface IItem{
-    id_item?: number,
+    idItem?: number,
     descricao: string,
-    estoque_seguranca: number,
+    estoqueSeguranca: number,
     familia: string,
     grupo: string,
-    unidade_medida: string
+    unidade: string
 }
 
 export interface IEstoque{
-    id_estoque?: number,
-    estoque_real: number,
+    idEstoque?: number,
+    estoqueReal: number,
     localizacao: String,
-    estoque_futuro?: number, 
+    //estoqueFuturo?: number, 
     item: IItem
 }
 
 export interface IUsuario{
-    id_usuario?: number,
+    idUsuario?: number,
     email: string,
     nome: string,
     perfil: string,
@@ -24,11 +24,11 @@ export interface IUsuario{
 }
 
 export interface IMovimentacao{
-    id_movimentacao?: number,
-    data_movimentacao: Date,
-    origem_destino: string,
+    idMovimentacao?: number,
+    dataMovimentacao: Date,
+    origemDestino: string,
     quantidade: number,
-    tipo_movimentacao: string,
+    tipo: string,
     item: IItem,
     estoque: IEstoque,
     usuario: IUsuario
