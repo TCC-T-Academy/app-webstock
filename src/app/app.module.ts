@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http'
 import { BrowserModule } from '@angular/platform-browser';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EstoqueComponent } from './estoque/estoque.component';
@@ -31,8 +32,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     MatListModule,
     BrowserModule,
-    MatSidenavModule,
     BrowserAnimationsModule,
+    MatSidenavModule,
+    HttpClientModule
   
     
   ],
