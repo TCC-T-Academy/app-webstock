@@ -1,0 +1,15 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+table, th, td {
+    border: 1px solid;
+    width: 50%;
+    top: 100px;
+    bottom: 100px;
+    text-align: center;
+    margin: 30px auto
+   
+  }
