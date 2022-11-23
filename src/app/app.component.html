@@ -1,15 +1,4 @@
-  
-<!-- <h1>Menu</h1>
-<nav>
-    <a routerLink="estoque">Estoque</a>
-    <a routerLink="movimentacoes">Movimentação</a>
-    <a routerLink="reservas">Reserva</a>
-    <a routerLink="previsoes">Previsão</a>
 
-</nav>
-<div>
-    <router-outlet></router-outlet>
-</div> -->
 <div class="sidebar-opener" (click)="sidebarShow = !sidebarShow">
     Click me to open/close the sidebar
 </div>
@@ -19,15 +8,19 @@
       class="sidebar-close"
       (click)="sidebarShow = !sidebarShow"
   >
-      X
+      
   </div>
     <div class="sidebar-content">
       <h2>Sidebar</h2>
       <div>Home Page</div>
-      <div>About Us</div>
-      <div>Services</div>
-      <div>Prices</div>
-      <div>Downloads</div>
+      <a class="link" routerLink="estoque">Estoque</a>
+      <a class="link" routerLink="movimentacoes">Movimentação</a>
+      <a class="link" routerLink="reservas">Reserva</a>
+      <a class="link" routerLink="previsoes">Previsão</a>
       <div>Contact Us</div>
     </div>
 </div>
+
+<div>
+    <router-outlet></router-outlet>
+</div> 
