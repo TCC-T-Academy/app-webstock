@@ -1,12 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EstoqueComponent } from './estoque/estoque.component';
+import { MovimentacaoComponent } from './movimentacao/movimentacao.component';
+import { PrevisaoComponent } from './previsao/previsao.component';
+import { ReservaComponent } from './reserva/reserva.component';
 
 const routes: Routes = [
   {
     path:'estoque',
     component: EstoqueComponent
+  },
+  {
+    path:'movimentacoes',
+    component: MovimentacaoComponent
+  },
+  {
+    path:'reservas',
+    component: ReservaComponent
+  },
+  {
+    path:'previsoes',
+    component: PrevisaoComponent
   }
+  
 ];
 
 @NgModule({
