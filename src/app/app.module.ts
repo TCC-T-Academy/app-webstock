@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatSidenavModule} from '@angular/material/sidenav';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EstoqueComponent } from './estoque/estoque.component';
@@ -11,6 +11,7 @@ import { PrevisaoComponent } from './previsao/previsao.component';
 import { ErroComponent } from './erro/erro.component';
 import { HomeComponent } from './home/home.component';
 import { MatListModule } from '@angular/material/list';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -22,13 +23,18 @@ import { MatListModule } from '@angular/material/list';
     ReservaComponent,
     PrevisaoComponent,
     ErroComponent,
-    HomeComponent
+    HomeComponent,
+  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatListModule,
-    BrowserModule   
+    BrowserModule,
+    MatSidenavModule,
+    BrowserAnimationsModule,
+  
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
