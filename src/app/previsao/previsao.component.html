@@ -1,1 +1,37 @@
-<p>previsao works!</p>
+<h1>Previsões</h1>
+
+<form #f="ngForm" (ngSubmit)="pesquisarPorIdItem(f.value)">
+    <input type="number" placeholder="Search" name="idItem" [(ngModel)]="idItem">
+    <button>Pesquisar</button>
+    <br />
+    <!-- {{idItem}} -->
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Data prevista</th>
+            <th>Ordem</th>
+            <th>Quantidade</th>
+            <th>Finalizada</th>
+            <th>Item</th>
+            <th>Usuário</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of previsoes">
+            <td>{{p.id_previsao}}</td>
+            <td>{{p.data_prevista}}</td>
+            <td>{{p.ordem}}</td>
+            <td>{{p.quantidade_prevista}}</td>
+            <td>{{p.finalizada}}</td>
+            <td>{{p.item.descricao}}</td>
+            <td>{{p.usuario.nome}}</td>
+        </tr>
+
+    </tbody>
+</table>
+<p ></p>
+
+
