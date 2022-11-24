@@ -1,4 +1,4 @@
-<h1>Previsões</h1>
+<h1 class="title">PREVISÕES</h1>
 <form id="pesquisa">
     <input type="number" id="idItem" placeholder="Pesquise por ID do item" name="idItem" [(ngModel)]="idItem" >
     <button (click)="consultarPrevisoesPorIdItem()">Pesquisar</button>
@@ -6,33 +6,31 @@
     <br/>
 </form>
 
-<table>
+<table class="styled-table">
     <thead>
         <tr>
             <th>ID</th>
-            <th>Data prevista</th>
-            <th>Ordem</th>
-            <th>Quantidade</th>
-            <th>Finalizada</th>
-            <th>Item</th>
-            <th>ID Item</th>
-            <th>Usuário</th>
+            <th>DATA PREVISTA</th>
+            <th>ORDEM</th>
+            <th>QUANTIDADE</th>
+            <th>FINALIZADA</th>
+            <th>ITEM</th>
+            <th>ID ITEM</th>
+            <th>USUÁRIO</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let p of previsoes">
+        <tr *ngFor="let p of previsoes"  class="active-row">
             <td>{{p.idPrevisao}}</td>
             <td>{{p.dataPrevista}}</td>
             <td>{{p.ordem}}</td>
             <td>{{p.quantidadePrevista}}</td>
             <td>{{p.finalizada}}</td>
-            <td>{{p.item.descricao}}</td>
+            <td class="longTxt">{{p.item.descricao}}</td>
             <td>{{p.item.idItem}}</td>
             <td>{{p.usuario.nome}}</td>
         </tr>
-
     </tbody>
 </table>
-<p ></p>
 
 
