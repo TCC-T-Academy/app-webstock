@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IMovimentacao } from '../../interfaces/interface'
 import { MovimentacaoService } from '../movimentacao.service';
 import { FormGroup, FormControl } from'@angular/forms';
+import { ItemComponent } from '../item/item.component';
 
 @Component({
   selector: 'app-movimentacao',
@@ -33,5 +34,12 @@ export class MovimentacaoComponent {
     this.service.consultarMovimentacoes().subscribe(data =>this.movimentacoes = data)
   }
   
+  consultar(idItem:number = 0){
+    if (idItem > 0){
+      this.service.consultarMovimentacoesPorIdItem(idItem).subscribe(data =>this.movimentacoes = data)
+    } else{
+      this.service.consultarMovimentacoes().subscribe(data =>this.movimentacoes = data)
+    }
+  }
 
 }
