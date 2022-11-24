@@ -9,10 +9,10 @@ import { IReserva } from 'src/interfaces/interface';
 export class ReservaService {
   reservas:IReserva [] = [
     {
-      id_reserva: 0,
-      data_prevista: new Date(),
+      idReserva: 0,
+      dataPrevista: new Date(),
       ordem: "",
-      quantidade_reserva: 0,
+      quantidadeReserva: 0,
       finalizada: false,
       item: {
         descricao:"",
@@ -35,4 +35,8 @@ export class ReservaService {
   consultarReservas(){
     return this.http.get<[IReserva]>("http://localhost:8081/reservas");
   }
+  consultarReservasPorIdItem(idItem: number){
+    return this.http.get<[IReserva]>(`http://localhost:8081/reservas/iditem/${idItem}`);
+  }
+
 }

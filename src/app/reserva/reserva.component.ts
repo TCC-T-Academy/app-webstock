@@ -10,10 +10,10 @@ import { IReserva } from 'src/interfaces/interface';
 export class ReservaComponent {
   reservas:IReserva [] = [
     {
-      id_reserva: 0,
-      data_prevista: new Date(),
+      idReserva: 0,
+      dataPrevista: new Date(),
       ordem: "",
-      quantidade_reserva: 0,
+      quantidadeReserva: 0,
       finalizada: false,
       item: {
         descricao:"",
@@ -37,6 +37,10 @@ export class ReservaComponent {
 
   consultarReservas(){
     this.service.consultarReservas().subscribe(data =>this.reservas = data)
+}
+
+consultarReservasPorIdItem(idItem: number){
+  this.service.consultarReservasPorIdItem(idItem).subscribe(data =>this.reservas = data)
 }
 
 }

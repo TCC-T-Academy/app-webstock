@@ -1,3 +1,9 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
 /* cabeçalho e rodapé*/
 
 body {
