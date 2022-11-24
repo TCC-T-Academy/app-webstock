@@ -1,0 +1,26 @@
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>ID ITEM</th>
+            <th>TIPO MOVIMENTAÇÃO</th>
+            <th>ORDEM</th>
+            <th>QUANTIDADE</th>
+            <th>DATA</th>
+            <th>ESTOQUE</th>
+            <th>USUÁRIO</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let l of logs"  class="active-row">
+            <td>{{l.idItem}}</td>
+            <td>{{l.tipoMovimentacao}}</td>
+            <td>{{l.origemDestino}}</td>
+            <td>{{l.quantidade}}</td>
+            <td>{{l.data}}</td>
+            <td>{{l.estoqueMomento}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
