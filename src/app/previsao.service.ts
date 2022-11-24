@@ -36,9 +36,6 @@ export class PrevisaoService {
     return this.http.get<[IPrevisao]>("http://localhost:8081/previsoes");
   }
 
-  // consultarPrevisoesPorIdItem(idItem: number){
-  //   return this.http.get<[IPrevisao]>(`http://localhost:8081/previsoes/iditem/${idItem}`);
-  // }
   consultarPrevisoesPorIdItem(idItem: number){
     return this.http.get<[IPrevisao]>(`http://localhost:8081/previsoes/iditem/${idItem}`);
   }

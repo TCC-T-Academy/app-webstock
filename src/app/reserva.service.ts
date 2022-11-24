@@ -36,7 +36,7 @@ export class ReservaService {
     return this.http.get<[IReserva]>("http://localhost:8081/reservas");
   }
   consultarReservasPorIdItem(idItem: number){
-    return this.http.get<[IReserva]>(`http://localhost:8081/reservas/iditem/${idItem}`);
+    return this.http.get<[IReserva]>(`http://localhost:8081/reservas/${idItem}`);
   }
 
 }
