@@ -1,6 +1,12 @@
-<h1>Reservas</h1>
+<h1 class="title">RESERVAS</h1>
+<form id="pesquisa">
+    <input type="number" id="idItem" placeholder="Pesquise por ID do item" name="idItem" [(ngModel)]="idItem" >
+    <button (click)="consultarReservasPorIdItem()">Pesquisar</button>
+    <button (click)="consultarReservas()">Mostrar tudo</button>
+    <br/>
+</form>
 
-<table>
+<table class="styled-table">
     <thead>
         <tr>
             <th>ID</th>
@@ -9,17 +15,19 @@
             <th>Quantidade</th>
             <th>Finalizada</th>
             <th>Item</th>
+            <th>ID Item</th>
             <th>Usuário</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let r of reservas">
+        <tr *ngFor="let r of reservas" class="active-row">
             <td>{{r.idReserva}}</td>
             <td>{{r.dataPrevista}}</td>
             <td>{{r.ordem}}</td>
             <td>{{r.quantidadeReserva}}</td>
             <td>{{r.finalizada}}</td>
-            <td>{{r.item.descricao}}</td>
+            <td class="longTxt">{{r.item.descricao}}</td>
+            <td>{{r.item.idItem}}</td>
             <td>{{r.usuario.nome}}</td>
         </tr>
 

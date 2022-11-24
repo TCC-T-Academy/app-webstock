@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatRadioModule} from '@angular/material/radio';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EstoqueComponent } from './estoque/estoque.component';
@@ -18,6 +19,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule  } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
+import { NovaMovimentacaoComponent } from './nova-movimentacao/nova-movimentacao.component'
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     PrevisaoComponent,
     ErroComponent,
     HomeComponent,
+    NovaMovimentacaoComponent,
   
   ],
   imports: [
@@ -43,7 +46,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatRadioModule
     
   ],
   providers: [],
