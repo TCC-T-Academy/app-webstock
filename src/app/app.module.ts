@@ -46,7 +46,8 @@ import { NovaMovimentacaoComponent } from './nova-movimentacao/nova-movimentacao
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatRadioModule
     
   ],
   providers: [],
