@@ -9,10 +9,10 @@ import { IPrevisao } from 'src/interfaces/interface';
 export class PrevisaoService {
   previsoes: IPrevisao [] = [
     {
-      id_previsao: 0,
-      data_prevista: new Date(),
+      idPrevisao: 0,
+      dataPrevista: new Date(),
       ordem: "",
-      quantidade_prevista: 0,
+      quantidadePrevista: 0,
       finalizada: false,
       item: {
         descricao:"",

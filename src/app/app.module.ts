@@ -15,7 +15,11 @@ import { HomeComponent } from './home/home.component';
 import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { NovaMovimentacaoComponent } from './nova-movimentacao/nova-movimentacao.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule  } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { NovaMovimentacaoComponent } from './nova-movimentacao/nova-movimentacao.component'
 
 @NgModule({
   declarations: [
@@ -39,7 +43,10 @@ import { NovaMovimentacaoComponent } from './nova-movimentacao/nova-movimentacao
     MatSidenavModule,
     HttpClientModule,
     FormsModule,
-    MatRadioModule
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatNativeDateModule
     
   ],
   providers: [],
