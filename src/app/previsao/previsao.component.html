@@ -1,10 +1,9 @@
 <h1>Previsões</h1>
-
-<form #f="ngForm" (ngSubmit)="pesquisarPorIdItem(f.value)" id="pesquisa">
-    <input type="number" placeholder="Search" name="idItem" [(ngModel)]="idItem">
-    <button>Pesquisar</button>
-    <br />
-    <!-- {{idItem}} -->
+<form id="pesquisa">
+    <input type="number" id="idItem" placeholder="Pesquise por ID do item" name="idItem" [(ngModel)]="idItem" >
+    <button (click)="consultarPrevisoesPorIdItem()">Pesquisar</button>
+    <button (click)="consultarPrevisoes()">Mostrar tudo</button>
+    <br/>
 </form>
 
 <table>
@@ -16,6 +15,7 @@
             <th>Quantidade</th>
             <th>Finalizada</th>
             <th>Item</th>
+            <th>ID Item</th>
             <th>Usuário</th>
         </tr>
     </thead>
@@ -27,6 +27,7 @@
             <td>{{p.quantidadePrevista}}</td>
             <td>{{p.finalizada}}</td>
             <td>{{p.item.descricao}}</td>
+            <td>{{p.item.idItem}}</td>
             <td>{{p.usuario.nome}}</td>
         </tr>
 
