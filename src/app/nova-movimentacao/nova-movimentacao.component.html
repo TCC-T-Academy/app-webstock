@@ -1,5 +1,5 @@
 <p>nova-movimentacao works!</p>
-<form #f="ngForm" (ngSubmit)="enviar(f.value)">
+<form #f="ngForm">
     <label for="idItem" class="form-label">Id Item:</label>
     <input type="number" ngModel name="idItem"  placeholder="Item" id="idItem" step="1" min="1" />
 
@@ -16,5 +16,7 @@
         </mat-radio-button>
     </mat-radio-group>
 
-    <button class="btn btn-outline-primary mt-3">Salvar</button>
+    <p>TESTE : {{inOut}}</p>
+
+    <button class="btn btn-outline-primary mt-3" (click)="enviar(f.value)">Salvar</button>
 </form>
