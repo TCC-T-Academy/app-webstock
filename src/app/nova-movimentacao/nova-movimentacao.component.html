@@ -1,22 +1,56 @@
-<p>nova-movimentacao works!</p>
-<form #f="ngForm">
-    <label for="idItem" class="form-label">Id Item:</label>
-    <input type="number" ngModel name="idItem"  placeholder="Item" id="idItem" step="1" min="1" />
+<div class="container" style="width: 60%;">
+    <div class="row">
+        <div class="col">
 
-    <label for="idemail" class="form-label">Origem/Destino</label>
-    <input type="text" ngModel name="origemDestino"  placeholder="Origem Destino" id="idOrigem" /> 
 
-    <label for="idfone" class="form-label">Quantidade</label>
-    <input type="number" ngModel name="quantidade" placeholder="Quantidade" id="idQtd" min="0" />
-    
-    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
-      [(ngModel)]="inOut" [ngModelOptions]="{standalone: true}">
-        <mat-radio-button class="example-radio-button" *ngFor="let tipo of tipos" [value]="tipo" >
-            {{tipo}}
-        </mat-radio-button>
-    </mat-radio-group>
+    <form #f="ngForm" (submit)="enviar(f.value)">
+        <div class="row">
+            <div class="col mb-3">
+                <label for="idItem" class="form-label">Id Item:</label>
+                <input type="number" class="form-control" ngModel name="idItem"  placeholder="Item" id="idItem" step="1" min="1" />
+            </div>       
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="idemail" class="form-label">{{orgDest}}</label>
+                <input type="text" class="form-control" ngModel name="origemDestino"  placeholder="Origem Destino" id="idOrigem" [disabled]="disableCtrl"/> 
+            </div>
+            
+            <div class="col mb-1">
+                <label for="idQtd" class="form-label">Quantidade</label>
+                <input type="number" class="form-control" ngModel name="quantidade" placeholder="Quantidade" id="idQtd" min="0" [disabled]="disableCtrl"/>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col mb-2 mt-2">
+                <div class="form-check" *ngFor="let tipo of tipos">
+                    <input class="form-check-input" type="radio" name="tipo" id="id{{tipo}}" value="{{tipo}}" [(ngModel)]="inOut" (change)="verSelecao(inOut)">
+                    <label class="form-check-label" for="id{{tipo}}">
+                    {{tipo}}
+                    </label>
+                </div>
+            </div>
+            <button class="col btn btn-outline-primary m-1">Salvar</button>            
+        </div>
+    </form>
+</div>
+<div class="col"></div>
 
-    <p>TESTE : {{inOut}}</p>
-
-    <button class="btn btn-outline-primary mt-3" (click)="enviar(f.value)">Salvar</button>
-</form>
+<div class="col">
+    <div class="row">
+        <div class="row">
+            <div class="col mb-3">
+                <label for="idItemPesquisa" class="form-label">Pesquisar:</label>
+                <input type="number" class="form-control" [(ngModel)]="itemPesquisa" name="idItemPesquisa"  placeholder="Item" id="idItem" step="1" min="1" />
+            </div>       
+        </div>
+    </div>
+    <div class="row"></div>
+    <div class="row">
+    <input type="button" class="col btn btn-outline-secondary m-1" value="Pesquisar ID" (click)="buscar(itemPesquisa)">
+    <input type="button" class="col btn btn-outline-secondary m-1" value="Todas" (click)="buscar(0)">
+</div>
+</div>
+</div>
+</div>
