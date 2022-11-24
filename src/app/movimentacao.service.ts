@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IMovimentacao } from 'src/interfaces/interface';
+import { IMovimentacao, INovaMovimentacao } from 'src/interfaces/interface';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +25,18 @@ export class MovimentacaoService {
   consultarMovimentacoes(){
     return this.http.get<[IMovimentacao]>("http://localhost:8081/movimentacoes");
   }
+
+  consultarMovimentacoesPorIdItem(idItem:number){
+    return this.http.get<[IMovimentacao]>(`http://localhost:8081/movimentacoes/${idItem}`);
+  }
+
+  entradaItem(mov:INovaMovimentacao){
+    return this.http.post<IMovimentacao>(`http://localhost:8081/movimentacoes/entrada`,mov);
+  }
+
+  saidaItem(mov:INovaMovimentacao){
+    return this.http.post<IMovimentacao>(`http://localhost:8081/movimentacoes/saida`,mov);
+  }
+
  
 }
