@@ -13,7 +13,11 @@ import { ErroComponent } from './erro/erro.component';
 import { HomeComponent } from './home/home.component';
 import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { FormsModule } from '@angular/forms';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule  } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -34,8 +38,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     BrowserAnimationsModule,
     MatSidenavModule,
-    HttpClientModule
-  
+    HttpClientModule,
+    FormsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatNativeDateModule
     
   ],
   providers: [],

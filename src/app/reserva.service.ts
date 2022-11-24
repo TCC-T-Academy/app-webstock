@@ -1,13 +1,12 @@
-import { Component } from '@angular/core';
-import { ReservaService } from '../reserva.service';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { IReserva } from 'src/interfaces/interface';
 
-@Component({
-  selector: 'app-reserva',
-  templateUrl: './reserva.component.html',
-  styleUrls: ['./reserva.component.css']
+@Injectable({
+  providedIn: 'root'
 })
-export class ReservaComponent {
+
+export class ReservaService {
   reservas:IReserva [] = [
     {
       id_reserva: 0,
@@ -31,12 +30,9 @@ export class ReservaComponent {
     }
   ]
 
-  constructor(private service:ReservaService){
-    this.consultarReservas()
-}
+  constructor(private http: HttpClient) { }
 
   consultarReservas(){
-    this.service.consultarReservas().subscribe(data =>this.reservas = data)
-}
-
+    return this.http.get<[IReserva]>("http://localhost:8081/reservas");
+  }
 }
