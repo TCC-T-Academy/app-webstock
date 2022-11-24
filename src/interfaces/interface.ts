@@ -34,6 +34,13 @@ export interface IMovimentacao{
     usuario: IUsuario
 }
 
+export interface INovaMovimentacao{
+    origemDestino: string,
+    quantidade: number,
+    idItem?: number,
+    idUsuario?: number
+}
+
 export interface IReserva{
     id_reserva?: number,
     data_prevista: Date,
