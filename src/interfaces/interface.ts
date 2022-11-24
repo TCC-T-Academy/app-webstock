@@ -35,20 +35,20 @@ export interface IMovimentacao{
 }
 
 export interface IReserva{
-    id_reserva?: number,
-    data_prevista: Date,
+    idReserva?: number,
+    dataPrevista: Date,
     ordem: string,
-    quantidade_reserva: number,
+    quantidadeReserva: number,
     finalizada: boolean,
     item: IItem,
     usuario: IUsuario
 }
 
 export interface IPrevisao{
-    id_previsao?: number,
-    data_prevista: Date,
+    idPrevisao?: number,
+    dataPrevista: Date,
     ordem: string,
-    quantidade_prevista: number,
+    quantidadePrevista: number,
     finalizada: boolean,
     item: IItem,
     usuario: IUsuario
