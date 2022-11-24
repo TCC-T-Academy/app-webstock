@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ReservaService } from '../reserva.service';
 import { IReserva } from 'src/interfaces/interface';
 
@@ -7,7 +7,11 @@ import { IReserva } from 'src/interfaces/interface';
   templateUrl: './reserva.component.html',
   styleUrls: ['./reserva.component.css']
 })
-export class ReservaComponent {
+
+export class ReservaComponent implements OnInit  {
+  
+  idItem: number = 0
+
   reservas:IReserva [] = [
     {
       idReserva: 0,
@@ -32,15 +36,18 @@ export class ReservaComponent {
   ]
 
   constructor(private service:ReservaService){
-    this.consultarReservas()
-}
+    
+  }
+  ngOnInit(): void {
+    this.service.consultarReservas().subscribe(data => this.reservas = data)
+  }
 
   consultarReservas(){
     this.service.consultarReservas().subscribe(data =>this.reservas = data)
-}
+  }
 
-consultarReservasPorIdItem(idItem: number){
-  this.service.consultarReservasPorIdItem(idItem).subscribe(data =>this.reservas = data)
-}
+  consultarReservasPorIdItem(){
+    this.service.consultarReservasPorIdItem(this.idItem).subscribe(data =>this.reservas = data)
+  }
 
 }
