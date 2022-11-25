@@ -42,14 +42,14 @@
         <div class="row">
             <div class="col mb-3">
                 <label for="idItemPesquisa" class="form-label">Pesquisar:</label>
-                <input type="number" class="form-control" [(ngModel)]="itemPesquisa" name="idItemPesquisa"  placeholder="Item" id="idItem" step="1" min="1" />
+                <input type="text" class="form-control" [(ngModel)]="itemPesquisa" name="idItemPesquisa"  placeholder="Item" id="idItem" step="1" min="1" />
             </div>       
         </div>
     </div>
     <div class="row"></div>
     <div class="row">
     <input type="button" class="col btn btn-outline-secondary m-1" value="Pesquisar ID" (click)="buscar(itemPesquisa)">
-    <input type="button" class="col btn btn-outline-secondary m-1" value="Todas" (click)="buscar(0)">
+    <input type="button" class="col btn btn-outline-secondary m-1" value="Todas" (click)="buscar('0')">
 </div>
 </div>
 </div>
