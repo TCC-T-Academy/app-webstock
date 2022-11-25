@@ -1,7 +1,22 @@
-<h2>Detalhes Item</h2>
-<p>{{item.descricao}}</p>
-<p>{{item.grupo}}</p>
-<p>{{item.familia}}</p>
-<p>{{item.unidade}}</p>
-<p>{{item.estoqueSeguranca}}</p>
+<h2 class="title">Detalhes Item</h2>
 
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>DESCRIÇÃO</th>
+            <th>GRUPO</th>
+            <th>FAMÍLIA</th>
+            <th>UNIDADE</th>
+            <th>ESTOQUE SEGURANÇA</th>
+        </tr>
+    </thead>
+ <tbody>
+        <tr class="active-row">
+            <td>{{item.descricao}}</td>
+            <td>{{item.grupo}}</td>
+            <td>{{item.familia}}</td>
+            <td>{{item.unidade}}</td>
+            <td>{{item.estoqueSeguranca}}</td>
+        </tr>
+    </tbody> 
+</table>

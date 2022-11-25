@@ -1,11 +1,45 @@
-<h1>Gestão de estoque</h1>
-<form id="pesquisa">
-    <input type="number" id="idItem" placeholder="Pesquise por ID do item" name="idItem" [(ngModel)]="idItem" >
-    <button (click)="consultarEstoquePorIdItem()">Pesquisar</button>
-    <br/>
-</form>
+<div class="container" style="width: 70%;">
+    <h1 class="title">Gestão de estoque</h1>
+ 
+    <form id="pesquisa">
+        <input type="number" id="idItem" placeholder="Pesquise por ID do item" name="idItem" [(ngModel)]="idItem" >
+        <button (click)="chamarFuncoes()">Pesquisar</button>
+        <br/>
+    </form>
 
-<p>{{estoque.idEstoque}}</p>
-<p>{{estoque.localizacao}}</p>
-<p>{{estoque.estoqueReal}}</p>
-<app-item [item] = "estoque.item"></app-item>
+    <div class="row">
+        <div class="col">
+
+            <div class="row">
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>ID ESTOQUE</th>
+                            <th>LOCALIZAÇÃO</th>
+                            <th>ESTOQUE REAL</th>
+                        </tr>
+                    </thead>
+                 <tbody>
+                        <tr class="active-row">
+                            <td>{{estoque.idEstoque}}</td>
+                            <td>{{estoque.localizacao}}</td>
+                            <td>{{estoque.estoqueReal}}</td>
+                        </tr>
+                
+                    </tbody> 
+                </table>
+            </div>
+
+            <div class="row">
+                <app-item [item] = "estoque.item"></app-item>
+            </div>
+
+        </div>
+    
+
+        <div class="col">
+            <app-log [logs]="logs"></app-log>
+        </div>
+
+    </div>
+</div>

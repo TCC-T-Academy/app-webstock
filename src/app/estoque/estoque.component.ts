@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IEstoque, IItem } from 'src/interfaces/interface';
+import { IEstoque, IItem, ILog } from 'src/interfaces/interface';
 import { EstoqueService } from '../estoque.service';
+import { LogService } from '../log.service';
 
 @Component({
   selector: 'app-estoque',
@@ -25,19 +26,40 @@ export class EstoqueComponent {
     }
   }
 
+  logs:ILog [] = [
+    {
+      idItem: 0,
+      tipoMovimentacao: "",
+      origemDestino: "",
+      data: new Date(),
+      quantidade: 0,
+      estoqueMomento: 0
+    }
+  ]
+
   itemEstoque: IItem = this.estoque.item;
 
 
-constructor(private service:EstoqueService){
-
+constructor(private service:EstoqueService, private service2:LogService){
 }
+
+
+  ngOnInit(): void {
+  }
+
+  chamarFuncoes(){
+    this.consultarLogsPorIdItem(),
+    this.consultarEstoquePorIdItem()
+  }
+
+
+  consultarLogsPorIdItem(){
+    this.service2.consultarLogsPorIdItem(this.idItem).subscribe(data =>this.logs = data)
+  }
 
 consultarEstoquePorIdItem(){
    this.service.consultarEstoquePorIdItem(this.idItem).subscribe(data =>this.estoque = data),
    this.service.consultarEstoquePorIdItem(this.idItem).subscribe(data =>this.estoque.item = data.item)
 }
-
-
-
 
 }
