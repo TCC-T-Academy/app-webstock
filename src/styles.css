@@ -91,7 +91,6 @@ body {
     
   }
   
-  
   .styled-table tbody tr{
     border-bottom: 1px solid #dddddd;
     
@@ -119,5 +118,8 @@ body {
   .title{
     text-align: center;
    margin-bottom: 50px;
+
   } 
 
+
+  
