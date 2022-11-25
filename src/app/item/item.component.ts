@@ -9,21 +9,10 @@ import { ItemService } from '../item.service';
 })
 export class ItemComponent {
 
-  @Input() itemImput = '';
-
-item: IItem = {
-  descricao: "",
-  grupo: "",
-  familia: "",
-  unidade: "",
-  estoqueSeguranca: 0
-}
-
-  constructor(private service:ItemService){
-    this.consultarPorIdItem();
+  @Input() item: any;
+  
+  constructor(){
   }
 
-  consultarPorIdItem(){
-    this.service.consultarPorIdItem(1540).subscribe(data =>this.item = data)
-  }
+  
 }

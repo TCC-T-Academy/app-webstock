@@ -1,2 +1,11 @@
 <h1>Gestão de estoque</h1>
+<form id="pesquisa">
+    <input type="number" id="idItem" placeholder="Pesquise por ID do item" name="idItem" [(ngModel)]="idItem" >
+    <button (click)="consultarEstoquePorIdItem()">Pesquisar</button>
+    <br/>
+</form>
 
+<p>{{estoque.idEstoque}}</p>
+<p>{{estoque.localizacao}}</p>
+<p>{{estoque.estoqueReal}}</p>
+<app-item [item] = "estoque.item"></app-item>
