@@ -1,16 +1,22 @@
 <div class="container" style="width: 70%;">
-    <h1 class="title">Gestão de estoque</h1>
+    <h1 class="title">GESTÃO DE ESTOQUE</h1>
  
     <form id="pesquisa">
         <input type="number" id="idItem" placeholder="Pesquise por ID do item" name="idItem" [(ngModel)]="idItem" >
-        <button (click)="chamarFuncoes()">Pesquisar</button>
+        <button class="btn btn-outline-primary mt-3" (click)="chamarFuncoes()">Pesquisar</button>
         <br/>
     </form>
+
+    
+    <div class="row">
+        <app-item [item] = "estoque.item"></app-item>
+    </div>
 
     <div class="row">
         <div class="col">
 
             <div class="row">
+                <h2 class="subtitle">Estoque</h2>
                 <table class="styled-table">
                     <thead>
                         <tr>
@@ -29,14 +35,8 @@
                     </tbody> 
                 </table>
             </div>
-
-            <div class="row">
-                <app-item [item] = "estoque.item"></app-item>
-            </div>
-
+           
         </div>
-    
-
         <div class="col">
             <app-log [logs]="logs"></app-log>
         </div>

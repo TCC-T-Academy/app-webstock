@@ -28,3 +28,24 @@ input::-webkit-inner-spin-button {
 -webkit-appearance: none;
 margin: 0;
 }
+
+.title:before{
+  text-align: center;
+  display: inline-block;
+  margin: 0 20px 8px 0;
+  height: 3px;
+  content: " ";
+  text-shadow: none;
+  background-color: #999;
+  width: 140px;
+}
+.title:after{
+  display: inline-block;
+  margin: 0 20px 8px 0;
+  height: 3px;
+  content: " ";
+  text-shadow: none;
+  background-color: #999;
+  width: 140px;
+
+}
