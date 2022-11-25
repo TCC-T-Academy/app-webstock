@@ -10,7 +10,7 @@ import { LogService } from '../log.service';
 })
 export class EstoqueComponent {
 
-  idItem: number = 0
+  idItem: string = ""
 
   estoque: IEstoque = {
     idEstoque: 0,
@@ -54,12 +54,12 @@ constructor(private service:EstoqueService, private service2:LogService){
 
 
   consultarLogsPorIdItem(){
-    this.service2.consultarLogsPorIdItem(this.idItem).subscribe(data =>this.logs = data)
+    this.service2.consultarLogsPorIdItem(parseFloat(this.idItem)).subscribe(data =>this.logs = data)
   }
 
 consultarEstoquePorIdItem(){
-   this.service.consultarEstoquePorIdItem(this.idItem).subscribe(data =>this.estoque = data),
-   this.service.consultarEstoquePorIdItem(this.idItem).subscribe(data =>this.estoque.item = data.item)
+   this.service.consultarEstoquePorIdItem(parseFloat(this.idItem)).subscribe(data =>this.estoque = data),
+   this.service.consultarEstoquePorIdItem(parseFloat(this.idItem)).subscribe(data =>this.estoque.item = data.item)
 }
 
 }
