@@ -60,3 +60,12 @@ export interface IPrevisao{
     item: IItem,
     usuario: IUsuario
 }
+
+export interface ILog{
+    idItem?: number,
+    tipoMovimentacao: string,
+    origemDestino: string,
+    data: Date,
+    quantidade: number,
+    estoqueMomento: number
+}

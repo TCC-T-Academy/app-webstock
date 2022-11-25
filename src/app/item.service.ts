@@ -6,12 +6,18 @@ import { IItem } from 'src/interfaces/interface';
   providedIn: 'root'
 })
 export class ItemService {
+  item: IItem = 
+    {
+        descricao: "",
+        grupo: "",
+        familia: "",
+        unidade: "",
+        estoqueSeguranca: 0
+    }
 
-  constructor(private http: HttpClient) { 
-    
-  }
+  constructor(private http: HttpClient) { }
 
-  consultarItensPorId(idItem:number){
-    return this.http.get<IItem>(`http://localhost:8081/itens/${idItem}`);
+  consultarPorIdItem(idItem: number){
+    return this.http.get<IItem>(`http://localhost:8081/itens/${idItem}`)
   }
 }

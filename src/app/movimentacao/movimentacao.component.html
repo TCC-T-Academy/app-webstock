@@ -1,24 +1,24 @@
-<app-nova-movimentacao></app-nova-movimentacao>
+<app-nova-movimentacao (consultar)="consultar($event)"></app-nova-movimentacao>
 
 <table class="styled-table">
     <thead>
         <tr>
-            <th>ID</th>
             <th>DATA</th>
             <th>ORIGEM/DESTINO</th>
             <th>TIPO</th>
             <th>QUANTIDADE</th>
             <th>LOCALIZAÇÃO</th>
+            <th>ID ITEM</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let mov of movimentacoes" class="active-row">
-            <td>{{mov.idMovimentacao}}</td>
             <td>{{mov.dataMovimentacao}}</td>
             <td>{{mov.origemDestino}}</td>
             <td>{{mov.tipo}}</td>
             <td>{{mov.quantidade}}</td>
             <td>{{mov.estoque.localizacao}}</td>
+            <td>{{mov.estoque.item.idItem}}</td>
         </tr>
 
     </tbody>
