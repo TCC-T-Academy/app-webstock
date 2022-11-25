@@ -1,0 +1,99 @@
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px auto;
+    font-size: 1.0em;
+    width: 60%;
+    top: 100px;
+    bottom: 100px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .styled-table thead tr{
+    background-color: #93b7c9;
+    color: #272727;
+    text-align: center;
+  }
+  
+  .styled-table th,
+  .styled-table td{
+    padding: 12px 15px;
+  }
+  
+  .styled-table tbody tr{
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  .styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid;
+  }
+  
+  .styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #505050;
+  }
+  
+  .longTxt{
+    font-size: smaller;
+  }
+  
+  .title:before{
+    text-align: center;
+    display: inline-block;
+    margin: 0 20px 8px 0;
+    height: 3px;
+    content: " ";
+    text-shadow: none;
+    background-color: #999;
+    width: 140px;
+  }
+  .title:after{
+    display: inline-block;
+    margin: 0 20px 8px 0;
+    height: 3px;
+    content: " ";
+    text-shadow: none;
+    background-color: #999;
+    width: 140px;
+
+  }
+    #pesquisa {
+      text-align: center;
+      
+    }
+
+    .btn-outline-primary{
+      height: 30px;
+      margin-bottom: 20px;
+      background-color: #93b7c9;
+      color: black;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+      font-size: small;
+      margin-left: 5px;
+    
+    }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+#idItem{
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  background: #C1D7E2;
+  color: #505050;
+  border-radius: 10px;
+}
+
+.subtitle{
+  text-align: center;
+
+}

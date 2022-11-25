@@ -15,10 +15,10 @@ export class NovaMovimentacaoComponent implements OnInit{
 
   nMov:INovaMovimentacao = {idItem:0,idUsuario:0,origemDestino:"",quantidade:0};
   inOut: string; 
-  tipos: string[] = ["Entrada","Saida"]
+  tipos: string[] = ["Entrada","Saída"]
   orgDest: string = "Origem:"
   disableCtrl: boolean = false
-  itemPesquisa: number = 0
+  itemPesquisa: string = ""
   
 
   
@@ -58,8 +58,8 @@ export class NovaMovimentacaoComponent implements OnInit{
     //this.disableCtrl = (sel == this.tipos[2])? true : false;
   }
 
-  buscar(item:number){
-    this.consultar.emit(item)
+  buscar(item:string){
+    this.consultar.emit(parseFloat(item))
   }
 
 }

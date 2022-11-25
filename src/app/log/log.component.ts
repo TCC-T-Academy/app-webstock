@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ILog } from 'src/interfaces/interface';
 import { LogService } from '../log.service';
 
@@ -7,11 +7,12 @@ import { LogService } from '../log.service';
   templateUrl: './log.component.html',
   styleUrls: ['./log.component.css']
 })
-export class LogComponent implements OnInit {
+export class LogComponent {
 
-  idItem: number = 1600
+  @Input() logs: any;
 
-  logs:ILog [] = [
+
+  /*logs:ILog [] = [
     {
       idItem: 0,
       tipoMovimentacao: "",
@@ -20,18 +21,22 @@ export class LogComponent implements OnInit {
       quantidade: 0,
       estoqueMomento: 0
     }
-  ]
+  ]*/
 
   constructor(private service:LogService){
-      
+  }
+  /*ngOnChanges(changes: SimpleChanges): void {
+    console.warn(this.iditem)
+    this.consultarLogsPorIdItem()
   }
 
   ngOnInit(): void {
+    console.warn(this.iditem)
     this.consultarLogsPorIdItem()
   }
 
   consultarLogsPorIdItem(){
-    this.service.consultarLogsPorIdItem(this.idItem).subscribe(data =>this.logs = data)
-  }
+    this.service.consultarLogsPorIdItem(this.iditem).subscribe(data =>this.logs = data)
+  }*/
 
 }

@@ -10,7 +10,7 @@ import { IPrevisao } from 'src/interfaces/interface';
 
 export class PrevisaoComponent implements OnInit {
 
-  idItem: number = 0
+  idItem: string = ""
 
   previsoes:IPrevisao [] = [
     {
@@ -48,7 +48,7 @@ export class PrevisaoComponent implements OnInit {
   }
 
   consultarPrevisoesPorIdItem(){
-    this.service.consultarPrevisoesPorIdItem(this.idItem).subscribe(data =>this.previsoes = data)
+    this.service.consultarPrevisoesPorIdItem(parseFloat(this.idItem)).subscribe(data =>this.previsoes = data)
   }
 }
 
