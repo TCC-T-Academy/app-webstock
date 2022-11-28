@@ -22,7 +22,7 @@
     <tbody>
         <tr *ngFor="let p of previsoes"  class="active-row">
             <td>{{p.idPrevisao}}</td>
-            <td>{{p.dataPrevista}}</td>
+            <td>{{p.dataPrevista | date:'dd/MM/yyyy'}}</td>
             <td>{{p.ordem}}</td>
             <td>{{p.quantidadePrevista}}</td>
             <td>{{p.finalizada}}</td>
