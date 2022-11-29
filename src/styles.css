@@ -64,4 +64,62 @@ body {
 
 }
 
+.styled-table {
+    border-collapse: collapse;
+    margin-right: 100px;
+    margin-left: 260px;
+    margin-top: 30px;
+    font-size: 1.0em;
+    top: 100px;
+    bottom: 100px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    
+  }
+  
+  .styled-table thead tr{
+    background-color: #93b7c9;
+    color: #272727;
+    text-align: center;
+   
+  
+  }
+  
+  .styled-table th,
+  .styled-table td{
+    padding: 12px 15px;
+    
+  }
+  
+  .styled-table tbody tr{
+    border-bottom: 1px solid #dddddd;
+    
+  }
+  
+  .styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  .styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid;
+    
+  }
+  
+  .styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #505050;
+  }
+  
+  .longTxt{
+    font-size: smaller;
+    width: 20%;
+  }
+  
+  .title{
+    text-align: center;
+   margin-bottom: 50px;
 
+  } 
+
+
+  

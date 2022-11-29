@@ -1,2 +1,22 @@
-<p>{{item.descricao}}</p>
+<h2 class="subtitle">Detalhes Item</h2>
 
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>DESCRIÇÃO</th>
+            <th>GRUPO</th>
+            <th>FAMÍLIA</th>
+            <th>UNIDADE</th>
+            <th>ESTOQUE SEGURANÇA</th>
+        </tr>
+    </thead>
+ <tbody>
+        <tr class="active-row">
+            <td>{{item.descricao}}</td>
+            <td>{{item.grupo}}</td>
+            <td>{{item.familia}}</td>
+            <td>{{item.unidade}}</td>
+            <td>{{item.estoqueSeguranca}}</td>
+        </tr>
+    </tbody> 
+</table>

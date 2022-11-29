@@ -10,8 +10,9 @@ import { IReserva } from 'src/interfaces/interface';
 
 export class ReservaComponent implements OnInit  {
   
-  idItem: number = 0
+  idItem: string = ""
 
+  
   reservas:IReserva [] = [
     {
       idReserva: 0,
@@ -47,7 +48,7 @@ export class ReservaComponent implements OnInit  {
   }
 
   consultarReservasPorIdItem(){
-    this.service.consultarReservasPorIdItem(this.idItem).subscribe(data =>this.reservas = data)
+    this.service.consultarReservasPorIdItem(parseInt(this.idItem)).subscribe(data =>this.reservas = data)
   }
 
 }

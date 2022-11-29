@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IMovimentacao } from '../../interfaces/interface'
 import { MovimentacaoService } from '../movimentacao.service';
 import { FormGroup, FormControl } from'@angular/forms';
 import { ItemComponent } from '../item/item.component';
+import { NovaMovimentacaoComponent } from '../nova-movimentacao/nova-movimentacao.component';
 
 @Component({
   selector: 'app-movimentacao',
@@ -12,9 +13,10 @@ import { ItemComponent } from '../item/item.component';
 
 export class MovimentacaoComponent {
 
+
    movimentacoes:IMovimentacao [] = [{ dataMovimentacao:new Date(),
-                                  origemDestino:"",
-                                  tipo:"",
+                                        origemDestino:"",
+                                        tipo:"",
                                   quantidade:0,                                  
                                   estoque:{
                                       localizacao:"",
@@ -26,8 +28,8 @@ export class MovimentacaoComponent {
                                   usuario:{email:"",perfil:"",senha:"",nome:""}
                                 }] 
 
-  constructor(private service:MovimentacaoService){
-      this.consultarTodas()
+  constructor(private service:MovimentacaoService){  
+    this.consultarTodas()
   }
 
   consultarTodas(){

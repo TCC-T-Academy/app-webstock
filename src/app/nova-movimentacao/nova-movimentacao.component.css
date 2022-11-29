@@ -1,4 +1,43 @@
-.teste{
 
-    text-align: center  ;
+.btn-outline-primary{
+    
+    margin-left: 280px;
+    color: black;
+    background-color: #93b7c9;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+.btn-outline-secondary{
+
+    
+    margin-left: 280px;
+    color: black;
+    background-color: #93b7c9;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input::placeholder {
+    color: #505050;;
+    font-size: small;
+}
+
+#idItem,
+#idOrigem,
+#idQtd
+{
+
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    background: #93b7c9;
+    color: #505050;
+    border-radius: 10px;
 }

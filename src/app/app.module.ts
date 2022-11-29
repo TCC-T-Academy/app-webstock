@@ -19,7 +19,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule  } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
-import { NovaMovimentacaoComponent } from './nova-movimentacao/nova-movimentacao.component'
+import { NovaMovimentacaoComponent } from './nova-movimentacao/nova-movimentacao.component';
+import { LogComponent } from './log/log.component'
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { NovaMovimentacaoComponent } from './nova-movimentacao/nova-movimentacao
     ErroComponent,
     HomeComponent,
     NovaMovimentacaoComponent,
+    LogComponent,
   
   ],
   imports: [
