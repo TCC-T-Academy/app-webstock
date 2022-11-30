@@ -24,7 +24,6 @@ import { LogComponent } from './log/log.component';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
 // import { GlobalErrorHandler } from './global-error-handler';
 // import { ServerErrorInterceptor } from './server-error-interceptor';
-import { PrevisaoTestComponent } from './previsao-test/previsao-test.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -46,8 +45,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     ErroComponent,
     HomeComponent,
     NovaMovimentacaoComponent,
-    LogComponent,
-    PrevisaoTestComponent,
+    LogComponent
     
   
   ],

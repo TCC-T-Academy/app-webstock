@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EstoqueComponent } from './estoque/estoque.component';
 import { MovimentacaoComponent } from './movimentacao/movimentacao.component';
-import { PrevisaoTestComponent } from './previsao-test/previsao-test.component';
 import { PrevisaoComponent } from './previsao/previsao.component';
 import { ReservaComponent } from './reserva/reserva.component';
 
@@ -22,10 +21,6 @@ const routes: Routes = [
   {
     path:'previsoes',
     component: PrevisaoComponent
-  },
-  {
-    path:'previsoes2',
-    component: PrevisaoTestComponent
   }
   
 ];

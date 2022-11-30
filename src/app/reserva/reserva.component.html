@@ -8,7 +8,7 @@
 
 <div class="example-container mat-elevation-z8">
 
-  <mat-table [dataSource]="dataSource.reservas" matSort>
+  <mat-table [dataSource]="dataSource" matSort>
   
       <!-- ID Column -->
       <ng-container matColumnDef="id">
@@ -64,11 +64,8 @@
     </mat-table>
 
     <mat-paginator #paginator
-    [length]="dataSource?.reservas?.length"
-    [pageIndex]="0"
-    [pageSize]="10"
-    [pageSizeOptions]="[5, 10, 20]"
-    aria-label="Select page">
-  </mat-paginator>
+      [pageSizeOptions]="[4, 8, 10]"
+      aria-label="Select page" showFirstLastButtons>
+   </mat-paginator>
   </div>
 
