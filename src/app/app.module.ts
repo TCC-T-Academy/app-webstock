@@ -21,6 +21,10 @@ import {MatInputModule  } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { NovaMovimentacaoComponent } from './nova-movimentacao/nova-movimentacao.component';
 import { LogComponent } from './log/log.component'
+import { MatButtonModule } from '@angular/material/button';
+import { LoginComponent } from './login/login.component';
+import { MatCardModule } from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +38,8 @@ import { LogComponent } from './log/log.component'
     HomeComponent,
     NovaMovimentacaoComponent,
     LogComponent,
-  
+    LoginComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -49,8 +54,10 @@ import { LogComponent } from './log/log.component'
     MatFormFieldModule,
     MatInputModule,
     MatNativeDateModule,
-    MatRadioModule
-    
+    MatRadioModule,
+    MatButtonModule,
+    MatCardModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

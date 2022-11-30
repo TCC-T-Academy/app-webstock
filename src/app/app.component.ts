@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,8 +10,14 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'app-webstock';
-shouldRun: any;
-public sidebarShow: boolean = true;
+  shouldRun: any;
+  public sidebarShow: boolean = true;
+
+  constructor(private router: Router) { }
+
+  isLoginRoute() {
+    return this.router.url === '/login';
+  }
 }
 
 
