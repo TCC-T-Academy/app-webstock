@@ -4,8 +4,13 @@ import { EstoqueComponent } from './estoque/estoque.component';
 import { MovimentacaoComponent } from './movimentacao/movimentacao.component';
 import { PrevisaoComponent } from './previsao/previsao.component';
 import { ReservaComponent } from './reserva/reserva.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
+  {
+    path:'login',
+    component: LoginComponent
+  },
   {
     path:'estoque',
     component: EstoqueComponent
@@ -22,7 +27,7 @@ const routes: Routes = [
     path:'previsoes',
     component: PrevisaoComponent
   }
-  
+
 ];
 
 @NgModule({
