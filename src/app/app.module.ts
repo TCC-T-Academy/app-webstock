@@ -43,7 +43,8 @@ import { MatCardModule } from '@angular/material/card';
     HomeComponent,
     NovaMovimentacaoComponent,
     LogComponent,
-
+    PrevisaoTestComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +59,13 @@ import { MatCardModule } from '@angular/material/card';
     MatFormFieldModule,
     MatInputModule,
     MatNativeDateModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSnackBarModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatButtonModule,
+    MatCardModule
 
   ],
   providers: [
