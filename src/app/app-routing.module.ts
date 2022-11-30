@@ -5,8 +5,13 @@ import { MovimentacaoComponent } from './movimentacao/movimentacao.component';
 import { PrevisaoTestComponent } from './previsao-test/previsao-test.component';
 import { PrevisaoComponent } from './previsao/previsao.component';
 import { ReservaComponent } from './reserva/reserva.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
+  {
+    path:'login',
+    component: LoginComponent
+  },
   {
     path:'estoque',
     component: EstoqueComponent
@@ -27,7 +32,7 @@ const routes: Routes = [
     path:'previsoes2',
     component: PrevisaoTestComponent
   }
-  
+
 ];
 
 @NgModule({

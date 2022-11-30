@@ -22,12 +22,14 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { NovaMovimentacaoComponent } from './nova-movimentacao/nova-movimentacao.component';
 import { LogComponent } from './log/log.component';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
-import { GlobalErrorHandler } from './global-error-handler';
-import { ServerErrorInterceptor } from './server-error-interceptor';
 import { PrevisaoTestComponent } from './previsao-test/previsao-test.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatButtonModule } from '@angular/material/button';
+import { LoginComponent } from './login/login.component';
+import { MatCardModule } from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -41,8 +43,7 @@ import { MatSortModule } from '@angular/material/sort';
     HomeComponent,
     NovaMovimentacaoComponent,
     LogComponent,
-    PrevisaoTestComponent
-  
+
   ],
   imports: [
     BrowserModule,
@@ -57,16 +58,11 @@ import { MatSortModule } from '@angular/material/sort';
     MatFormFieldModule,
     MatInputModule,
     MatNativeDateModule,
-    MatRadioModule,
-    MatSnackBarModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule
-        
+    MatRadioModule
+
   ],
   providers: [
-    { provide: ErrorHandler, useClass: GlobalErrorHandler },
-    { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true }
+
   ],
   bootstrap: [AppComponent]
 })
