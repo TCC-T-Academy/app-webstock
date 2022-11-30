@@ -1,0 +1,62 @@
+<div class="mat-elevation-z8" style="width: 80%;">
+  <table mat-table class="full-width-table" matSort aria-label="Elements">
+    <!-- Id Column -->
+    <ng-container matColumnDef="idPrevisao">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id Previsao</th>
+      <td mat-cell *matCellDef="let row">{{row.idPrevisao}}</td>
+    </ng-container>
+
+    <!-- Data Column -->
+    <ng-container matColumnDef="dataPrevista">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Data Prevista</th>
+      <td mat-cell *matCellDef="let row">{{row.dataPrevista}}</td>
+    </ng-container>
+    
+    <!-- Ordem Column -->
+    <ng-container matColumnDef="ordem">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Ordem</th>
+      <td mat-cell *matCellDef="let row">{{row.ordem}}</td>
+    </ng-container>
+
+     <!-- Quantidade Column -->
+     <ng-container matColumnDef="quantidade">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantidade</th>
+      <td mat-cell *matCellDef="let row">{{row.quantidadePrevista}}</td>
+    </ng-container>
+
+    <!-- finalizada Column -->
+    <ng-container matColumnDef="finalizada">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Finalizada</th>
+      <td mat-cell *matCellDef="let row">{{row.finalizada}}</td>
+    </ng-container>
+    
+    <!-- Item Column -->
+    <ng-container matColumnDef="item">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Item</th>
+      <td mat-cell *matCellDef="let row">{{row.item.descricao}}</td>
+    </ng-container>
+
+    <!-- idItem Column -->
+    <ng-container matColumnDef="idItem">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id Item</th>
+      <td mat-cell *matCellDef="let row">{{row.item.idItem}}</td>
+    </ng-container>
+
+    <!-- Usuario Column -->
+    <ng-container matColumnDef="usuario">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Usuario</th>
+      <td mat-cell *matCellDef="let row">{{row.usuario.nome}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator #paginator
+      [length]="dataSource?.data?.length"
+      [pageIndex]="0"
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 20]"
+      aria-label="Select page">
+  </mat-paginator>
+</div>
