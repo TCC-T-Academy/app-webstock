@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ReservaService } from '../reserva.service';
 import { IReserva } from 'src/interfaces/interface';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTable } from '@angular/material/table';
+import { ReservaDataSource } from './reserva-datasource';
+
 
 @Component({
   selector: 'app-reserva',
@@ -8,47 +13,22 @@ import { IReserva } from 'src/interfaces/interface';
   styleUrls: ['./reserva.component.css']
 })
 
-export class ReservaComponent implements OnInit  {
-  
-  idItem: string = ""
+export class ReservaComponent implements AfterViewInit {
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatTable) table!: MatTable<IReserva>;
+  dataSource: ReservaDataSource;
 
-  
-  reservas:IReserva [] = [
-    {
-      idReserva: 0,
-      dataPrevista: new Date(),
-      ordem: "",
-      quantidadeReserva: 0,
-      finalizada: false,
-      item: {
-        descricao:"",
-        estoqueSeguranca:0,
-        familia:"",
-        grupo:"",
-        unidade:""
-      },
-      usuario: {
-        email:"",
-        perfil:"",
-        senha:"",
-        nome:""
-      }
-    }
-  ]
+  displayedColumns = ['id', 'data', 'ordem',  'quantidade', 'finalizada', 'item', 'idItem', 'usuario'];
 
-  constructor(private service:ReservaService){
-    
-  }
-  ngOnInit(): void {
-    this.service.consultarReservas().subscribe(data => this.reservas = data)
+  constructor(public service:ReservaService){
+    this.dataSource = new ReservaDataSource(service);
   }
 
-  consultarReservas(){
-    this.service.consultarReservas().subscribe(data =>this.reservas = data)
-  }
-
-  consultarReservasPorIdItem(){
-    this.service.consultarReservasPorIdItem(parseInt(this.idItem)).subscribe(data =>this.reservas = data)
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+    this.table.dataSource = this.dataSource;
   }
 
 }

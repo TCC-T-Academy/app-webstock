@@ -1,60 +1,25 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 * {
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
     font-size: 15px;
 }
 
-.sidebar-opener {
-    cursor: pointer;
-}
-
-.sidebar-slider {
-    position: fixed;
-    top: 70px;
-    left: 0;
-    bottom: 0;
-    background-color: #2C4971;
-    transform: translateX(-100%);
-    transition: ease-in-out 300ms transform;
-    width: 200px;
-}
-
-.sidebar-slider.sidebar-slide-in {
-    transform: translateX(0%);
-    transition: ease-in-out 600ms transform;
-}
-
-.sidebar-close {
-    position: fixed;
-    top: 0;
-    right: 0;
-    color: white;
-    cursor: pointer;
-    padding: 16px;
-}
-
-.sidebar-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-    color: white;
-    font-size: 16px;
-    padding: 20px;
-    height: 60%;
-}
-
 .link{
     color: black;
     text-decoration: none;
     text-align: center;
-    width: 10em;
     height: 5ex;
     border: 2px solid #2C4971;
     border-radius: 10px;
     cursor: pointer;
     background-color: #C1D7E2;
     padding: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
 }
 .link:hover{
     background-color: white;
@@ -69,4 +34,30 @@
 .paragraph{
     text-align: center;
     color: #C1D7E2;
+}
+
+mat-toolbar{
+    background-color: #2C4971;
+    color: white
+}
+
+mat-sidenav{
+    margin: 16px;
+    width: 200px;
+    border-right: none;
+    background-color: #2C4971;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+
+mat-sidenav-container{
+    height: calc(100vh - 65px);
+}
+
+mat-divider{
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: #C1D7E2;
 }
