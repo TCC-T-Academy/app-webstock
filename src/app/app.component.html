@@ -1,5 +1,5 @@
 <!-- <div *ngIf="!isLoginRoute()"> -->
-  <mat-toolbar class="toolbar">
+  <mat-toolbar *ngIf="!isLogin" class="toolbar">
     <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
       <i class="material-icons md-24" *ngIf="!sidenav.opened">home</i>
       <i class="material-icons md-24" *ngIf="sidenav.opened">close</i>
