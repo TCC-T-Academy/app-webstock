@@ -22,14 +22,17 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { NovaMovimentacaoComponent } from './nova-movimentacao/nova-movimentacao.component';
 import { LogComponent } from './log/log.component';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
-import { PrevisaoTestComponent } from './previsao-test/previsao-test.component';
+// import { GlobalErrorHandler } from './global-error-handler';
+// import { ServerErrorInterceptor } from './server-error-interceptor';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { MatButtonModule } from '@angular/material/button';
-import { LoginComponent } from './login/login.component';
-import { MatCardModule } from '@angular/material/card';
-
+import {MatCardModule} from '@angular/material/card';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -42,9 +45,10 @@ import { MatCardModule } from '@angular/material/card';
     ErroComponent,
     HomeComponent,
     NovaMovimentacaoComponent,
-    LogComponent,
-    PrevisaoTestComponent,
-    LoginComponent
+    LogComponent
+    
+  
+
   ],
   imports: [
     BrowserModule,
@@ -64,12 +68,17 @@ import { MatCardModule } from '@angular/material/card';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatCardModule,
+    MatToolbarModule,
     MatButtonModule,
-    MatCardModule
-
+    MatDividerModule,
+    MatIconModule,
+    MatButtonToggleModule
+        
   ],
   providers: [
-
+    // { provide: ErrorHandler, useClass: GlobalErrorHandler },
+    // { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

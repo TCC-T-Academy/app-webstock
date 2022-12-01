@@ -1,36 +1,72 @@
 <h1 class="title">PREVISÕES </h1>
 <form id="pesquisa">
-    <input type="number" id="idItem" placeholder="Pesquise por ID do item" name="idItem" [(ngModel)]="idItem" >
-    <button class="btn btn-outline-primary mt-3" (click)="consultarPrevisoesPorIdItem()">Pesquisar</button>
-    <button class="btn btn-outline-primary mt-3" (click)="consultarPrevisoes()">Mostrar tudo</button>
+    <input type="number" id="idItem" placeholder="Pesquise por ID do item" name="idItem" [(ngModel)]="dataSource.idItem" >
+    <button class="btn btn-outline-primary mt-3" (click)="dataSource.consultarPrevisoesPorIdItem()">Pesquisar</button>
+    <button class="btn btn-outline-primary mt-3" (click)="dataSource.consultarPrevisoes()">Mostrar tudo</button>
     <br/>
 </form>
 
-<table class="styled-table">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>DATA PREVISTA</th>
-            <th>ORDEM</th>
-            <th>QUANTIDADE</th>
-            <th>FINALIZADA</th>
-            <th>ITEM</th>
-            <th>ID ITEM</th>
-            <th>USUÁRIO</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let p of previsoes"  class="active-row">
-            <td>{{p.idPrevisao}}</td>
-            <td>{{p.dataPrevista | date:'dd/MM/yyyy'}}</td>
-            <td>{{p.ordem}}</td>
-            <td>{{p.quantidadePrevista}}</td>
-            <td>{{p.finalizada}}</td>
-            <td class="longTxt">{{p.item.descricao}}</td>
-            <td>{{p.item.idItem}}</td>
-            <td>{{p.usuario.nome}}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="example-container mat-elevation-z8">
+
+    <mat-table [dataSource]="dataSource" matSort>
+    
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+          <mat-cell *matCellDef="let r" data-label="id"> {{r.idPrevisao}} </mat-cell>
+        </ng-container>
+    
+        <!-- Progress Column -->
+        <ng-container matColumnDef="data">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Data prevista </mat-header-cell>
+          <mat-cell *matCellDef="let r" data-label="data"> {{r.dataPrevista}} </mat-cell>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="ordem">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Ordem </mat-header-cell>
+          <mat-cell *matCellDef="let r" data-label="ordem"> {{r.ordem}} </mat-cell>
+        </ng-container>
+    
+        <!-- Color Column -->
+        <ng-container matColumnDef="quantidade">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Quantidade </mat-header-cell>
+          <mat-cell *matCellDef="let r" data-label="quantidade"> {{r.quantidadePrevisao}} </mat-cell>
+        </ng-container>
+  
+        <!-- Color Column -->
+        <ng-container matColumnDef="finalizada">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Finalizada </mat-header-cell>
+          <mat-cell *matCellDef="let r" data-label="finalizada"> {{r.finalizada}} </mat-cell>
+        </ng-container>
+  
+           <!-- Color Column -->
+           <ng-container matColumnDef="item">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Item </mat-header-cell>
+              <mat-cell *matCellDef="let r" data-label="item"> {{r.item.descricao}} </mat-cell>
+            </ng-container>
+  
+               <!-- Color Column -->
+        <ng-container matColumnDef="idItem">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> ID Item </mat-header-cell>
+          <mat-cell *matCellDef="let r" data-label="idItem"> {{r.item.idItem}} </mat-cell>
+        </ng-container>
+  
+           <!-- Color Column -->
+           <ng-container matColumnDef="usuario">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Usuário </mat-header-cell>
+              <mat-cell *matCellDef="let r" data-label="usuario"> {{r.usuario.nome}} </mat-cell>
+            </ng-container>
+  
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+        </mat-row>
+      </mat-table>
+  
+      <mat-paginator #paginator
+        [pageSizeOptions]="[4, 8, 10]"
+        aria-label="Select page" showFirstLastButtons>
+     </mat-paginator>
+    </div>
 
 
