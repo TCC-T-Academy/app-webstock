@@ -22,8 +22,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { NovaMovimentacaoComponent } from './nova-movimentacao/nova-movimentacao.component';
 import { LogComponent } from './log/log.component';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
-// import { GlobalErrorHandler } from './global-error-handler';
-// import { ServerErrorInterceptor } from './server-error-interceptor';
+import { GlobalErrorHandler } from './global-error-handler';
+import { ServerErrorInterceptor } from './server-error-interceptor';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -33,6 +33,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     ErroComponent,
     HomeComponent,
     NovaMovimentacaoComponent,
-    LogComponent
+    LogComponent,
+    LoginComponent
     
   
 
@@ -73,12 +75,13 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatButtonModule,
     MatDividerModule,
     MatIconModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatCardModule
         
   ],
   providers: [
-    // { provide: ErrorHandler, useClass: GlobalErrorHandler },
-    // { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true }
+    { provide: ErrorHandler, useClass: GlobalErrorHandler },
+    { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
