@@ -3,6 +3,7 @@
     <input type="number" id="idItem" placeholder="Pesquise por ID do item" name="idItem" [(ngModel)]="dataSource.idItem" >
     <button class="btn btn-outline-primary mt-3" (click)="dataSource.consultarPrevisoesPorIdItem()">Pesquisar</button>
     <button class="btn btn-outline-primary mt-3" (click)="dataSource.consultarPrevisoes()">Mostrar tudo</button>
+    <button class="btn btn-outline-danger mt-3" routerLink="../novaprevisao">Cadastrar/Apagar</button>
     <br/>
 </form>
 

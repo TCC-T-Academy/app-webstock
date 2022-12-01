@@ -5,6 +5,8 @@ import { MovimentacaoComponent } from './movimentacao/movimentacao.component';
 import { PrevisaoComponent } from './previsao/previsao.component';
 import { ReservaComponent } from './reserva/reserva.component';
 import { LoginComponent } from './login/login.component';
+import { NovaPrevisaoComponent } from './nova-previsao/nova-previsao.component';
+import { NovaReservaComponent } from './nova-reserva/nova-reserva.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,14 @@ const routes: Routes = [
   {
     path:'previsoes',
     component: PrevisaoComponent
+  },
+  {
+    path:'novaprevisao',
+    component: NovaPrevisaoComponent
+  },
+  {
+    path:'novareserva',
+    component: NovaReservaComponent
   }
 
 ];

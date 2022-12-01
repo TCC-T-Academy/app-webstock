@@ -35,6 +35,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { LoginComponent } from './login/login.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NovaPrevisaoComponent } from './nova-previsao/nova-previsao.component';
+import { NovaReservaComponent } from './nova-reserva/nova-reserva.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     HomeComponent,
     NovaMovimentacaoComponent,
     LogComponent,
-    LoginComponent
+    LoginComponent,
+    NovaPrevisaoComponent,
+    NovaReservaComponent
     
   
 
