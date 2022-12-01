@@ -69,3 +69,9 @@ export interface ILog{
     quantidade: number,
     estoqueMomento: number
 }
+
+export interface IError{
+    error:string,
+    message:string,
+    path:string
+}
