@@ -35,6 +35,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { LoginComponent } from './login/login.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AuthAdmService } from './auth.adm.service';
+import { AuthUsuarioService } from './auth.usuario.service';
+import { AuthService } from './login/auth.service';
 import { NovaPrevisaoComponent } from './nova-previsao/nova-previsao.component';
 import { NovaReservaComponent } from './nova-reserva/nova-reserva.component';
 
@@ -87,7 +90,10 @@ import { NovaReservaComponent } from './nova-reserva/nova-reserva.component';
   ],
   providers: [
     { provide: ErrorHandler, useClass: GlobalErrorHandler },
-    { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true },
+    AuthAdmService,
+    AuthUsuarioService,
+    AuthService 
   ],
   bootstrap: [AppComponent]
 })
