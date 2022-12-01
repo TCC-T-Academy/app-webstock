@@ -1,9 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { IMovimentacao } from '../../interfaces/interface'
 import { MovimentacaoService } from '../movimentacao.service';
 import { FormGroup, FormControl } from'@angular/forms';
 import { ItemComponent } from '../item/item.component';
 import { NovaMovimentacaoComponent } from '../nova-movimentacao/nova-movimentacao.component';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MovimentacaoDatasource } from './movimentacao-datasource';
 
 @Component({
   selector: 'app-movimentacao',
@@ -11,37 +14,28 @@ import { NovaMovimentacaoComponent } from '../nova-movimentacao/nova-movimentaca
   styleUrls: ['./movimentacao.component.css']
 })
 
-export class MovimentacaoComponent {
+export class MovimentacaoComponent implements AfterViewInit {
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+  dataSource: MovimentacaoDatasource;
 
-
-   movimentacoes:IMovimentacao [] = [{ dataMovimentacao:new Date(),
-                                        origemDestino:"",
-                                        tipo:"",
-                                  quantidade:0,                                  
-                                  estoque:{
-                                      localizacao:"",
-                                      item:{descricao:"",estoqueSeguranca:0,familia:"",grupo:"",unidade:""},
-                                      estoqueReal:0
-                                  } ,
-                                  
-                                  item:{descricao:"",estoqueSeguranca:0,familia:"",grupo:"",unidade:""},
-                                  usuario:{email:"",perfil:"",senha:"",nome:""}
-                                }] 
+  displayedColumns = ['dataMovimentacao', 'origemDestino', 'tipo',  'quantidade', 'idItem'];
 
   constructor(private service:MovimentacaoService){  
-    this.consultarTodas()
+    this.dataSource = new MovimentacaoDatasource(service);
   }
 
-  consultarTodas(){
-    this.service.consultarMovimentacoes().subscribe(data =>this.movimentacoes = data)
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator; 
   }
-  
-  consultar(idItem:number = 0){
-    if (idItem > 0){
-      this.service.consultarMovimentacoesPorIdItem(idItem).subscribe(data =>this.movimentacoes = data)
-    } else{
-      this.service.consultarMovimentacoes().subscribe(data =>this.movimentacoes = data)
+
+  consultar(idItem:string){
+    this.dataSource.idItem = idItem;
+    if(idItem == ""){
+      this.dataSource.consultarMovimentacoes();
+    }else{
+      this.dataSource.consultarPrevisoesPorIdItem();
     }
   }
-
 }

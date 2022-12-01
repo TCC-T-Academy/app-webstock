@@ -37,14 +37,14 @@ export class NovaMovimentacaoComponent implements OnInit{
       
       this.service.entradaItem(mov)
       .subscribe(data => {
-                    this.consultar.emit();
+                    this.consultar.emit("");
                     this.ngOnInit();
                     console.log(data)})
 
     }else if(this.inOut == this.tipos[1]){
       
       this.service.saidaItem(mov).subscribe(data => {
-          this.consultar.emit();
+          this.consultar.emit("");
           this.ngOnInit();
           console.log(data)
       })
@@ -54,7 +54,7 @@ export class NovaMovimentacaoComponent implements OnInit{
 
 
   verSelecao(sel:string){
-    this.orgDest = (sel == this.tipos[1])? "Origem:" : "Destino:";
+    this.orgDest = (sel == this.tipos[0])? "Origem:" : "Destino:";
     //this.disableCtrl = (sel == this.tipos[2])? true : false;
   }
 
