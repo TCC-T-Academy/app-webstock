@@ -1,28 +1,29 @@
-<!-- !!SIDEBAR COMENTADO POIS POR ENQUANTO VAMOS DEIXAR FIXO!! -->
+<!-- <div *ngIf="!isLoginRoute()"> -->
+  <mat-toolbar *ngIf="!isLogin" class="toolbar">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+      <i class="material-icons md-24" *ngIf="!sidenav.opened">home</i>
+      <i class="material-icons md-24" *ngIf="sidenav.opened">close</i>
+      
+    </button>
+      <div class="esferatopo1"></div>
+      <div class="esferatopo2"></div>
+  </mat-toolbar>
 
-<!-- <div class="sidebar-opener" (click)="sidebarShow = !sidebarShow">
-    Click me to open/close the sidebar
-</div> -->
-
-<div class="sidebar-slider" [class.sidebar-slide-in]="sidebarShow">
-  <!-- <div
-      class="sidebar-close"
-      (click)="sidebarShow = !sidebarShow"
-  >
-  X    
-  </div> -->
-
-    <div class="sidebar-content">
-      <h2 class="title">Webstock</h2>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav">
+      <h5 class="title">Webstock</h5>
       <p class="paragraph">O controle do seu estoque em poucos cliques</p>
-      <div class="link">Início</div>
+      <mat-divider></mat-divider>
       <a class="link" routerLink="estoque">Estoque</a>
       <a class="link" routerLink="movimentacoes">Movimentação</a>
       <a class="link" routerLink="reservas">Reserva</a>
       <a class="link" routerLink="previsoes">Previsão</a>
-    </div>
-</div>
-
-<div>
-    <router-outlet></router-outlet>
-</div> 
+      <mat-divider></mat-divider>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z4">
+          <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<!-- </div> -->
