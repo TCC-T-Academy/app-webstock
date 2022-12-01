@@ -19,7 +19,7 @@ public sidebarShow: boolean = true;
 
 @ViewChild(MatSidenav)
 sidenav!:MatSidenav;
-isLogin:Boolean = true;
+isLogin:Boolean = false;
 
 constructor(private observer: BreakpointObserver, private router: Router){
   router.events.subscribe((res) => {
@@ -27,31 +27,30 @@ constructor(private observer: BreakpointObserver, private router: Router){
     if(res instanceof NavigationEnd){
       if(this.router.url == "/login"){
         this.isLogin=true;
+        this.sidenav.close();
      }else{
         this.isLogin=false;
+        this.checkSideNav();
      }
     }
   })
 }
 
 ngAfterViewInit(){
-
-    this.observer.observe(['(max-width: 800px)']).subscribe((res) =>{
-      if(!this.isLogin){
-        if(res.matches){        
-          this.sidenav.mode = 'over';
-          this.sidenav.close();
-        }else{
-          this.sidenav.mode = 'side';
-          this.sidenav.open();
-        }
-      } else {
-        this.sidenav.close();
-      }
-
-      
-    });
+  this.checkSideNav();  
 }
+
+  checkSideNav(){
+    this.observer.observe(['(max-width: 800px)']).subscribe((res) =>{
+      if(res.matches){        
+        this.sidenav.mode = 'over';
+        this.sidenav.close();
+      }else{
+        this.sidenav.mode = 'side';
+        this.sidenav.open();
+      }     
+    });
+  }
 
  isLoginRoute() {
     return this.router.url === '/login';

@@ -13,7 +13,7 @@ import { NovaReservaComponent } from './nova-reserva/nova-reserva.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path:'home',
     component: HomeComponent,
     canActivate:[AuthUsuarioService]
   },

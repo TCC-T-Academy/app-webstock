@@ -17,13 +17,12 @@ export class AuthUsuarioService implements CanActivate{
     }
     //let tokenDecoded = JSON.stringify(jwt(token))
     //let user = JSON.parse(tokenDecoded)
-     let user:any = jwt(token)
+    //  let user:any = jwt(token)
 
    // if(user.authorities.indexOf("ROLE_ADMIN") == -1){
-    if(user.authorities[0].indexOf("USUARIO") == -1){
-      this.router.navigate(['info/Precisa ser um Usuário'])
-    }
-    
+    // if(user.authorities[0].indexOf("USUARIO") == -1){
+    //   this.router.navigate(['info/Precisa ser um Usuário'])
+    // }
     return true
   }
 }
