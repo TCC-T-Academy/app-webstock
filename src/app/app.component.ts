@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+
+import { Component, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+import { BreakpointObserver} from '@angular/cdk/layout'
 
 
 @Component({
@@ -10,15 +12,28 @@ import { Router } from '@angular/router';
 
 export class AppComponent {
   title = 'app-webstock';
-  shouldRun: any;
-  public sidebarShow: boolean = true;
+  
+shouldRun: any;
+public sidebarShow: boolean = true;
 
-  constructor(private router: Router) { }
+@ViewChild(MatSidenav)
+sidenav!:MatSidenav;
 
-  isLoginRoute() {
-    return this.router.url === '/login';
-  }
+constructor(private observer: BreakpointObserver){
+
 }
+ ngAfterViewInit(){
+  this.observer.observe(['(max-width: 800px)']).subscribe((res) =>{
+    if(res.matches){
+      this.sidenav.mode = 'over';
+      this.sidenav.close();
+    }else{
+      this.sidenav.mode = 'side';
+      this.sidenav.open();
+    }
+  });
+ }
+
 
 
 
