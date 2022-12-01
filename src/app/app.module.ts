@@ -34,6 +34,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { LoginComponent } from './login/login.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { LoginComponent } from './login/login.component';
     MatDividerModule,
     MatIconModule,
     MatButtonToggleModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
         
   ],
   providers: [
