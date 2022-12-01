@@ -1,3 +1,4 @@
+
 import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver} from '@angular/cdk/layout'
@@ -11,6 +12,7 @@ import { BreakpointObserver} from '@angular/cdk/layout'
 
 export class AppComponent {
   title = 'app-webstock';
+  
 shouldRun: any;
 public sidebarShow: boolean = true;
 
@@ -32,7 +34,6 @@ constructor(private observer: BreakpointObserver){
   });
  }
 
-}
 
 
 
