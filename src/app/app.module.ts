@@ -38,6 +38,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AuthAdmService } from './auth.adm.service';
 import { AuthUsuarioService } from './auth.usuario.service';
 import { AuthService } from './login/auth.service';
+import { NovaPrevisaoComponent } from './nova-previsao/nova-previsao.component';
+import { NovaReservaComponent } from './nova-reserva/nova-reserva.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { AuthService } from './login/auth.service';
     NovaMovimentacaoComponent,
     LogComponent,
     LoginComponent,
+    NovaPrevisaoComponent,
+    NovaReservaComponent
     
   
 

@@ -8,6 +8,8 @@ import { LoginComponent } from './login/login.component';
 import { AuthAdmService } from './auth.adm.service';
 import { AuthUsuarioService } from './auth.usuario.service';
 import { HomeComponent } from './home/home.component';
+import { NovaPrevisaoComponent } from './nova-previsao/nova-previsao.component';
+import { NovaReservaComponent } from './nova-reserva/nova-reserva.component';
 
 const routes: Routes = [
   {
@@ -38,6 +40,16 @@ const routes: Routes = [
     path:'previsoes',
     component: PrevisaoComponent,
     canActivate:[AuthUsuarioService]
+  },
+  {
+    path:'novaprevisao',
+    component: NovaPrevisaoComponent,
+    canActivate:[AuthAdmService]
+  },
+  {
+    path:'novareserva',
+    component: NovaReservaComponent,
+    canActivate:[AuthAdmService]
   }
 
 ];
