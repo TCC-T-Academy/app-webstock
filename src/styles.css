@@ -1,4 +1,4 @@
-/* @import url("https://fonts.googleapis.com/icon?family=Material+Icons");  */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons"); 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 * {
@@ -8,13 +8,17 @@
     
 }
 
-/* cabeçalho e rodapé*/
+.material-icons{
+    font-family: 'Material Icons' !important;
+}
 
 body {
     background: #C1D7E2;
     margin-top: 100px;
     margin-bottom: 100px;
 }
+
+/* cabeçalho e rodapé*/
 
 .toolbar {
     position:absolute;
@@ -69,18 +73,23 @@ body {
     bottom: 50px;
 
 }
-  
-  .longTxt{
-    font-size: smaller;
-    width: 20%;
-  }
-  
-  .title{
-    text-align: center;
-   margin-bottom: 50px;
 
+/* Textos */
+  
+.title{
+    text-align: center;
+   font-weight: bold;
+   font-size: xx-large;
+   margin-bottom: 10px;
+   margin-top: 10px;
   } 
 
-  .material-icons{
-    font-family: 'Material Icons' !important;
+.paragraph{
+    text-align: center;
+    color: #2C4971;
+}
+
+.table{
+    margin: 10px;
+    border-radius: 25px;
 }

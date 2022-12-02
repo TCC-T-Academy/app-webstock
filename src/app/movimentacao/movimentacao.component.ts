@@ -21,6 +21,8 @@ export class MovimentacaoComponent implements AfterViewInit {
 
   displayedColumns = ['dataMovimentacao', 'origemDestino', 'tipo',  'quantidade', 'idItem'];
 
+  displayedColumns = ['data', 'origem', 'tipo',  'quantidade', 'localizacao', 'idItem'];
+
   constructor(private service:MovimentacaoService){  
     this.dataSource = new MovimentacaoDatasource(service);
   }
