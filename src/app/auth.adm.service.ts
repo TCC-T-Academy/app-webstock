@@ -6,7 +6,6 @@ import jwt from "jwt-decode";
   providedIn: 'root'
 })
 export class AuthAdmService implements CanActivate{
-
   constructor(private router: Router) { }
 
   
@@ -21,7 +20,9 @@ export class AuthAdmService implements CanActivate{
 
    // if(user.authorities.indexOf("ROLE_ADMIN") == -1){
     if(user.authorities[0].indexOf("ADMIN") == -1){
-      throw new Error("Precisa ser um administador");
+      throw new Error("Precisa ser um administador",{
+        cause:"Precisa ser um administador",
+      });
     }
     return true
   }
