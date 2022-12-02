@@ -11,7 +11,8 @@ export interface IEstoque{
     idEstoque?: number,
     estoqueReal: number,
     localizacao: String,
-    //estoqueFuturo?: number, 
+    estoqueFuturo?: number,
+    dataFutura?: Date, 
     item: IItem
 }
 

@@ -40,6 +40,7 @@ import { AuthUsuarioService } from './auth.usuario.service';
 import { AuthService } from './login/auth.service';
 import { NovaPrevisaoComponent } from './nova-previsao/nova-previsao.component';
 import { NovaReservaComponent } from './nova-reserva/nova-reserva.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { NovaReservaComponent } from './nova-reserva/nova-reserva.component';
     MatIconModule,
     MatButtonToggleModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatExpansionModule
         
   ],
   providers: [

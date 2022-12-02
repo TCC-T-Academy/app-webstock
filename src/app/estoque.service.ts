@@ -30,6 +30,10 @@ export class EstoqueService {
     return this.http.get<IEstoque>(`http://localhost:8081/estoque/${idItem}`)
   }
 
+  consultarEstoqueBaixo(){
+    return this.http.get<IEstoque[]>(`http://localhost:8081/estoque/baixo`)
+  }
+
 }
 
 
