@@ -9,10 +9,100 @@
 
     
     <div class="row">
-        <app-item [item] = "estoque.item"></app-item>
+        <!-- <app-item [item] = "estoque.item"></app-item> -->
     </div>
 
-    <div class="row">
+    <mat-accordion  *ngFor="let item of dataSource.data; index as i" >
+          <mat-expansion-panel (opened)="openClose(true,item)"
+                               (closed)="openClose(false,item)">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                ID: {{item.item.idItem}} - {{item.item.familia}}
+              </mat-panel-title>
+              <mat-panel-description>
+                {{item.item.descricao}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-table [dataSource]="dataSource" matSort>
+        
+                <!-- Progress Column -->
+                <ng-container matColumnDef="localizacao">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Localizacao </mat-header-cell>
+                  <mat-cell *matCellDef="let r" data-label="data"> {{item.localizacao}} </mat-cell>
+                </ng-container>
+    
+                <!-- Progress Column -->
+                <ng-container matColumnDef="estoqueReal">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Real </mat-header-cell>
+                    <mat-cell *matCellDef="let r" data-label="data"> {{item.estoqueReal}} </mat-cell>
+                  </ng-container>
+                
+                  <ng-container matColumnDef="estoqueSeguranca">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Segurança </mat-header-cell>
+                    <mat-cell *matCellDef="let r" data-label="data"> {{item.item.estoqueSeguranca}} </mat-cell>
+                  </ng-container>
+    
+                  <!-- Progress Column -->
+                <ng-container matColumnDef="dataFutura">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Data Futura </mat-header-cell>
+                    <mat-cell *matCellDef="let r" data-label="data"> {{item.dataFutura}} </mat-cell>
+                  </ng-container>
+    
+                <!-- Progress Column -->
+                <ng-container matColumnDef="estoqueFuturo">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Futuro </mat-header-cell>
+                    <mat-cell *matCellDef="let r" data-label="data"> {{item.estoqueFuturo}} </mat-cell>
+                  </ng-container>
+    
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;">
+                </mat-row>
+              </mat-table>
+          </mat-expansion-panel>
+        </mat-accordion>
+
+    <!-- <div class="example-container mat-elevation-z8">
+
+        <mat-table [dataSource]="dataSource" matSort>
+        
+            <!-- Progress Column --
+            <ng-container matColumnDef="localizacao">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Localizacao </mat-header-cell>
+              <mat-cell *matCellDef="let r" data-label="data"> {{r.localizacao}} </mat-cell>
+            </ng-container>
+
+            <!-- Progress Column --
+            <ng-container matColumnDef="estoqueReal">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Real </mat-header-cell>
+                <mat-cell *matCellDef="let r" data-label="data"> {{r.estoqueReal}} </mat-cell>
+              </ng-container>
+            
+              <ng-container matColumnDef="estoqueSeguranca">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Segurança </mat-header-cell>
+                <mat-cell *matCellDef="let r" data-label="data"> {{r.item.estoqueSeguranca}} </mat-cell>
+              </ng-container>
+
+              <!-- Progress Column --
+            <ng-container matColumnDef="dataFutura">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Data Futura </mat-header-cell>
+                <mat-cell *matCellDef="let r" data-label="data"> {{r.dataFutura}} </mat-cell>
+              </ng-container>
+
+            <!-- Progress Column --
+            <ng-container matColumnDef="estoqueFuturo">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Futuro </mat-header-cell>
+                <mat-cell *matCellDef="let r" data-label="data"> {{r.estoqueFuturo}} </mat-cell>
+              </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;">
+            </mat-row>
+          </mat-table>
+        </div> -->
+
+
+
+    <!-- <div class="row">
         <div class="col">
 
             <div class="row">
@@ -33,13 +123,13 @@
                         </tr>
                 
                     </tbody> 
-                </table>
+                 </table>
             </div>
            
-        </div>
+        </div> 
         <div class="col">
             <app-log [logs]="logs"></app-log>
         </div>
 
-    </div>
+    </div> -->
 </div>

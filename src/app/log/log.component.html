@@ -1,4 +1,38 @@
 <h2 class="title">Movimentações Futuras</h2>
+
+<mat-table [dataSource]="dataSource" matSort>
+        
+    <!-- Progress Column -->
+    <ng-container matColumnDef="tipoMovimentacao">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Tipo Movimentacao </mat-header-cell>
+      <mat-cell *matCellDef="let r" data-label="data"> {{r.tipoMovimentacao}} </mat-cell>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="origemDestino">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Origem Destino </mat-header-cell>
+        <mat-cell *matCellDef="let r" data-label="data"> {{r.origemDestino}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="data">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Data </mat-header-cell>
+        <mat-cell *matCellDef="let r" data-label="data"> {{r.data}} </mat-cell>
+      </ng-container>
+
+      <!-- Progress Column -->
+    <ng-container matColumnDef="estoqueMomento">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Previsto </mat-header-cell>
+        <mat-cell *matCellDef="let r" data-label="data"> {{r.estoqueMomento}} </mat-cell>
+      </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+
+<!-- 
+
 <table class="styled-table">
     <thead>
         <tr>
@@ -20,7 +54,7 @@
             <td>{{l.estoqueMomento}}</td>
         </tr>
     </tbody>
-</table>
+</table> -->
 
 
 

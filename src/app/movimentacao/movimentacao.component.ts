@@ -17,27 +17,25 @@ import { MovimentacaoDatasource } from './movimentacao-datasource';
 export class MovimentacaoComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  dataSource: MovimentacaoDatasource;
-
-  displayedColumns = ['dataMovimentacao', 'origemDestino', 'tipo',  'quantidade', 'idItem'];
+  movimentacoes: MovimentacaoDatasource;
 
   displayedColumns = ['data', 'origem', 'tipo',  'quantidade', 'localizacao', 'idItem'];
 
   constructor(private service:MovimentacaoService){  
-    this.dataSource = new MovimentacaoDatasource(service);
+    this.movimentacoes = new MovimentacaoDatasource(service);
   }
 
   ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator; 
+    this.movimentacoes.sort = this.sort;
+    this.movimentacoes.paginator = this.paginator; 
   }
 
   consultar(idItem:string){
-    this.dataSource.idItem = idItem;
+    this.movimentacoes.idItem = idItem;
     if(idItem == ""){
-      this.dataSource.consultarMovimentacoes();
+      this.movimentacoes.consultarMovimentacoes();
     }else{
-      this.dataSource.consultarPrevisoesPorIdItem();
+      this.movimentacoes.consultarPrevisoesPorIdItem();
     }
   }
 }
