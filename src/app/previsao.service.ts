@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IPrevisao } from 'src/interfaces/interface';
+import { INovaPrevisao, IPrevisao } from 'src/interfaces/interface';
 
 @Injectable({
   providedIn: 'root'
@@ -38,5 +38,8 @@ export class PrevisaoService {
 
   consultarPrevisoesPorIdItem(idItem: number){
     return this.http.get<[IPrevisao]>(`http://localhost:8081/previsoes/iditem/${idItem}`);
+  }
+  cadastroPrevisao(prev:INovaPrevisao){
+    return this.http.post<IPrevisao>(`http://localhost:8081/previsoes`,prev);
   }
 }

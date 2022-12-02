@@ -34,9 +34,18 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { LoginComponent } from './login/login.component';
+<<<<<<< HEAD
 import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SideNavComponent } from './side-nav/side-nav.component';
+=======
+import { MatDialogModule } from '@angular/material/dialog';
+import { AuthAdmService } from './auth.adm.service';
+import { AuthUsuarioService } from './auth.usuario.service';
+import { AuthService } from './login/auth.service';
+import { NovaPrevisaoComponent } from './nova-previsao/nova-previsao.component';
+import { NovaReservaComponent } from './nova-reserva/nova-reserva.component';
+>>>>>>> 75afbd4f2374cb3cd747188ac8d740d29a5fc2a1
 
 @NgModule({
   declarations: [
@@ -51,7 +60,12 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     NovaMovimentacaoComponent,
     LogComponent,
     LoginComponent,
+<<<<<<< HEAD
     SideNavComponent
+=======
+    NovaPrevisaoComponent,
+    NovaReservaComponent
+>>>>>>> 75afbd4f2374cb3cd747188ac8d740d29a5fc2a1
     
   
 
@@ -81,13 +95,20 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     MatIconModule,
     MatButtonToggleModule,
     MatCardModule,
+<<<<<<< HEAD
     MatSelectModule,
     ReactiveFormsModule
+=======
+    MatDialogModule
+>>>>>>> 75afbd4f2374cb3cd747188ac8d740d29a5fc2a1
         
   ],
   providers: [
     { provide: ErrorHandler, useClass: GlobalErrorHandler },
-    { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true },
+    AuthAdmService,
+    AuthUsuarioService,
+    AuthService 
   ],
   bootstrap: [AppComponent]
 })

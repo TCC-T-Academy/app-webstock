@@ -51,6 +51,16 @@ export interface IReserva{
     usuario: IUsuario
 }
 
+export interface INovaReserva{
+    idReserva?: number,
+    finalizada: boolean,
+    quantidadeReserva: number,
+    dataPrevista: Date,
+    ordem: string,
+    idUsuario: number,
+    idItem: number,
+}
+
 export interface IPrevisao{
     idPrevisao?: number,
     dataPrevista: Date,
@@ -59,6 +69,16 @@ export interface IPrevisao{
     finalizada: boolean,
     item: IItem,
     usuario: IUsuario
+}
+
+export interface INovaPrevisao{
+    idPrevisao?: number,
+    ordem: string,
+    quantidadePrevista: number,
+    idItem: number,
+    idUsuario: number,
+    dataPrevista: Date,
+    finalizada: boolean,
 }
 
 export interface ILog{
