@@ -28,7 +28,7 @@ constructor(private observer: BreakpointObserver, private router: Router){
       if(this.router.url == "/login"){
         this.isLogin=true;
         this.sidenav.close();
-     }else{
+     } else{
         this.isLogin=false;
         this.checkSideNav();
      }
