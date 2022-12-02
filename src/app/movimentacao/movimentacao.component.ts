@@ -28,6 +28,8 @@ export class MovimentacaoComponent {
                                   usuario:{email:"",perfil:"",senha:"",nome:""}
                                 }] 
 
+  displayedColumns = ['data', 'origem', 'tipo',  'quantidade', 'localizacao', 'idItem'];
+
   constructor(private service:MovimentacaoService){  
     this.consultarTodas()
   }

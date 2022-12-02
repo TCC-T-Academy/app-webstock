@@ -34,6 +34,9 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { LoginComponent } from './login/login.component';
+import {MatSelectModule} from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SideNavComponent } from './side-nav/side-nav.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,8 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     NovaMovimentacaoComponent,
     LogComponent,
-    LoginComponent
+    LoginComponent,
+    SideNavComponent
     
   
 
@@ -76,7 +80,9 @@ import { LoginComponent } from './login/login.component';
     MatDividerModule,
     MatIconModule,
     MatButtonToggleModule,
-    MatCardModule
+    MatCardModule,
+    MatSelectModule,
+    ReactiveFormsModule
         
   ],
   providers: [

@@ -1,14 +1,10 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-* {
-    font-family: Arial, Helvetica, sans-serif;
-    box-sizing: border-box;
-    font-size: 15px;
-}
+
+/* SIDENAV LAYOUT */
 
 .link{
     color: black;
     text-decoration: none;
-    text-align: center;
     height: 5ex;
     border: 2px solid #2C4971;
     border-radius: 10px;
@@ -23,17 +19,6 @@
 }
 .link:hover{
     background-color: white;
-}
-
-.title{
-    font-weight: bold;
-    font-size: xx-large;
-    margin-bottom: 10px;
-    margin-top: 10px;
-}
-.paragraph{
-    text-align: center;
-    color: #C1D7E2;
 }
 
 mat-toolbar{
