@@ -17,6 +17,8 @@ export class ErrorService {
       return "Não autorizado!";  
     }else if(error.error.error == "invalid_grant"){
       return "Senha incorreta!";  
+    }else if(error.error.error == "access_denied"){
+      return "Acesso negado!";  
     }
 
     return navigator.onLine ?    

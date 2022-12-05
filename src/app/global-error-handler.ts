@@ -9,7 +9,7 @@ export class GlobalErrorHandler implements ErrorHandler{
     
     constructor(private injector:Injector){}
     
-    handleError(error: Error | HttpErrorResponse): void {
+    handleError(error: unknown): void {
         const errorService = this.injector.get(ErrorService);
         const notifier = this.injector.get(NotificationService);
 
@@ -21,12 +21,12 @@ export class GlobalErrorHandler implements ErrorHandler{
             message = errorService.getServerErrorMessage(error);
             //stackTrace = errorService.getServerErrorStackTrace(error);
             notifier.showError(message);
-          } else {
+        } else if (error instanceof Error) {
             // Client Error
             message = errorService.getClientErrorMessage(error);
             notifier.showError(message);
-          }
+        }
           // Always log errors
-          console.error(error);
+        console.error(error);
     }
 }
