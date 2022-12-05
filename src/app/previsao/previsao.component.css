@@ -3,31 +3,19 @@
   
 }
 
-#idItem{
+/* #idItem{
   text-align: center;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   background: #C1D7E2;
   color: #505050;
   border-radius: 10px;
-}
-
-.btn-outline-primary{
-  height: 30px;
-  margin-bottom: 20px;
-  background-color: #93b7c9;
-  color: black;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
-  font-size: small;
-  margin-left: 5px;
-
-}
-
+} */
+/* 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
 -webkit-appearance: none;
 margin: 0;
-}
+} */
 
 .title:before{
   text-align: center;
@@ -48,4 +36,13 @@ margin: 0;
   background-color: #999;
   width: 140px;
 
+}
+
+.formulario{
+
+  margin-bottom: 10px;
+  display:flex;
+  justify-content: space-around;
+  text-align: center;
+  
 }
