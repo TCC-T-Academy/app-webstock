@@ -1,24 +1,26 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons"); 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+/* Gerais */
 * {
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
     font-size: 16px;
     
 }
-
-.material-icons{
-    font-family: 'Material Icons' !important;
-}
-
 body {
     background: #C1D7E2;
     margin-top: 100px;
     margin-bottom: 100px;
 }
 
-/* cabeçalho e rodapé*/
+/* Icon Sidenav */
+
+.material-icons{
+    font-family: 'Material Icons' !important;
+}
+
+/* Cabeçalho e rodapé*/
 
 .toolbar {
     position:absolute;
@@ -75,21 +77,49 @@ body {
 }
 
 /* Textos */
-  
+
 .title{
     text-align: center;
    font-weight: bold;
    font-size: xx-large;
    margin-bottom: 10px;
    margin-top: 10px;
-  } 
+}
+
+
+.title:before{
+    text-align: center;
+    display: inline-block;
+    margin: 0 20px 8px 0;
+    height: 3px;
+    content: " ";
+    text-shadow: none;
+    background-color: #999;
+    width: 140px;
+  }
+  .title:after{
+    display: inline-block;
+    margin: 0 20px 8px 0;
+    height: 3px;
+    content: " ";
+    text-shadow: none;
+    background-color: #999;
+    width: 140px;
+  }
 
 .paragraph{
     text-align: center;
     color: #2C4971;
 }
 
-.table{
+.entityTitle{
+    margin: 20px;
+  }
+
+  /* Tabelas */
+
+  .table{
     margin: 10px;
     border-radius: 25px;
 }
+
