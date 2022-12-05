@@ -40,6 +40,11 @@ export class PrevisaoService {
   }
 
   consultarPrevisoesPorIdItem(idItem: number){
+    
+    if(isNaN(idItem)){
+      throw Error("ID Inválido!")
+    }
+
     return this.http.get<[IPrevisao]>(`http://localhost:8081/previsoes/iditem/${idItem}`, {
       headers: this.auth.getHeaderWithToken()
    });

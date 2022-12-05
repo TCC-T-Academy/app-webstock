@@ -23,6 +23,9 @@ export class LogService {
   constructor(private http: HttpClient, private auth: AuthService) { }
 
   consultarLogsPorIdItem(idItem: number){
+    if(isNaN(idItem)){
+      throw Error("ID Inválido!")
+    }
     return this.http.get<[ILog]>(`http://localhost:8081/log/${idItem}`, {
       headers: this.auth.getHeaderWithToken()
   });
