@@ -1,60 +1,23 @@
-#pesquisa {
+/* CSS REFERENTE FORMULÁRIO DE PESQUISA DE RESERVAS */
+.formulario{
+  margin-bottom: 10px;
+  display:flex;
+  justify-content: space-around;
+}
+
+button{
+  margin: 10px;
+}
+
+mat-card-header,
+mat-form-field{
+  margin-left: 30%;
+  margin-top: 10px;
+}
+
+mat-card-title{
+  margin-left:40%;
+  display: flex;
   text-align: center;
   
-}
-
-#idItem{
-  text-align: center;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  background: #C1D7E2;
-  color: #505050;
-  border-radius: 10px;
-}
-
-.btn-outline-primary{
-  height: 30px;
-  margin-bottom: 20px;
-  background-color: #93b7c9;
-  color: black;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
-  font-size: small;
-  margin-left: 5px;
-
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
--webkit-appearance: none;
-margin: 0;
-}
-
-.title:before{
-  text-align: center;
-  display: inline-block;
-  margin: 0 20px 8px 0;
-  height: 3px;
-  content: " ";
-  text-shadow: none;
-  background-color: #999;
-  width: 140px;
-}
-.title:after{
-  display: inline-block;
-  margin: 0 20px 8px 0;
-  height: 3px;
-  content: " ";
-  text-shadow: none;
-  background-color: #999;
-  width: 140px;
-
-}
-
-mat-table{
-  border-collapse: collapse;
-  font-size: 1.0em;
-  text-align: center;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  width: 100%;
-  padding: 40px;
 }
