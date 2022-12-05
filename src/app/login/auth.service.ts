@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import jwt from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,17 @@ export class AuthService {
     body.append('password', senha);
 
     return this.http.post('http://localhost:8081/oauth/token', body, {headers});
+  }
+
+  getHeaderWithToken():HttpHeaders{
+    let token = localStorage.getItem('token') || '';
+    let t;
+    if(token != ''){
+      t = JSON.parse(token)
+    }
+
+    let header = new HttpHeaders({ Authorization: 'Bearer ' + t.access_token});
+    return header;
   }
 
 }
