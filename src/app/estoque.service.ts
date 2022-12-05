@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, throwError } from 'rxjs';
 import { IEstoque, IItem } from 'src/interfaces/interface';
+import { AuthService } from './login/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -24,14 +25,20 @@ export class EstoqueService {
   }
 
 
-  constructor(private http: HttpClient) { }  
+  constructor(private http: HttpClient, private auth: AuthService) { }  
 
   consultarEstoquePorIdItem(idItem: number){
-    return this.http.get<IEstoque>(`http://localhost:8081/estoque/${idItem}`)
+    return this.http.get<IEstoque>(
+      `http://localhost:8081/estoque/${idItem}`, {
+        headers: this.auth.getHeaderWithToken()
+    });
   }
 
   consultarEstoqueBaixo(){
-    return this.http.get<IEstoque[]>(`http://localhost:8081/estoque/baixo`)
+    return this.http.get<IEstoque[]>(
+      `http://localhost:8081/estoque/baixo`,{
+        headers: this.auth.getHeaderWithToken()
+    });
   }
 
 }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IItem } from 'src/interfaces/interface';
+import { AuthService } from './login/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +16,11 @@ export class ItemService {
         estoqueSeguranca: 0
     }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private auth:AuthService) { }
 
   consultarPorIdItem(idItem: number){
-    return this.http.get<IItem>(`http://localhost:8081/itens/${idItem}`)
+    return this.http.get<IItem>(`http://localhost:8081/itens/${idItem}`, {
+      headers: this.auth.getHeaderWithToken()
+    })
   }
 }
