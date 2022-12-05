@@ -1,5 +1,5 @@
 
-import { Component, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver} from '@angular/cdk/layout';
 import { NavigationEnd, Router } from '@angular/router';
@@ -21,9 +21,11 @@ public sidebarShow: boolean = true;
 sidenav!:MatSidenav;
 isLogin:Boolean = false;
 
-constructor(private observer: BreakpointObserver, private router: Router){
+constructor(  private observer: BreakpointObserver,
+              private router: Router,
+              private cd: ChangeDetectorRef){
+
   router.events.subscribe((res) => {
-    console.log(res instanceof NavigationEnd);
     if(res instanceof NavigationEnd){
       if(this.router.url == "/login"){
         this.isLogin=true;
@@ -37,8 +39,10 @@ constructor(private observer: BreakpointObserver, private router: Router){
 }
 
 ngAfterViewInit(){
-  this.checkSideNav();  
+  this.checkSideNav();
+  this.cd.detectChanges();
 }
+
 
   checkSideNav(){
     this.observer.observe(['(max-width: 800px)']).subscribe((res) =>{
