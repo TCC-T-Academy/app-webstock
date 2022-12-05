@@ -26,25 +26,29 @@ export class MovimentacaoService {
   consultarMovimentacoes(){
     return this.http.get<[IMovimentacao]>("http://localhost:8081/movimentacoes", {
       headers: this.auth.getHeaderWithToken()
-  });
+    });
   }
 
   consultarMovimentacoesPorIdItem(idItem:number){
+    if(isNaN(idItem)){
+      throw Error("ID Inválido!")
+    }
+    
     return this.http.get<[IMovimentacao]>(`http://localhost:8081/movimentacoes/${idItem}`, {
       headers: this.auth.getHeaderWithToken()
-  });
+    });
   }
 
   entradaItem(mov:INovaMovimentacao){
     return this.http.post<IMovimentacao>(`http://localhost:8081/movimentacoes/entrada`,mov, {
       headers: this.auth.getHeaderWithToken()
-  });
+    });
   }
 
   saidaItem(mov:INovaMovimentacao){
     return this.http.post<IMovimentacao>(`http://localhost:8081/movimentacoes/saida`,mov, {
       headers: this.auth.getHeaderWithToken()
-  });
+    });
   }
 
  

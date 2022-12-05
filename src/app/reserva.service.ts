@@ -39,6 +39,9 @@ export class ReservaService {
   });
   }
   consultarReservasPorIdItem(idItem: number){
+    if(isNaN(idItem)){
+      throw Error("ID Inválido!")
+    }
     return this.http.get<[IReserva]>(`http://localhost:8081/reservas/${idItem}`, {
       headers: this.auth.getHeaderWithToken()
   });
