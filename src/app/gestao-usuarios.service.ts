@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { IUsuario } from './../interfaces/interface';
 import { Injectable } from '@angular/core';
+import { AuthService } from './login/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,11 +18,13 @@ export class GestaoUsuariosService {
     }
   ]
 
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient, private auth:AuthService) {
 
   }
 
   consultarUsuarios(){
-    return this.http.get<[IUsuario]>("http://localhost:8081/usuarios");
+    return this.http.get<[IUsuario]>("http://localhost:8081/usuarios", {
+      headers:this.auth.getHeaderWithToken()
+    });
   }
 }
