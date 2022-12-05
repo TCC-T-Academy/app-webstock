@@ -2,14 +2,11 @@
   .formulario{
 
     margin-bottom: 10px;
-    display: flex;
+    display: grid;
     justify-content: space-around;
-    align-items: top;
-    
-    
-  }
-  .card2{
-    justify-content: space-between;
+    align-items: top;    
   }
 
- 
+  button{
+    margin: 10px;
+  }
