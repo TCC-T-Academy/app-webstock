@@ -1,21 +1,6 @@
-#pesquisa {
-  text-align: center;
-  
+.card{
+  margin: 20px;
 }
-
-/* #idItem{
-  text-align: center;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  background: #C1D7E2;
-  color: #505050;
-  border-radius: 10px;
-} */
-/* 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
--webkit-appearance: none;
-margin: 0;
-} */
 
 .title:before{
   text-align: center;
@@ -35,14 +20,27 @@ margin: 0;
   text-shadow: none;
   background-color: #999;
   width: 140px;
-
 }
 
 .formulario{
-
   margin-bottom: 10px;
   display:flex;
   justify-content: space-around;
+}
+
+button{
+  margin: 10px;
+}
+
+mat-card-header,
+mat-form-field{
+  margin-left: 30%;
+  margin-top: 10px;
+}
+
+mat-card-title{
+  margin-left:40%;
+  display: flex;
   text-align: center;
   
 }
