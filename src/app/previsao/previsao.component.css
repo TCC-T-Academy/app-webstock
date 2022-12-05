@@ -1,27 +1,4 @@
-.card{
-  margin: 20px;
-}
-
-.title:before{
-  text-align: center;
-  display: inline-block;
-  margin: 0 20px 8px 0;
-  height: 3px;
-  content: " ";
-  text-shadow: none;
-  background-color: #999;
-  width: 140px;
-}
-.title:after{
-  display: inline-block;
-  margin: 0 20px 8px 0;
-  height: 3px;
-  content: " ";
-  text-shadow: none;
-  background-color: #999;
-  width: 140px;
-}
-
+/* CSS REFERENTE FORMULÁRIO DE PESQUISA DE PREVISÃO */
 .formulario{
   margin-bottom: 10px;
   display:flex;

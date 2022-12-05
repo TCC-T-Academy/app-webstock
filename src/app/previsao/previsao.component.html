@@ -1,6 +1,6 @@
 
-<mat-card class="card">
-  <h1 class="title">PREVISÕES </h1>
+<mat-card class="entityTitle">
+  <h1 class="title">PAINEL DE PREVISÕES </h1>
 </mat-card>
 
 <div class="formulario">
@@ -66,7 +66,7 @@
           <mat-cell *matCellDef="let r" data-label="item"> {{r.item.descricao}} </mat-cell>
         </ng-container>
   
-        <!-- ID ITem Column -->
+        <!-- ID Item Column -->
         <ng-container matColumnDef="idItem">
           <mat-header-cell *matHeaderCellDef mat-sort-header> ID Item </mat-header-cell>
           <mat-cell *matCellDef="let r" data-label="idItem"> {{r.item.idItem}} </mat-cell>
