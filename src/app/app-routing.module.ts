@@ -1,3 +1,5 @@
+import { NovoUsuarioComponent } from './novo-usuario/novo-usuario.component';
+import { GestaoUsuariosComponent } from './gestao-usuarios/gestao-usuarios.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EstoqueComponent } from './estoque/estoque.component';
@@ -13,7 +15,7 @@ import { NovaReservaComponent } from './nova-reserva/nova-reserva.component';
 
 const routes: Routes = [
   {
-    path:'home',
+    path:'',
     component: HomeComponent,
     canActivate:[AuthUsuarioService]
   },
@@ -49,6 +51,16 @@ const routes: Routes = [
   {
     path:'novareserva',
     component: NovaReservaComponent,
+    canActivate:[AuthAdmService]
+  },
+  {
+    path:'usuarios',
+    component: GestaoUsuariosComponent,
+    canActivate:[AuthAdmService]
+  },
+  {
+    path:'novousuario',
+    component: NovoUsuarioComponent,
     canActivate:[AuthAdmService]
   }
 

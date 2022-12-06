@@ -1,4 +1,4 @@
-/* CSS REFERENTE FORMULÁRIO DE PESQUISA DE RESERVAS */
+/* CSS REFERENTE FORMULÁRIO DE PESQUISA DE PREVISÃO */
 .formulario{
   margin-bottom: 10px;
   display:flex;
@@ -7,17 +7,18 @@
 
 button{
   margin: 10px;
+  width: 100%;
 }
 
 mat-card-header,
 mat-form-field{
-  margin-left: 30%;
-  margin-top: 10px;
+  /* margin-left: 30%;
+  margin-top: 10px; */
 }
 
 mat-card-title{
-  margin-left:40%;
+  /* margin-left:40%; */
   display: flex;
   text-align: center;
-  
+
 }

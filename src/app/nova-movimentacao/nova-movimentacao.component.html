@@ -1,56 +1,95 @@
-<div class="container" style="width: 60%;">
-    <div class="row">
-        <div class="col">
-
-
-    <form #f="ngForm" (submit)="enviar(f.value)">
-        <div class="row">
-            <div class="col mb-3">
-                <label for="idItem" class="form-label">Id Item:</label>
-                <input type="number" class="form-control" ngModel name="idItem"  placeholder="Item" id="idItem" step="1" min="1" />
-            </div>       
-        </div>
-        <div class="row">
-            <div class="col mb-3">
-                <label for="idemail" class="form-label">{{orgDest}}</label>
-                <input type="text" class="form-control" ngModel name="origemDestino"  placeholder="Destino" id="idOrigem" [disabled]="disableCtrl"/> 
-            </div>
-            
-            <div class="col mb-1">
-                <label for="idQtd" class="form-label">Quantidade</label>
-                <input type="number" class="form-control" ngModel name="quantidade" placeholder="Quantidade" id="idQtd" min="0" [disabled]="disableCtrl"/>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col mb-2 mt-2">
-                <div class="form-check" *ngFor="let tipo of tipos">
-                    <input class="form-check-input" type="radio" name="tipo" id="id{{tipo}}" value="{{tipo}}" [(ngModel)]="inOut" (change)="verSelecao(inOut)">
-                    <label class="form-check-label" for="id{{tipo}}">
-                    {{tipo}}
-                    </label>
+<div class="formulario">
+ 
+    <form #f="ngForm" (submit)="enviar(f.value)" class="formulario">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    Cadastro de nova movimentação
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <mat-form-field>
+                            <input matInput ngModel name="idItem"  placeholder="ID Item" id="idItem" step="1" min="1" />
+                        </mat-form-field>
+                    </div>            
                 </div>
-            </div>
-            <button class="col btn btn-outline-primary m-1">Salvar</button>            
-        </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <mat-form-field>
+                            <input matInput 
+                                    placeholder="Origem/Destino" 
+                                    ngModel name="origemDestino" 
+                                    id="idOrigem" 
+                                    [disabled]="disableCtrl"/>
+                        </mat-form-field>
+                    </div>            
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <mat-form-field>
+                            <input matInput 
+                                    placeholder="Quantidade" 
+                                    ngModel name="quantidade" 
+                                    id="idQtd" 
+                                    min="0" 
+                                    [disabled]="disableCtrl"/>
+                        </mat-form-field>
+                    </div>            
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-check" *ngFor="let tipo of tipos">
+                            <input class="form-check-input" 
+                                type="radio" 
+                                name="tipo" 
+                                id="id{{tipo}}" 
+                                value="{{tipo}}" 
+                                [(ngModel)]="inOut" 
+                                (change)="verSelecao(inOut)">
+                            <label class="form-check-label" for="id{{tipo}}">{{tipo}}</label>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+                <mat-card-actions>
+                    <button color="primary" mat-raised-button>Salvar</button>
+                </mat-card-actions>
+        </mat-card>
     </form>
-</div>
-<div class="col"></div>
 
-<div class="col">
-    <div class="row">
-        <div class="row">
-            <div class="col mb-3">
-                <label for="idItemPesquisa" class="form-label">Pesquisar:</label>
-                <input type="text" class="form-control" [(ngModel)]="itemPesquisa" name="idItemPesquisa"  placeholder="Item" id="idItem" step="1" min="1" />
-            </div>       
-        </div>
-    </div>
-    <div class="row"></div>
-    <div class="row">
-    <input type="button" class="col btn btn-outline-secondary m-1" value="Pesquisar ID" (click)="buscar(itemPesquisa)">
-    <input type="button" class="col btn btn-outline-secondary m-1" value="Todas" (click)="buscar('')">
-</div>
-</div>
-</div>
+    <form>
+        <mat-card class="card2">
+            <mat-card-header>
+                <mat-card-title>
+                    Pesquisa de movimentações
+                </mat-card-title>    
+            </mat-card-header>
+                <mat-card-content>  
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <mat-form-field>
+                                <input matInput 
+                                       [(ngModel)]="itemPesquisa" 
+                                       name="idItemPesquisa"  
+                                       placeholder="Pesquise por ID do item" 
+                                       id="idItem" 
+                                       step="1" min="1" />   
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </mat-card-content> 
+                    <mat-card-actions>
+                        <button color="primary" 
+                                mat-raised-button 
+                                value="Pesquisar ID" 
+                                (click)="buscar(itemPesquisa)">Pesquisar</button>
+                        <button color="primary" 
+                                mat-raised-button 
+                                value="Todas" 
+                                (click)="buscar('0')">Mostrar todos</button>
+                    </mat-card-actions>
+        </mat-card>
+    </form>
 </div>

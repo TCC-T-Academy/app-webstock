@@ -11,7 +11,8 @@ export interface IEstoque{
     idEstoque?: number,
     estoqueReal: number,
     localizacao: String,
-    //estoqueFuturo?: number, 
+    estoqueFuturo?: number,
+    dataFutura?: Date, 
     item: IItem
 }
 
@@ -94,4 +95,9 @@ export interface IError{
     error:string,
     message:string,
     path:string
+}
+
+export interface ILoginError{
+    error:string,
+    error_description:string
 }
