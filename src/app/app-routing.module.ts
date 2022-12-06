@@ -12,7 +12,6 @@ import { AuthUsuarioService } from './auth.usuario.service';
 import { HomeComponent } from './home/home.component';
 import { NovaPrevisaoComponent } from './nova-previsao/nova-previsao.component';
 import { NovaReservaComponent } from './nova-reserva/nova-reserva.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -63,11 +62,6 @@ const routes: Routes = [
     path:'novousuario',
     component: NovoUsuarioComponent,
     canActivate:[AuthAdmService]
-  },
-  {
-    path:'dashboard',
-    component: DashboardComponent,
-    canActivate:[AuthUsuarioService]
   }
 
 ];
