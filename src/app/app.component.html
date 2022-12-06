@@ -1,12 +1,10 @@
-<!-- <div *ngIf="!isLoginRoute()"> -->
-  <mat-toolbar *ngIf="!isLogin" class="toolbar">
+
+<mat-toolbar *ngIf="!isLogin" class="toolbar">
     <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
       <i class="material-icons md-24" *ngIf="!sidenav.opened">home</i>
       <i class="material-icons md-24" *ngIf="sidenav.opened">close</i>
-      
     </button>
-      <div class="esferatopo1"></div>
-      <div class="esferatopo2"></div>
+    <img src="assets/centro-logo.svg">
   </mat-toolbar>
 
   <mat-sidenav-container>
@@ -28,4 +26,3 @@
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>
-<!-- </div> -->
