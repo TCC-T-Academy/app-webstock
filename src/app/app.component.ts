@@ -17,8 +17,8 @@ export class AppComponent{
 shouldRun: any;
 public sidebarShow: boolean = true;
 
-@ViewChild(MatSidenav)
-sidenav!:MatSidenav;
+// @ViewChild(MatSidenav)
+// sidenav!:MatSidenav;
 isLogin:Boolean = false;
 
 constructor(  private observer: BreakpointObserver,
@@ -29,32 +29,30 @@ constructor(  private observer: BreakpointObserver,
     if(res instanceof NavigationEnd){
       if(this.router.url == "/login"){
         this.isLogin=true;
-        this.sidenav.close();
      } else{
         this.isLogin=false;
-        this.checkSideNav();
      }
     }
   })
 }
 
-ngAfterViewInit(){
-  this.checkSideNav();
-  this.cd.detectChanges();
-}
+// ngAfterViewInit(){
+//   this.checkSideNav();
+//   this.cd.detectChanges();
+// }
 
 
-  checkSideNav(){
-    this.observer.observe(['(max-width: 800px)']).subscribe((res) =>{
-      if(res.matches){        
-        this.sidenav.mode = 'over';
-        this.sidenav.close();
-      }else{
-        this.sidenav.mode = 'side';
-        this.sidenav.open();
-      }     
-    });
-  }
+  // checkSideNav(){
+  //   this.observer.observe(['(max-width: 800px)']).subscribe((res) =>{
+  //     if(res.matches){        
+  //       this.sidenav.mode = 'over';
+  //       this.sidenav.close();
+  //     }else{
+  //       this.sidenav.mode = 'side';
+  //       this.sidenav.open();
+  //     }     
+  //   });
+  // }
 
   deslogar(){
 
@@ -69,6 +67,7 @@ ngAfterViewInit(){
  isLoginRoute() {
     return this.router.url === '/login';
   }
+
 }
 
 

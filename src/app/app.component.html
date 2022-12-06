@@ -1,28 +1,36 @@
 
-<mat-toolbar *ngIf="!isLogin" class="toolbar">
-    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
-      <i class="material-icons md-24" *ngIf="!sidenav.opened">home</i>
-      <i class="material-icons md-24" *ngIf="sidenav.opened">close</i>
-    </button>
-    <img src="assets/centro-logo.svg">
-  </mat-toolbar>
+<mat-toolbar *ngIf="!isLogin" class="toolbar" style="background-color: #2C4971;">
 
-  <mat-sidenav-container>
-    <mat-sidenav #sidenav="matSidenav">
-      <h5 class="title">Webstock</h5>
-      <p class="paragraph">O controle do seu estoque em poucos cliques</p>
-      <mat-divider></mat-divider>
-      <a class="link" routerLink="">Inicio</a>
-      <a class="link" routerLink="estoque">Estoque</a>
-      <a class="link" routerLink="movimentacoes">Movimentação</a>
-      <a class="link" routerLink="reservas">Reserva</a>
-      <a class="link" routerLink="previsoes">Previsão</a>
-      <a class="link" routerLink="login" (click)="deslogar()">Logout</a>
-      <mat-divider></mat-divider>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <div class="content mat-elevation-z4">
-          <router-outlet></router-outlet>
-        </div>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+  <button mat-button>
+    <a class="link" routerLink="dashboard">Inicio</a>
+  </button>
+
+  <button mat-button>
+    <a class="link" routerLink="estoque">Estoque</a>
+  </button>
+
+  <button mat-button>
+    <a class="link" routerLink="movimentacoes">Movimentação</a>
+  </button>
+
+  <button mat-button>
+    <a class="link" routerLink="reservas">Reserva</a>
+  </button>
+
+  <button mat-button>
+    <a class="link" routerLink="previsoes">Previsão</a>
+  </button>
+
+  <div class="example-spacer">  </div>
+
+  <button mat-button style="align-content: left;">
+    <a class="link" routerLink="login" (click)="deslogar()">Logout</a>
+  </button>
+
+
+    <img src="assets/centro-logo.svg"> 
+  </mat-toolbar>
+  
+  <router-outlet></router-outlet>
+
+  <app-footer fxFlexOffset="0px"></app-footer>
