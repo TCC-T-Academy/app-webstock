@@ -1,12 +1,12 @@
-
-<mat-card class="entityTitle">
-    <h1 class="title">PAINEL DE MOVIMENTAÇÕES </h1>
-  </mat-card>
+<header>
+    <h1 class="title">PAINEL DE MOVIMENTAÇÕES</h1>
+</header>
+<!-- <mat-card class="entityTitle"> -->
 
 <app-nova-movimentacao (consultar)="consultar($event)"></app-nova-movimentacao>
 
 <mat-card class="table">
-    <mat-card-content>
+    <!-- <mat-card-content> -->
         <div class="example-container mat-elevation-z8">
             <mat-table [dataSource]="movimentacoes" matSort>
 
@@ -56,6 +56,6 @@
          </mat-paginator>
 
         </div>
-    </mat-card-content>
+    <!-- </mat-card-content> -->
 </mat-card>
-
+<!-- </mat-card> -->
