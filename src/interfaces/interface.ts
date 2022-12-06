@@ -10,7 +10,7 @@ export interface IItem{
 export interface IEstoque{
     idEstoque?: number,
     estoqueReal: number,
-    localizacao: String,
+    localizacao: string,
     estoqueFuturo?: number,
     dataFutura?: Date, 
     item: IItem
