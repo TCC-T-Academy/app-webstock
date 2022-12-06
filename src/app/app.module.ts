@@ -47,6 +47,9 @@ import { GestaoUsuariosComponent } from './gestao-usuarios/gestao-usuarios.compo
 import { NovoUsuarioComponent } from './novo-usuario/novo-usuario.component';
 import { FooterComponent } from './footer/footer.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+
 
 @NgModule({
   declarations: [
@@ -65,7 +68,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     NovaReservaComponent,
     GestaoUsuariosComponent,
     NovoUsuarioComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,7 +99,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     ReactiveFormsModule,
     MatDialogModule,
     MatExpansionModule,
-    MatTabsModule
+    MatTabsModule,
+    MatGridListModule
         
   ],
   providers: [
