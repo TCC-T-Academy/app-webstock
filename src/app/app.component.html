@@ -1,14 +1,36 @@
 
-<mat-toolbar *ngIf="!isLogin" class="toolbar">
-  <a class="link" routerLink="dashboard">Inicio</a>
-  <a class="link" routerLink="estoque">Estoque</a>
-  <a class="link" routerLink="movimentacoes">Movimentação</a>
-  <a class="link" routerLink="reservas">Reserva</a>
-  <a class="link" routerLink="previsoes">Previsão</a>
-  <a class="link" routerLink="login" (click)="deslogar()">Logout</a>
-    <img src="assets/centro-logo.svg">
+<mat-toolbar *ngIf="!isLogin" class="toolbar" style="background-color: #2C4971;">
+
+  <button mat-button>
+    <a class="link" routerLink="dashboard">Inicio</a>
+  </button>
+
+  <button mat-button>
+    <a class="link" routerLink="estoque">Estoque</a>
+  </button>
+
+  <button mat-button>
+    <a class="link" routerLink="movimentacoes">Movimentação</a>
+  </button>
+
+  <button mat-button>
+    <a class="link" routerLink="reservas">Reserva</a>
+  </button>
+
+  <button mat-button>
+    <a class="link" routerLink="previsoes">Previsão</a>
+  </button>
+
+  <div class="example-spacer">  </div>
+
+  <button mat-button style="align-content: left;">
+    <a class="link" routerLink="login" (click)="deslogar()">Logout</a>
+  </button>
+
+
+    <img src="assets/centro-logo.svg"> 
   </mat-toolbar>
   
   <router-outlet></router-outlet>
-  
+
   <app-footer fxFlexOffset="0px"></app-footer>

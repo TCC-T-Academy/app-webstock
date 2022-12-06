@@ -45,8 +45,8 @@ import { NovaReservaComponent } from './nova-reserva/nova-reserva.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { GestaoUsuariosComponent } from './gestao-usuarios/gestao-usuarios.component';
 import { NovoUsuarioComponent } from './novo-usuario/novo-usuario.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -65,7 +65,6 @@ import { FooterComponent } from './footer/footer.component';
     NovaReservaComponent,
     GestaoUsuariosComponent,
     NovoUsuarioComponent,
-    DashboardComponent,
     FooterComponent
   ],
   imports: [
@@ -96,7 +95,8 @@ import { FooterComponent } from './footer/footer.component';
     MatSelectModule,
     ReactiveFormsModule,
     MatDialogModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTabsModule
         
   ],
   providers: [
