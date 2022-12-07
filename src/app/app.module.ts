@@ -47,6 +47,7 @@ import { GestaoUsuariosComponent } from './gestao-usuarios/gestao-usuarios.compo
 import { NovoUsuarioComponent } from './novo-usuario/novo-usuario.component';
 import { FooterComponent } from './footer/footer.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { AuthGerenteService } from './auth.gerente.service';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { HeaderComponent } from './header/header.component';
 
@@ -110,6 +111,7 @@ import { HeaderComponent } from './header/header.component';
     { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true },
     AuthAdmService,
     AuthUsuarioService,
+    AuthGerenteService,
     AuthService 
   ],
   bootstrap: [AppComponent]
