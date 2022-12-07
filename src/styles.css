@@ -10,8 +10,7 @@
 }
 body {
     background: #C1D7E2;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    min-height: 91vh;
 }
 
 /* Icon Sidenav */

@@ -65,6 +65,8 @@ export class NovaReservaComponent implements OnInit {
         if(estoque.estoqueFuturo){
           if(estoque.estoqueFuturo <= estoque.item.estoqueSeguranca){
             this.notifier.showError(`Atenção! Estoque crítico a partir do dia ${this.reserva.dataPrevista}!`)
+          }else{
+            this.notifier.showSuccess(`Reserva criada com sucesso!`)
           }
         }
       
