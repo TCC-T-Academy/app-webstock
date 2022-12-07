@@ -19,6 +19,7 @@ body {
 img{
     display: block;
     margin-left: auto;
+    height: 50%;
 }
 
 /* HEADER AND FOOTER */
