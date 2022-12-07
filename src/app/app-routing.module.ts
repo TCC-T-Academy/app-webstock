@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { NovaPrevisaoComponent } from './nova-previsao/nova-previsao.component';
 import { NovaReservaComponent } from './nova-reserva/nova-reserva.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGerenteService } from './auth.gerente.service';
 
 const routes: Routes = [
   {
@@ -47,12 +48,12 @@ const routes: Routes = [
   {
     path:'novaprevisao',
     component: NovaPrevisaoComponent,
-    canActivate:[AuthAdmService]
+    canActivate:[AuthGerenteService]
   },
   {
     path:'novareserva',
     component: NovaReservaComponent,
-    canActivate:[AuthAdmService]
+    canActivate:[AuthGerenteService]
   },
   {
     path:'usuarios',
