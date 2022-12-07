@@ -22,6 +22,7 @@ export class AuthGerenteService implements CanActivate{
       console.log("ADMIN " + user.authorities[0].indexOf("ROLE_ADMIN"))
       console.log("GERENTE" + user.authorities[0].indexOf("ROLE_GERENTE"))
       console.log("USUARIO" + user.authorities[0].indexOf("ROLE_USUARIO"))
+      console.log(user.user_name)
       return false;
     }
     return true

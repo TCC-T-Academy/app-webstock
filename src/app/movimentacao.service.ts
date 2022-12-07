@@ -18,7 +18,7 @@ export class MovimentacaoService {
     } ,
     
     item:{descricao:"",estoqueSeguranca:0,familia:"",grupo:"",unidade:""},
-    usuario:{email:"",perfil:"",senha:"",nome:""}
+    usuario:{nome:"", idUsuario: 0, email: "", role: ""}
   }] 
 
   constructor(private http: HttpClient, private auth:AuthService) { }

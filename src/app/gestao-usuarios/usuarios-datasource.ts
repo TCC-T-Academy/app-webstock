@@ -1,9 +1,9 @@
 import { MatTableDataSource } from "@angular/material/table";
-import { IUsuario } from "src/interfaces/interface";
+import { IUsuarioPublico } from "src/interfaces/interface";
 import { GestaoUsuariosService } from '../gestao-usuarios.service';
 
 
-export class UsuariosDatasource extends MatTableDataSource<IUsuario> {
+export class UsuariosDatasource extends MatTableDataSource<IUsuarioPublico> {
 
     idItem: string = ""
 

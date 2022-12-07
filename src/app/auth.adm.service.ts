@@ -19,6 +19,7 @@ export class AuthAdmService implements CanActivate{
 
     if(user.authorities[0].indexOf("ADMIN") == -1){      
       this.notifier.showError("Precisa ser Administrador.")
+
       return false;
     }
     return true
