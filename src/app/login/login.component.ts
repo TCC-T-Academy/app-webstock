@@ -22,7 +22,7 @@ export class LoginComponent {
       token => {
         localStorage.setItem('token', JSON.stringify(token))
         if(token != ""){
-          this.router.navigate([''])
+          this.router.navigate(['estoque'])
         }
       }
     )

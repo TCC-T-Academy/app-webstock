@@ -1,7 +1,9 @@
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { INovaReserva } from 'src/interfaces/interface';
+import { IEstoque, INovaReserva, IReserva } from 'src/interfaces/interface';
+import { EstoqueService } from '../estoque.service';
+import { NotificationService } from '../notification.service';
 import { ReservaService } from '../reserva.service';
 import { ReservaDataSource } from './nova-reserva-datasource';
 
@@ -21,9 +23,10 @@ export class NovaReservaComponent implements OnInit {
   };
 
   disableCtrl: boolean = false
-  
-  constructor(private service:ReservaService){ 
-    this.dataSource = new ReservaDataSource(service);   
+
+  constructor(private service:ReservaService, private serviceEstoque:EstoqueService, private notifier:NotificationService){    
+    this.dataSource = new ReservaDataSource(service);  
+
   }
   ngOnInit(): void {}
 
@@ -44,9 +47,11 @@ export class NovaReservaComponent implements OnInit {
       .subscribe(data => {
                     this.consultar.emit();
                     this.ngOnInit();
+                    this.verificaEstoqueFuturo(data);
                     console.log(data)})
 
     }
+
 
     displayedColumns = ['id', 'data', 'ordem',  'quantidade', 'finalizada', 'item', 'idItem', 'usuario', 'excluir'];
 
@@ -57,4 +62,33 @@ export class NovaReservaComponent implements OnInit {
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;    
     }
+
+    verificaEstoqueFuturo(reserva: IReserva){
+      let estoque: IEstoque = {
+          idEstoque: 0,
+          localizacao: "",
+          estoqueReal: 0,
+          item: {
+              idItem: 0,
+              descricao: "",
+              grupo: "",
+              familia: "",
+              unidade: "",
+              estoqueSeguranca: 0
+          }
+        }
+      // let idItem: number = (typeof(reserva.item.idItem) == undefined)?0:reserva.item.idItem; 
+      this.serviceEstoque.consultarEstoquePorIdItem(this.reserva.idItem).subscribe(res => {estoque = res;
+        if(estoque.estoqueFuturo){
+          if(estoque.estoqueFuturo <= estoque.item.estoqueSeguranca){
+            this.notifier.showError(`Atenção! Estoque crítico a partir do dia ${this.reserva.dataPrevista}!`)
+          }else{
+            this.notifier.showSuccess(`Reserva criada com sucesso!`)
+          }
+        }
+      
+    })
+      
+    }
+
 }

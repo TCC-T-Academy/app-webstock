@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/cor
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { INovaPrevisao } from 'src/interfaces/interface';
+import { NotificationService } from '../notification.service';
 import { PrevisaoService } from '../previsao.service';
 import { PrevisaoDataSource } from './nova-previsao-datasource';
 
@@ -22,8 +23,10 @@ export class NovaPrevisaoComponent implements OnInit {
   };
   
   disableCtrl: boolean = false
-  constructor(private service:PrevisaoService){
-    this.dataSource = new PrevisaoDataSource(service);
+
+  constructor(private service:PrevisaoService, private notifier:NotificationService){
+     this.dataSource = new PrevisaoDataSource(service);
+
   }
   ngOnInit(): void {}
 
@@ -47,7 +50,12 @@ export class NovaPrevisaoComponent implements OnInit {
       .subscribe(data => {
                     this.consultar.emit();
                     this.ngOnInit();
-                    console.log(data)})
+                    if(data.idPrevisao){
+                      if(data.idPrevisao > 0){
+                        this.notifier.showSuccess("Previsao criada com sucesso!")
+                      }
+                    }
+                    })
 
     }
 

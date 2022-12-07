@@ -48,6 +48,12 @@ import { NovoUsuarioComponent } from './novo-usuario/novo-usuario.component';
 import { PrevisaoAtualizarComponent } from './previsao-atualizar/previsao-atualizar.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ReservaAtualizarComponent } from './reserva-atualizar/reserva-atualizar.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import {MatTabsModule} from '@angular/material/tabs';
+
+
+
 
 @NgModule({
   declarations: [
@@ -67,7 +73,10 @@ import { ReservaAtualizarComponent } from './reserva-atualizar/reserva-atualizar
     GestaoUsuariosComponent,
     NovoUsuarioComponent,
     PrevisaoAtualizarComponent,
-    ReservaAtualizarComponent
+    ReservaAtualizarComponent,
+    FooterComponent,
+    HeaderComponent
+
   ],
   imports: [
     BrowserModule,
@@ -98,6 +107,7 @@ import { ReservaAtualizarComponent } from './reserva-atualizar/reserva-atualizar
     ReactiveFormsModule,
     MatDialogModule,
     MatExpansionModule,
+    MatTabsModule,
     MatGridListModule
         
   ],

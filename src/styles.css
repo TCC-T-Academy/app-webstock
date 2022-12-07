@@ -10,8 +10,7 @@
 }
 body {
     background: #C1D7E2;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    min-height: 91vh;
 }
 
 /* Icon Sidenav */
@@ -19,62 +18,28 @@ body {
 .material-icons{
     font-family: 'Material Icons' !important;
 }
+/* Icon toolbar */
+
+img{
+    display: block;
+    margin-left: auto;
+}
 
 /* Cabeçalho e rodapé*/
 
 .toolbar {
     position:absolute;
     width: 100%;
-    height: 70px;
     left: 0px;
     top: 0px;
-    background: #2C4971;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.footer {
-    position:fixed;
-    width: 100%;
-    height: 50px;
-    left: 0px;
-    bottom: 40px;
-    background: #2C4971;
-
-}
-
-.esferatopo1 {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    left: 90%;
-    top: 5px;
-    border-radius: 50%;
-    background: #C1D7E2;
-    text-align: right;
-  
-}
-
-.esferatopo2 {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    left: 91%;
-    top: 10px;
-    border-radius: 50%;
-    background: #2C4971;
-    text-align: right;
-}
-
-.footertext {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    text-align: center;
     color: white;
-    vertical-align: middle;
-    width: 100%;
-    bottom: 50px;
-
+    background-color: #2C4971;
 }
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
 
 /* Textos */
 
@@ -100,5 +65,61 @@ body {
   .table{
     margin: 10px;
     border-radius: 25px;
+}
+
+/* SIDENAV LAYOUT */
+
+.link{
+    color: white;
+    text-decoration: none;
+    height: 5ex;
+    /* border: 2px solid #2C4971; */
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #2C4971;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+}
+.link:hover{
+    background-color: #335E89;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: white;
+    padding: 10px;
+}
+
+.link:focus{
+    background-color: #335E89;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: white;
+    padding: 10px;
+}
+
+
+
+mat-sidenav{
+    margin: 16px;
+    width: 200px;
+    border-right: none;
+    background-color: #2C4971;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+   
+}
+
+mat-sidenav-container{
+    height: calc(150vh - 65px);
+
+}
+
+mat-divider{
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: #C1D7E2;
 }
 

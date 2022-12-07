@@ -1,8 +1,9 @@
 
-import { ChangeDetectorRef, Component, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver} from '@angular/cdk/layout';
 import { NavigationEnd, Router } from '@angular/router';
+import { EstoqueComponent } from './estoque/estoque.component';
 
 
 @Component({
@@ -12,13 +13,16 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 
 export class AppComponent{
+  @Output("headerName") headerName:string = "";
+
   title = 'app-webstock';
   
 shouldRun: any;
 public sidebarShow: boolean = true;
 
-@ViewChild(MatSidenav)
-sidenav!:MatSidenav;
+
+// @ViewChild(MatSidenav)
+// sidenav!:MatSidenav;
 isLogin:Boolean = false;
 
 constructor(  private observer: BreakpointObserver,
@@ -29,32 +33,31 @@ constructor(  private observer: BreakpointObserver,
     if(res instanceof NavigationEnd){
       if(this.router.url == "/login"){
         this.isLogin=true;
-        this.sidenav.close();
      } else{
+
         this.isLogin=false;
-        this.checkSideNav();
      }
     }
   })
 }
 
-ngAfterViewInit(){
-  this.checkSideNav();
-  this.cd.detectChanges();
-}
+// ngAfterViewInit(){
+//   this.checkSideNav();
+//   this.cd.detectChanges();
+// }
 
 
-  checkSideNav(){
-    this.observer.observe(['(max-width: 800px)']).subscribe((res) =>{
-      if(res.matches){        
-        this.sidenav.mode = 'over';
-        this.sidenav.close();
-      }else{
-        this.sidenav.mode = 'side';
-        this.sidenav.open();
-      }     
-    });
-  }
+  // checkSideNav(){
+  //   this.observer.observe(['(max-width: 800px)']).subscribe((res) =>{
+  //     if(res.matches){        
+  //       this.sidenav.mode = 'over';
+  //       this.sidenav.close();
+  //     }else{
+  //       this.sidenav.mode = 'side';
+  //       this.sidenav.open();
+  //     }     
+  //   });
+  // }
 
   deslogar(){
 
@@ -68,6 +71,19 @@ ngAfterViewInit(){
 
  isLoginRoute() {
     return this.router.url === '/login';
+  }
+
+onOutletLoaded(component:any){
+    if(component instanceof EstoqueComponent){
+      component.headerName = "Gestão de Estoque";
+    }else if(component instanceof EstoqueComponent){
+      component.headerName = "Painel Estoque";
+    }else if(component instanceof EstoqueComponent){
+      component.headerName = "Painel Estoque";
+    }else if(component instanceof EstoqueComponent){
+      component.headerName = "Painel Estoque";
+    }
+
   }
 }
 
