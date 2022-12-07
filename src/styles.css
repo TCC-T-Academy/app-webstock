@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons"); 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+
 /* Gerais */
 * {
     font-family: Arial, Helvetica, sans-serif;
@@ -123,3 +124,14 @@ mat-divider{
     background-color: #C1D7E2;
 }
 
+.green-snackbar {
+    background: #66ac3f;
+    --mat-mdc-snack-bar-button-color: #40ff46;
+    --mdc-snackbar-container-color: #33333300;
+}
+
+.red-snackbar {
+    background: #F44336;
+    --mat-mdc-snack-bar-button-color: #ff4c40;
+    --mdc-snackbar-container-color: #33333300;
+}
