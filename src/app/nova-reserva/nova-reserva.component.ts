@@ -1,8 +1,11 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { IEstoque, INovaReserva, IReserva } from 'src/interfaces/interface';
 import { EstoqueService } from '../estoque.service';
 import { NotificationService } from '../notification.service';
 import { ReservaService } from '../reserva.service';
+import { ReservaDataSource } from './nova-reserva-datasource';
 
 @Component({
   selector: 'app-nova-reserva',
@@ -20,7 +23,10 @@ export class NovaReservaComponent implements OnInit {
   };
 
   disableCtrl: boolean = false
+
   constructor(private service:ReservaService, private serviceEstoque:EstoqueService, private notifier:NotificationService){    
+    this.dataSource = new ReservaDataSource(service);  
+
   }
   ngOnInit(): void {}
 
@@ -44,6 +50,17 @@ export class NovaReservaComponent implements OnInit {
                     this.verificaEstoqueFuturo(data);
                     console.log(data)})
 
+    }
+
+
+    displayedColumns = ['id', 'data', 'ordem',  'quantidade', 'finalizada', 'item', 'idItem', 'usuario', 'excluir'];
+
+    @ViewChild(MatPaginator) paginator!: MatPaginator;
+    @ViewChild(MatSort) sort!: MatSort;
+    dataSource: ReservaDataSource;
+    ngAfterViewInit(): void {
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;    
     }
 
     verificaEstoqueFuturo(reserva: IReserva){
