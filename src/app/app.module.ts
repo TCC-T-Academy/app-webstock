@@ -48,6 +48,10 @@ import { NovoUsuarioComponent } from './novo-usuario/novo-usuario.component';
 import { FooterComponent } from './footer/footer.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { AuthGerenteService } from './auth.gerente.service';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { HeaderComponent } from './header/header.component';
+
+
 
 @NgModule({
   declarations: [
@@ -66,7 +70,8 @@ import { AuthGerenteService } from './auth.gerente.service';
     NovaReservaComponent,
     GestaoUsuariosComponent,
     NovoUsuarioComponent,
-    FooterComponent
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -97,7 +102,8 @@ import { AuthGerenteService } from './auth.gerente.service';
     ReactiveFormsModule,
     MatDialogModule,
     MatExpansionModule,
-    MatTabsModule
+    MatTabsModule,
+    MatGridListModule
         
   ],
   providers: [

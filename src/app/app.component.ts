@@ -1,8 +1,9 @@
 
-import { ChangeDetectorRef, Component, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver} from '@angular/cdk/layout';
 import { NavigationEnd, Router } from '@angular/router';
+import { EstoqueComponent } from './estoque/estoque.component';
 
 
 @Component({
@@ -12,10 +13,13 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 
 export class AppComponent{
+  @Output("headerName") headerName:string = "";
+
   title = 'app-webstock';
   
 shouldRun: any;
 public sidebarShow: boolean = true;
+
 
 // @ViewChild(MatSidenav)
 // sidenav!:MatSidenav;
@@ -30,6 +34,7 @@ constructor(  private observer: BreakpointObserver,
       if(this.router.url == "/login"){
         this.isLogin=true;
      } else{
+
         this.isLogin=false;
      }
     }
@@ -68,6 +73,18 @@ constructor(  private observer: BreakpointObserver,
     return this.router.url === '/login';
   }
 
+onOutletLoaded(component:any){
+    if(component instanceof EstoqueComponent){
+      component.headerName = "Gestão de Estoque";
+    }else if(component instanceof EstoqueComponent){
+      component.headerName = "Painel Estoque";
+    }else if(component instanceof EstoqueComponent){
+      component.headerName = "Painel Estoque";
+    }else if(component instanceof EstoqueComponent){
+      component.headerName = "Painel Estoque";
+    }
+
+  }
 }
 
 

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { INovaPrevisao } from 'src/interfaces/interface';
+import { NotificationService } from '../notification.service';
 import { PrevisaoService } from '../previsao.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class NovaPrevisaoComponent implements OnInit {
     idUsuario: 0, idItem: 0,
   };
   disableCtrl: boolean = false
-  constructor(private service:PrevisaoService){
+  constructor(private service:PrevisaoService, private notifier:NotificationService){
     
   }
   ngOnInit(): void {}
@@ -40,7 +41,12 @@ export class NovaPrevisaoComponent implements OnInit {
       .subscribe(data => {
                     this.consultar.emit();
                     this.ngOnInit();
-                    console.log(data)})
+                    if(data.idPrevisao){
+                      if(data.idPrevisao > 0){
+                        this.notifier.showSuccess("Previsao criada com sucesso!")
+                      }
+                    }
+                    })
 
     }
 

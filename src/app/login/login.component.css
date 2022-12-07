@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 83vh;
 }
 
 .logo {
@@ -53,3 +54,4 @@ a {
   color: #335E89;
   font-size: 14px;
 }
+

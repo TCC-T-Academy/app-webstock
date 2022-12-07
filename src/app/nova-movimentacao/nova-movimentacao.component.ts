@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { INovaMovimentacao } from 'src/interfaces/interface';
 import { MovimentacaoService } from '../movimentacao.service';
+import { NotificationService } from '../notification.service';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class NovaMovimentacaoComponent implements OnInit{
   
 
   
-  constructor(private service:MovimentacaoService){
+  constructor(private service:MovimentacaoService, private notifier:NotificationService){
     this.inOut = ""
   }
 
@@ -39,6 +40,9 @@ export class NovaMovimentacaoComponent implements OnInit{
       .subscribe(data => {
                     this.consultar.emit("");
                     this.ngOnInit();
+                    if(data.idMovimentacao){
+                      this.notifier.showSuccess(`${this.tipos[0]} efetuada com sucesso!`)
+                    }
                     console.log(data)})
 
     }else if(this.inOut == this.tipos[1]){
@@ -46,6 +50,9 @@ export class NovaMovimentacaoComponent implements OnInit{
       this.service.saidaItem(mov).subscribe(data => {
           this.consultar.emit("");
           this.ngOnInit();
+          if(data.idMovimentacao){
+            this.notifier.showSuccess(`${this.tipos[1]} efetuada com sucesso!`)
+          }
           console.log(data)
       })
     }
