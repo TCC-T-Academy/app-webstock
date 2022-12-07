@@ -108,7 +108,8 @@
       <!-- Color Column -->
       <ng-container matColumnDef="finalizada">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Finalizada </mat-header-cell>
-        <mat-cell *matCellDef="let r" data-label="finalizada"> {{r.finalizada}} </mat-cell>
+        <mat-cell *matCellDef="let r" data-label="finalizada"> <mat-icon *ngIf="r.finalizada">done</mat-icon> 
+          <mat-icon *ngIf="!r.finalizada">watch_later</mat-icon>  </mat-cell>
       </ng-container>
 
          <!-- Color Column -->
