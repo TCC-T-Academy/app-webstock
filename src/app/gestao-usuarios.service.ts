@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { IUsuario } from './../interfaces/interface';
+import { IUsuarioPublico, IUsuarioNovo } from './../interfaces/interface';
 import { Injectable } from '@angular/core';
 import { AuthService } from './login/auth.service';
 
@@ -8,23 +8,41 @@ import { AuthService } from './login/auth.service';
 })
 export class GestaoUsuariosService {
 
-  usuarios: IUsuario[] = [
-    {
-      idUsuario: 0,
-      email: "",
-      nome: "",
-      perfil: "",
-      senha: ""
-    }
-  ]
+usuarioNovo: IUsuarioNovo = {
+    idUsuario: 0,
+    nome: '',
+    senha: '',
+    email: '',
+    role: '' 
+}
 
+
+usuarioPublico: IUsuarioPublico = {
+    idUsuario: 0,
+    nome: "",
+    email: "",
+    role: ""
+}
   constructor(private http:HttpClient, private auth:AuthService) {
 
   }
 
   consultarUsuarios(){
-    return this.http.get<[IUsuario]>("http://localhost:8081/usuarios", {
+    return this.http.get<[IUsuarioPublico]>("http://localhost:8081/usuarios", {
       headers:this.auth.getHeaderWithToken()
     });
   }
+
+  consultarUsuarioByEmail(email:string){
+    return this.http.get<IUsuarioPublico>(`http://localhost:8081/usuarios/${email}`, {
+      headers:this.auth.getHeaderWithToken()
+    });
+  }
+
+  cadastrarUsuarios(usuario: IUsuarioNovo){
+    return this.http.post<IUsuarioPublico>(`http://localhost:8081/usuarios/novo`,usuario,{
+      headers:this.auth.getHeaderWithToken()
+    });
+  }
+
 }

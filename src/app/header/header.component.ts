@@ -32,13 +32,8 @@ export class HeaderComponent {
   }
   
   deslogar(){
-  
       if(localStorage.getItem('token')!= ""){
-  
-        localStorage.removeItem('token');
-  
+        localStorage.clear();
       }
-  
    }
-
 }
