@@ -1,9 +1,10 @@
 /* CSS REFERENTE FORMULÁRIO DE PESQUISA DE NOVA-MOVIMENTAÇÃO */
   .formulario{
     margin-bottom: 10px;
-    display: grid;
-    justify-content: space-around;
-    align-items: top;    
+    margin-top: 10px;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: baseline;
   }
 
   button{
