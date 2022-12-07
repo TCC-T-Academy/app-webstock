@@ -51,5 +51,15 @@ export class ReservaService {
       headers: this.auth.getHeaderWithToken()
   });
   }
+  alteraReserva(idReserva:number ,reserva:INovaReserva){
+    return this.http.put<IReserva>(`http://localhost:8081/reservas/${idReserva}`, reserva, {
+      headers: this.auth.getHeaderWithToken()
+    });
+  }
+  excluir(idItem:number){
+    return this.http.delete<string>(`http://localhost:8081/reservas/${idItem}`, {
+      headers: this.auth.getHeaderWithToken()
+    });
+  }
 
 }

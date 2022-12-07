@@ -54,4 +54,14 @@ export class PrevisaoService {
       headers: this.auth.getHeaderWithToken()
     });
   }
+  alteraPrevisao(idPrev:number ,prev:INovaPrevisao){
+    return this.http.put<IPrevisao>(`http://localhost:8081/previsoes/alterar/${idPrev}`, prev, {
+      headers: this.auth.getHeaderWithToken()
+    });
+  }
+  excluir(idItem:number){
+    return this.http.delete<string>(`http://localhost:8081/previsoes/excluir/${idItem}`, {
+      headers: this.auth.getHeaderWithToken()
+    });
+  }
 }
