@@ -45,6 +45,9 @@ import { NovaReservaComponent } from './nova-reserva/nova-reserva.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { GestaoUsuariosComponent } from './gestao-usuarios/gestao-usuarios.component';
 import { NovoUsuarioComponent } from './novo-usuario/novo-usuario.component';
+import { PrevisaoAtualizarComponent } from './previsao-atualizar/previsao-atualizar.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { ReservaAtualizarComponent } from './reserva-atualizar/reserva-atualizar.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +65,9 @@ import { NovoUsuarioComponent } from './novo-usuario/novo-usuario.component';
     NovaPrevisaoComponent,
     NovaReservaComponent,
     GestaoUsuariosComponent,
-    NovoUsuarioComponent
+    NovoUsuarioComponent,
+    PrevisaoAtualizarComponent,
+    ReservaAtualizarComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +97,8 @@ import { NovoUsuarioComponent } from './novo-usuario/novo-usuario.component';
     MatSelectModule,
     ReactiveFormsModule,
     MatDialogModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatGridListModule
         
   ],
   providers: [
