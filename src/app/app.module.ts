@@ -48,6 +48,7 @@ import { NovoUsuarioComponent } from './novo-usuario/novo-usuario.component';
 import { FooterComponent } from './footer/footer.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -69,6 +70,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     GestaoUsuariosComponent,
     NovoUsuarioComponent,
     FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

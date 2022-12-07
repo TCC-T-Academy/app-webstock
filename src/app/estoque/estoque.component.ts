@@ -16,7 +16,7 @@ import { EstoqueDatasource } from './estoque-datasource';
 })
 export class EstoqueComponent implements AfterViewInit{
   @ViewChild(MatExpansionPanel) expansion!: MatExpansionPanel;
-
+  headerName:string = ""
 
   dataSource: EstoqueDatasource;
   panelOpenState:Boolean = false;
