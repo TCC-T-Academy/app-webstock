@@ -23,10 +23,10 @@ export class ReservaService {
         unidade:""
       },
       usuario: {
+        idUsuario: 0,
+        nome:"",
         email:"",
-        perfil:"",
-        senha:"",
-        nome:""
+        role:""
       }
     }
   ]

@@ -23,10 +23,10 @@ export class PrevisaoService {
         unidade:""
       },
       usuario: {
+        idUsuario: 0,
+        nome:"",
         email:"",
-        perfil:"",
-        senha:"",
-        nome:""
+        role:""
       }
     }
   ]
