@@ -43,7 +43,7 @@ export class NovaMovimentacaoComponent implements OnInit{
                     if(data.idMovimentacao){
                       this.notifier.showSuccess(`${this.tipos[0]} efetuada com sucesso!`)
                     }
-                    console.log(data)})
+                    console.log(data)});
 
     }else if(this.inOut == this.tipos[1]){
       
@@ -53,7 +53,7 @@ export class NovaMovimentacaoComponent implements OnInit{
           if(data.idMovimentacao){
             this.notifier.showSuccess(`${this.tipos[1]} efetuada com sucesso!`)
           }
-          console.log(data)
+          console.log(data);
       })
     }
 
@@ -62,7 +62,6 @@ export class NovaMovimentacaoComponent implements OnInit{
 
   verSelecao(sel:string){
     this.orgDest = (sel == this.tipos[0])? "Origem:" : "Destino:";
-    //this.disableCtrl = (sel == this.tipos[2])? true : false;
   }
 
   buscar(item:string){
