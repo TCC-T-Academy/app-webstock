@@ -1,6 +1,9 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { INovaReserva } from 'src/interfaces/interface';
 import { ReservaService } from '../reserva.service';
+import { ReservaDataSource } from './nova-reserva-datasource';
 
 @Component({
   selector: 'app-nova-reserva',
@@ -18,7 +21,9 @@ export class NovaReservaComponent implements OnInit {
   };
 
   disableCtrl: boolean = false
-  constructor(private service:ReservaService){    
+  
+  constructor(private service:ReservaService){ 
+    this.dataSource = new ReservaDataSource(service);   
   }
   ngOnInit(): void {}
 
@@ -43,4 +48,13 @@ export class NovaReservaComponent implements OnInit {
 
     }
 
+    displayedColumns = ['id', 'data', 'ordem',  'quantidade', 'finalizada', 'item', 'idItem', 'usuario', 'excluir'];
+
+    @ViewChild(MatPaginator) paginator!: MatPaginator;
+    @ViewChild(MatSort) sort!: MatSort;
+    dataSource: ReservaDataSource;
+    ngAfterViewInit(): void {
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;    
+    }
 }
