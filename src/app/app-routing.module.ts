@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { NovaPrevisaoComponent } from './nova-previsao/nova-previsao.component';
 import { NovaReservaComponent } from './nova-reserva/nova-reserva.component';
 import { AuthGerenteService } from './auth.gerente.service';
+import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 
 const routes: Routes = [
   {
@@ -62,6 +63,11 @@ const routes: Routes = [
   {
     path:'novousuario',
     component: NovoUsuarioComponent,
+    canActivate:[AuthAdmService]
+  },
+  {
+    path:'editarusuario/:email',
+    component: EditarUsuarioComponent,
     canActivate:[AuthAdmService]
   }
 
