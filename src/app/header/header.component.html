@@ -2,28 +2,28 @@
 <div class="toolbar">
 <mat-toolbar *ngIf="!isLogin" style="background-color: #2C4971;">
 
-
+    <div class="headbtn">
     <a class="linkteste" routerLink="estoque">
-      <button mat-button class="headbtn">Estoque</button>
+      <button mat-button [ngClass]="{'activebtn': tabIndex == 'estoque'}" (click)="onTabClick('estoque')">Estoque</button>
     </a>
 
     <a class="linkteste" routerLink="movimentacoes">
-      <button mat-button class="headbtn">Movimentação</button>
+      <button mat-button [ngClass]="{'activebtn': tabIndex == 'movimentacoes'}" (click)="onTabClick('movimentacoes')">Movimentação</button>
     </a>
 
     <a class="linkteste" routerLink="reservas">
-      <button mat-button class="headbtn">Reserva</button>
+      <button mat-button [ngClass]="{'activebtn': tabIndex == 'reservas'}" (click)="onTabClick('reservas')">Reserva</button>
     </a>
     
     <a class="linkteste" routerLink="previsoes" >
-      <button mat-button class="headbtn">Previsão</button>
+      <button mat-button [ngClass]="{'activebtn': tabIndex == 'previsao'}" (click)="onTabClick('previsao')">Previsão</button>
     </a>
-    
+    </div>
     <div class="example-spacer">  </div>
   
     
       <a class="linkteste" routerLink="login" (click)="deslogar()">
-        <button mat-button class="headbtn" style="align-content: left; margin-right: 10px;">Logout</button>
+        <button mat-button class="headbtn" style="align-content: left; margin-right: 10px; color: white;">Logout</button>
       </a>
     
   
