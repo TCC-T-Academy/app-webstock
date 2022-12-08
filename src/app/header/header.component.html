@@ -14,20 +14,24 @@
     <a class="linkteste" routerLink="reservas">
       <button mat-button [ngClass]="{'activebtn': tabIndex == 'reservas'}" (click)="onTabClick('reservas')">Reserva</button>
     </a>
-    
+
     <a class="linkteste" routerLink="previsoes" >
       <button mat-button [ngClass]="{'activebtn': tabIndex == 'previsao'}" (click)="onTabClick('previsao')">Previsão</button>
     </a>
+
+    <a *ngIf="eAdmin()"  class="linkteste" routerLink="usuarios" >
+      <button mat-button [ngClass]="{'activebtn': tabIndex == 'usuarios'}" (click)="onTabClick('usuarios')">Usuários</button>
+    </a>
     </div>
     <div class="example-spacer">  </div>
-  
-    
+
+
       <a class="linkteste" routerLink="login" (click)="deslogar()">
         <button mat-button class="headbtn" style="align-content: left; margin-right: 10px; color: white;">Logout</button>
       </a>
-    
-  
-      <img src="assets/centro-logo-branco.svg"> 
+
+
+      <img src="assets/centro-logo-branco.svg">
     </mat-toolbar>
 </div>
 </div>
