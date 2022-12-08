@@ -137,3 +137,7 @@ input::placeholder{
     --mat-mdc-snack-bar-button-color: #ff4c40;
     --mdc-snackbar-container-color: #33333300;
 }
+
+.btnPrimary{
+    background-color: #2C4971 !important;
+}

@@ -5,13 +5,14 @@ import { LogService } from "../log.service";
 
 export class EstoqueDatasource extends MatTableDataSource<IEstoque>{
     
-    idItem: string = "1540" ;
+    idItem: string = " " ;
     temp: IEstoque[] = [];
 
     constructor(private service:EstoqueService, private service2:LogService) {
         super();
-        this.consultarEstoqueBaixo();
+        this.consultarEstoque();
       }
+      
   
       //chamarFuncoes(){
         //this.consultarLogsPorIdItem(),
@@ -38,4 +39,9 @@ export class EstoqueDatasource extends MatTableDataSource<IEstoque>{
             this.data = res;      
         })
     }
+
+    consultarEstoque(){
+        this.service.consultarEstoque().subscribe(data =>this.data = data)
+    }
 }
+
