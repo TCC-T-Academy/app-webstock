@@ -1,12 +1,12 @@
 <header class="header">
-    <h1 class="title">PAINEL DE MOVIMENTAÇÕES</h1>
+    <h1 class="title">PAINEL DE MOVIMENTAÇÕES </h1>
 </header>
 
 <app-nova-movimentacao (consultar)="consultar($event)"></app-nova-movimentacao>
 
 <mat-card class="table">
-    <mat-card-content>
-            <mat-table [dataSource]="movimentacoes" matSort>
+    <mat-card-content class="card-content">
+            <mat-table [dataSource]="movimentacoes" matSort class="table">
 
                 <!-- Data Column -->
                 <ng-container matColumnDef="data">
@@ -50,7 +50,7 @@
 
             <mat-paginator #paginator
             [pageSizeOptions]="[4, 8, 10]"
-            aria-label="Select page" showFirstLastButtons>
+            aria-label="Select page" showFirstLastButtons class="card-content-color">
          </mat-paginator>
 
     </mat-card-content>
