@@ -1,3 +1,4 @@
+import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,7 +12,6 @@ import { ItemComponent } from './item/item.component';
 import { ReservaComponent } from './reserva/reserva.component';
 import { PrevisaoComponent } from './previsao/previsao.component';
 import { ErroComponent } from './erro/erro.component';
-import { HomeComponent } from './home/home.component';
 import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -66,7 +66,6 @@ import { HeaderComponent } from './header/header.component';
     ReservaComponent,
     PrevisaoComponent,
     ErroComponent,
-    HomeComponent,
     NovaMovimentacaoComponent,
     LogComponent,
     LoginComponent,
@@ -77,7 +76,8 @@ import { HeaderComponent } from './header/header.component';
     PrevisaoAtualizarComponent,
     ReservaAtualizarComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    EditarUsuarioComponent
 
   ],
   imports: [
@@ -111,7 +111,7 @@ import { HeaderComponent } from './header/header.component';
     MatExpansionModule,
     MatTabsModule,
     MatGridListModule
-        
+
   ],
   providers: [
     { provide: ErrorHandler, useClass: GlobalErrorHandler },
@@ -119,7 +119,7 @@ import { HeaderComponent } from './header/header.component';
     AuthAdmService,
     AuthUsuarioService,
     AuthGerenteService,
-    AuthService 
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

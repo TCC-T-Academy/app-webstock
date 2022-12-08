@@ -8,30 +8,17 @@ export class EstoqueDatasource extends MatTableDataSource<IEstoque>{
     idItem: string = " " ;
     temp: IEstoque[] = [];
 
-    constructor(private service:EstoqueService, private service2:LogService) {
+    constructor(private service:EstoqueService) {
         super();
         this.consultarEstoque();
       }
-      
-  
-      //chamarFuncoes(){
-        //this.consultarLogsPorIdItem(),
-        
-      //}
-    
-    
-    //   consultarLogsPorIdItem(){
-    //     this.service2.consultarLogsPorIdItem(parseFloat(this.idItem)).subscribe(res => this.data = res)
-    //   }
-    
+          
     consultarEstoquePorIdItem(){
-        //this.data.pop();
         this.service.consultarEstoquePorIdItem(parseFloat(this.idItem)).subscribe((res) => {
             this.temp = []
             this.temp.push(res)
             this.data = this.temp;      
         })
-       //this.service.consultarEstoquePorIdItem(parseFloat(this.idItem)).subscribe(data => this.estoque.item = data.item)
     }
 
     consultarEstoqueBaixo(){

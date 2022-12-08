@@ -1,18 +1,19 @@
 <header class="header">
-  <h1 class="title">NOVO USUÁRIO </h1>
+  <h1 class="title">ALTERAR USUÁRIO </h1>
 </header>
+
 <div class="formulario">
-  <form #f="ngForm" (submit)="cadastrar(f.value)" class="formulario">
+  <form #f="ngForm" (submit)="alterar(f.value)" class="formulario">
     <mat-card>
       <mat-card-header>
-        <mat-card-title> Cadastro de novo usuário</mat-card-title>
+        <mat-card-title> Alteração de usuário</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <div class="row">
           <div class="col-sm-6">
             <mat-form-field>
               <mat-label>Nome:</mat-label>
-              <input matInput ngModel name="nome" placeholder="Nome" id="nome" />
+              <input matInput [(ngModel)]="usuarioNovo.nome" name="nome" placeholder="Nome" id="nome" />
             </mat-form-field>
           </div>
         </div>
@@ -20,7 +21,7 @@
           <div class="col-sm-6">
             <mat-form-field>
               <mat-label>E-mail:</mat-label>
-              <input matInput placeholder="nome@email.com" ngModel name="email" id="email" />
+              <input matInput placeholder="nome@email.com" [(ngModel)]="usuarioNovo.email" name="email" id="email" />
             </mat-form-field>
           </div>
         </div>
@@ -28,7 +29,7 @@
           <div class="col-sm-6">
             <mat-form-field>
               <mat-label>Role:</mat-label>
-              <mat-select [(ngModel)]="role" name="role">
+              <mat-select [(ngModel)]="usuarioNovo.role" name="role">
                 <mat-option value="ROLE_ADMIN">ROLE_ADMIN</mat-option>
                 <mat-option value="ROLE_USUARIO">ROLE_USUARIO</mat-option>
                 <mat-option value="ROLE_GERENTE">ROLE_GERENTE</mat-option>
@@ -40,7 +41,8 @@
         <div class="row">
           <div class="col-sm-6">
             <mat-form-field>
-              <input type="password" matInput placeholder="******" ngModel name="senha" id="senha" required />
+              <input type="password" matInput [(ngModel)]="usuarioNovo.senha" placeholder="******" name="senha"
+                id="senha" />
             </mat-form-field>
           </div>
         </div>
@@ -51,3 +53,4 @@
     </mat-card>
   </form>
 </div>
+
