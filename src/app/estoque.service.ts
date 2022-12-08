@@ -27,6 +27,11 @@ export class EstoqueService {
 
   constructor(private http: HttpClient, private auth: AuthService) { }  
 
+  consultarEstoque(){
+    return this.http.get<[IEstoque]>("http://localhost:8081/estoque", {
+    headers: this.auth.getHeaderWithToken()
+  });
+  }
   consultarEstoquePorIdItem(idItem: number){
     if(isNaN(idItem)){
       throw Error("ID Inválido!")
