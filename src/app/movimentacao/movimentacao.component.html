@@ -6,7 +6,7 @@
 
 <mat-card class="table">
     <mat-card-content class="card-content">
-            <mat-table [dataSource]="movimentacoes" matSort class="table">
+            <mat-table [dataSource]="movimentacoes" matSort class="">
 
                 <!-- Data Column -->
                 <ng-container matColumnDef="data">
@@ -50,7 +50,7 @@
 
             <mat-paginator #paginator
             [pageSizeOptions]="[4, 8, 10]"
-            aria-label="Select page" showFirstLastButtons class="card-content-color">
+            aria-label="Select page" showFirstLastButtons class="">
          </mat-paginator>
 
     </mat-card-content>
