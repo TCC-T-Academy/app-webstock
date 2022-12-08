@@ -1,135 +1,83 @@
-    <header class="header">
-      <h1 class="title">GESTÃO DE ESTOQUE </h1>
-    </header>
-    <form id="pesquisa">
-        <input type="number" id="idItem" placeholder="Pesquise por ID do item" name="idItem" [(ngModel)]="idItem" >
-        <button class="btn btn-outline-primary mt-3" (click)="chamarFuncoes()">Pesquisar</button>
-        <br/>
-    </form>
+<header class="header">
+  <h1 class="title">GESTÃO DE ESTOQUE </h1>
+</header>
 
+<div class="formulario">
+  <form #f="ngForm">
+    <mat-card class="card">
+      <mat-card-content>
+        <mat-card-header>
+          <mat-card-title><h4>Pesquisa</h4></mat-card-title>    
+        </mat-card-header>
+        <mat-form-field>
+                <input matInput 
+                       [(ngModel)]="idItem" 
+                       name="idItem"  
+                       placeholder="Pesquise por ID do item" 
+                       id="idItem" 
+                       step="1" min="1"/>
+          </mat-form-field>
+      </mat-card-content>
+        <mat-card-actions>
+          <button  class="btnPrimary"
+                   color="primary" 
+                   mat-raised-button 
+                   value="Pesquisar ID" 
+                   (click)="dataSource.consultarEstoquePorIdItem()">Pesquisar</button>
+          <button  class="btnPrimary"
+                   color="primary" 
+                   mat-raised-button 
+                   value="Todas" 
+                   (click)="dataSource.consultarEstoque()">Mostrar todos</button>
+          <button  color="warn" mat-raised-button value="Todas" 
+                   (click)="dataSource.consultarEstoqueBaixo()">Mostrar estoque crítico</button>
+        </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
+
+<mat-accordion  *ngFor="let item of dataSource.data; index as i" >
+  <mat-expansion-panel (opened)="openClose(true,item)"
+                       (closed)="openClose(false,item)">
+      <mat-expansion-panel-header>
+        <mat-panel-title>ID: {{item.item.idItem}} - {{item.item.familia}}</mat-panel-title>
+        <mat-panel-description>{{item.item.descricao}}</mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-table [dataSource]="dataSource" matSort>
+
+        <!-- Localização Column -->
+        <ng-container matColumnDef="localizacao">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Localizacao </mat-header-cell>
+          <mat-cell *matCellDef="let r" data-label="data"> {{item.localizacao}} </mat-cell>
+        </ng-container>
     
-    <div class="row">
-        <!-- <app-item [item] = "estoque.item"></app-item> -->
-    </div>
+        <!-- Estoque real Column -->
+        <ng-container matColumnDef="estoqueReal">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Real </mat-header-cell>
+            <mat-cell *matCellDef="let r" data-label="data"> {{item.estoqueReal}} </mat-cell>
+          </ng-container>
 
-    <mat-accordion  *ngFor="let item of dataSource.data; index as i" >
-          <mat-expansion-panel (opened)="openClose(true,item)"
-                               (closed)="openClose(false,item)">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                ID: {{item.item.idItem}} - {{item.item.familia}}
-              </mat-panel-title>
-              <mat-panel-description>
-                {{item.item.descricao}}
-              </mat-panel-description>
-            </mat-expansion-panel-header>
-            <mat-table [dataSource]="dataSource" matSort>
-        
-                <!-- Progress Column -->
-                <ng-container matColumnDef="localizacao">
-                  <mat-header-cell *matHeaderCellDef mat-sort-header> Localizacao </mat-header-cell>
-                  <mat-cell *matCellDef="let r" data-label="data"> {{item.localizacao}} </mat-cell>
-                </ng-container>
+        <!-- Estoque segurança Column -->
+          <ng-container matColumnDef="estoqueSeguranca">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Segurança </mat-header-cell>
+            <mat-cell *matCellDef="let r" data-label="data"> {{item.item.estoqueSeguranca}} </mat-cell>
+          </ng-container>
     
-                <!-- Progress Column -->
-                <ng-container matColumnDef="estoqueReal">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Real </mat-header-cell>
-                    <mat-cell *matCellDef="let r" data-label="data"> {{item.estoqueReal}} </mat-cell>
-                  </ng-container>
-                
-                  <ng-container matColumnDef="estoqueSeguranca">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Segurança </mat-header-cell>
-                    <mat-cell *matCellDef="let r" data-label="data"> {{item.item.estoqueSeguranca}} </mat-cell>
-                  </ng-container>
+        <!-- Data futura Column -->
+        <ng-container matColumnDef="dataFutura">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Data Futura </mat-header-cell>
+          <mat-cell *matCellDef="let r" data-label="data"> {{item.dataFutura}} </mat-cell>
+        </ng-container>
     
-                  <!-- Progress Column -->
-                <ng-container matColumnDef="dataFutura">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Data Futura </mat-header-cell>
-                    <mat-cell *matCellDef="let r" data-label="data"> {{item.dataFutura}} </mat-cell>
-                  </ng-container>
+        <!-- Estoque futuro Column -->
+        <ng-container matColumnDef="estoqueFuturo">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Futuro </mat-header-cell>
+          <mat-cell *matCellDef="let r" data-label="data"> {{item.estoqueFuturo}} </mat-cell>
+        </ng-container>
     
-                <!-- Progress Column -->
-                <ng-container matColumnDef="estoqueFuturo">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Futuro </mat-header-cell>
-                    <mat-cell *matCellDef="let r" data-label="data"> {{item.estoqueFuturo}} </mat-cell>
-                  </ng-container>
-    
-                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                <mat-row *matRowDef="let row; columns: displayedColumns;">
-                </mat-row>
-              </mat-table>
-          </mat-expansion-panel>
-        </mat-accordion>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
-    <!-- <div class="example-container mat-elevation-z8">
-
-        <mat-table [dataSource]="dataSource" matSort>
-        
-            <!-- Progress Column --
-            <ng-container matColumnDef="localizacao">
-              <mat-header-cell *matHeaderCellDef mat-sort-header> Localizacao </mat-header-cell>
-              <mat-cell *matCellDef="let r" data-label="data"> {{r.localizacao}} </mat-cell>
-            </ng-container>
-
-            <!-- Progress Column --
-            <ng-container matColumnDef="estoqueReal">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Real </mat-header-cell>
-                <mat-cell *matCellDef="let r" data-label="data"> {{r.estoqueReal}} </mat-cell>
-              </ng-container>
-            
-              <ng-container matColumnDef="estoqueSeguranca">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Segurança </mat-header-cell>
-                <mat-cell *matCellDef="let r" data-label="data"> {{r.item.estoqueSeguranca}} </mat-cell>
-              </ng-container>
-
-              <!-- Progress Column --
-            <ng-container matColumnDef="dataFutura">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Data Futura </mat-header-cell>
-                <mat-cell *matCellDef="let r" data-label="data"> {{r.dataFutura}} </mat-cell>
-              </ng-container>
-
-            <!-- Progress Column --
-            <ng-container matColumnDef="estoqueFuturo">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Futuro </mat-header-cell>
-                <mat-cell *matCellDef="let r" data-label="data"> {{r.estoqueFuturo}} </mat-cell>
-              </ng-container>
-
-            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedColumns;">
-            </mat-row>
-          </mat-table>
-        </div> -->
-
-
-
-    <!-- <div class="row">
-        <div class="col">
-
-            <div class="row">
-                <h2 class="subtitle">Estoque</h2>
-                <table class="styled-table">
-                    <thead>
-                        <tr>
-                            <th>ID ESTOQUE</th>
-                            <th>LOCALIZAÇÃO</th>
-                            <th>ESTOQUE REAL</th>
-                        </tr>
-                    </thead>
-                 <tbody>
-                        <tr class="active-row">
-                            <td>{{estoque.idEstoque}}</td>
-                            <td>{{estoque.localizacao}}</td>
-                            <td>{{estoque.estoqueReal}}</td>
-                        </tr>
-                
-                    </tbody> 
-                 </table>
-            </div>
-           
-        </div> 
-        <div class="col">
-            <app-log [logs]="logs"></app-log>
-        </div>
-
-    </div> -->
-
+      </mat-table>
+  </mat-expansion-panel>
+</mat-accordion>

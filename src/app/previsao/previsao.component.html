@@ -12,12 +12,17 @@
           </mat-card-title>    
         </mat-card-header>
               <mat-form-field>
-                <input matInput [(ngModel)]="dataSource.idItem" name="idItem"  placeholder="Pesquise por ID do item" id="idItem" step="1" min="1" />   
+                <input matInput 
+                       [(ngModel)]="dataSource.idItem" 
+                       name="idItem"  
+                       placeholder="Pesquise por ID do item" 
+                       id="idItem" 
+                       step="1" min="1"/>   
               </mat-form-field>
       </mat-card-content> 
         <mat-card-actions class="button">
-          <button  color="primary" mat-raised-button value="Pesquisar ID" (click)="dataSource.consultarPrevisoesPorIdItem()">Pesquisar</button>
-          <button  color="primary" mat-raised-button value="Todas" (click)="dataSource.consultarPrevisoes()">Mostrar todos</button>
+          <button  color="primary" class="btnPrimary" mat-raised-button value="Pesquisar ID" (click)="dataSource.consultarPrevisoesPorIdItem()">Pesquisar</button>
+          <button  color="primary" class="btnPrimary" mat-raised-button value="Todas" (click)="dataSource.consultarPrevisoes()">Mostrar todos</button>
           <button  color="warn" mat-raised-button routerLink="../novaprevisao">Gerenciar previsões</button>
         </mat-card-actions>
     </mat-card>
