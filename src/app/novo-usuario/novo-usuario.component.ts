@@ -1,4 +1,4 @@
-import { INovoUsuario } from './../../interfaces/interface';
+import { IUsuarioNovo } from './../../interfaces/interface';
 import { Component, OnInit } from '@angular/core';
 import { GestaoUsuariosService } from '../gestao-usuarios.service';
 import { NotificationService } from '../notification.service';
@@ -15,19 +15,21 @@ export class NovoUsuarioComponent implements OnInit {
     private notifier: NotificationService){
   }
 
-  usuario: INovoUsuario = {
-    email: "", nome: "", perfil: "", senha: ""
+  role: string = '';
+
+  usuario: IUsuarioNovo = {
+    nome: "", email: "", role: "", senha: ""
   }
 
-  cadastrar(novoUsuario: INovoUsuario) {
+  cadastrar(novoUsuario: IUsuarioNovo) {
     this.usuario.email = novoUsuario.email;
     this.usuario.nome = novoUsuario.nome;
-    this.usuario.perfil = novoUsuario.perfil;
+    this.usuario.role = novoUsuario.role;
     this.usuario.senha = novoUsuario.senha;
     this.enviar(this.usuario);
   }
 
-  enviar(usuario: INovoUsuario){
+  enviar(usuario: IUsuarioNovo){
     console.log(this.usuario)
     this.service.cadastrarUsuario(this.usuario).subscribe(data => {
 
@@ -36,7 +38,6 @@ export class NovoUsuarioComponent implements OnInit {
       console.log(data)})
     this.notifier.showSuccess("Usuário cadastrado com sucesso!")
   }
-
 
   ngOnInit(): void {
 
