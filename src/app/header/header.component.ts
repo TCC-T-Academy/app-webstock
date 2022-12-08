@@ -42,4 +42,12 @@ export class HeaderComponent {
     this.tabIndex = index;
     console.log(this.tabIndex);
   }
+
+  eAdmin(){
+    let usuario = JSON.parse(localStorage.getItem("usuarioLogado")!);
+    if(usuario.role == 'ROLE_ADMIN') {
+      return true;
+    }
+    return false;
+  }
 }
