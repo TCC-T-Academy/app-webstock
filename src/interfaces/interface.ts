@@ -16,12 +16,20 @@ export interface IEstoque{
     item: IItem
 }
 
-export interface IUsuario{
+export interface IUsuarioNovo{
     idUsuario?: number,
-    email: string,
     nome: string,
-    perfil: string,
-    senha: string
+    senha: string,
+    email: string,
+    role: string 
+}
+
+
+export interface IUsuarioPublico{
+    idUsuario?: number,
+    nome: string,
+    email: string,
+    role: string
 }
 
 export interface IMovimentacao{
@@ -32,7 +40,7 @@ export interface IMovimentacao{
     tipo: string,
     item: IItem,
     estoque: IEstoque,
-    usuario: IUsuario
+    usuario: IUsuarioPublico
 }
 
 export interface INovaMovimentacao{
@@ -49,7 +57,7 @@ export interface IReserva{
     quantidadeReserva: number,
     finalizada: boolean,
     item: IItem,
-    usuario: IUsuario
+    usuario: IUsuarioPublico
 }
 
 export interface INovaReserva{
@@ -69,7 +77,7 @@ export interface IPrevisao{
     quantidadePrevista: number,
     finalizada: boolean,
     item: IItem,
-    usuario: IUsuario
+    usuario: IUsuarioPublico
 }
 
 export interface INovaPrevisao{

@@ -59,15 +59,6 @@ constructor(  private observer: BreakpointObserver,
   //   });
   // }
 
-  deslogar(){
-
-    if(localStorage.getItem('token')!= ""){
-
-      localStorage.removeItem('token');
-
-    }
-
- }
 
  isLoginRoute() {
     return this.router.url === '/login';
