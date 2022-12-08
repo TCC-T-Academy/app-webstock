@@ -45,10 +45,15 @@ import { NovaReservaComponent } from './nova-reserva/nova-reserva.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { GestaoUsuariosComponent } from './gestao-usuarios/gestao-usuarios.component';
 import { NovoUsuarioComponent } from './novo-usuario/novo-usuario.component';
-import { FooterComponent } from './footer/footer.component';
+import { PrevisaoAtualizarComponent } from './previsao-atualizar/previsao-atualizar.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { AuthGerenteService } from './auth.gerente.service';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { ReservaAtualizarComponent } from './reserva-atualizar/reserva-atualizar.component';
+import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+
+
 
 
 
@@ -69,8 +74,11 @@ import { HeaderComponent } from './header/header.component';
     NovaReservaComponent,
     GestaoUsuariosComponent,
     NovoUsuarioComponent,
+    PrevisaoAtualizarComponent,
+    ReservaAtualizarComponent,
     FooterComponent,
     HeaderComponent
+
   ],
   imports: [
     BrowserModule,
@@ -110,6 +118,7 @@ import { HeaderComponent } from './header/header.component';
     { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptor, multi: true },
     AuthAdmService,
     AuthUsuarioService,
+    AuthGerenteService,
     AuthService 
   ],
   bootstrap: [AppComponent]

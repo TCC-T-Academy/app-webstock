@@ -23,10 +23,10 @@ export class PrevisaoService {
         unidade:""
       },
       usuario: {
+        idUsuario: 0,
+        nome:"",
         email:"",
-        perfil:"",
-        senha:"",
-        nome:""
+        role:""
       }
     }
   ]
@@ -51,6 +51,16 @@ export class PrevisaoService {
   }
   cadastroPrevisao(prev:INovaPrevisao){
     return this.http.post<IPrevisao>(`http://localhost:8081/previsoes`, prev, {
+      headers: this.auth.getHeaderWithToken()
+    });
+  }
+  alteraPrevisao(idPrev:number ,prev:INovaPrevisao){
+    return this.http.put<IPrevisao>(`http://localhost:8081/previsoes/alterar/${idPrev}`, prev, {
+      headers: this.auth.getHeaderWithToken()
+    });
+  }
+  excluir(idItem:number){
+    return this.http.delete<string>(`http://localhost:8081/previsoes/excluir/${idItem}`, {
       headers: this.auth.getHeaderWithToken()
     });
   }

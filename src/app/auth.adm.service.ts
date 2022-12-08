@@ -9,19 +9,17 @@ import { NotificationService } from './notification.service';
 export class AuthAdmService implements CanActivate{
   constructor(private router: Router, private notifier:NotificationService) { }
 
-  
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     let token = localStorage.getItem('token') || '' 
     if(token == ''){
       this.router.navigate(['login'])
     }
-    //let tokenDecoded = JSON.stringify(jwt(token))
-    //let user = JSON.parse(tokenDecoded)
+
      let user:any = jwt(token)
 
-   // if(user.authorities.indexOf("ROLE_ADMIN") == -1){
     if(user.authorities[0].indexOf("ADMIN") == -1){      
       this.notifier.showError("Precisa ser Administrador.")
+
       return false;
     }
     return true

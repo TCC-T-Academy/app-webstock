@@ -23,10 +23,10 @@ export class ReservaService {
         unidade:""
       },
       usuario: {
+        idUsuario: 0,
+        nome:"",
         email:"",
-        perfil:"",
-        senha:"",
-        nome:""
+        role:""
       }
     }
   ]
@@ -50,6 +50,16 @@ export class ReservaService {
     return this.http.post<IReserva>(`http://localhost:8081/reservas`,reserva, {
       headers: this.auth.getHeaderWithToken()
   });
+  }
+  alteraReserva(idReserva:number ,reserva:INovaReserva){
+    return this.http.put<IReserva>(`http://localhost:8081/reservas/${idReserva}`, reserva, {
+      headers: this.auth.getHeaderWithToken()
+    });
+  }
+  excluir(idItem:number){
+    return this.http.delete<string>(`http://localhost:8081/reservas/${idItem}`, {
+      headers: this.auth.getHeaderWithToken()
+    });
   }
 
 }

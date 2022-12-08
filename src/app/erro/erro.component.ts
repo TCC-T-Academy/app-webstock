@@ -11,7 +11,7 @@ export class ErrorWindow {
   openErrorSnackBar(msg:string) {
 
     const config = new MatSnackBarConfig();
-    config.panelClass = ['background-red'];
+    config.panelClass = ['red-snackbar'];
     config.verticalPosition = 'top';
     config.horizontalPosition = 'center';
     config.duration = 3000; 
@@ -23,7 +23,7 @@ export class ErrorWindow {
 
   openInfoSnackBar(msg:string) {
     const config = new MatSnackBarConfig();
-    config.panelClass = ['background-green'];
+    config.panelClass = ['green-snackbar'];
     config.verticalPosition = 'top';
     config.horizontalPosition = 'center';
     config.duration = 3000; 
