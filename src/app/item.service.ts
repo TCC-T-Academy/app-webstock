@@ -19,9 +19,11 @@ export class ItemService {
   constructor(private http: HttpClient, private auth:AuthService) { }
 
   consultarPorIdItem(idItem: number){
+    
     if(isNaN(idItem)){
       throw Error("ID Inválido!")
     }
+
     return this.http.get<IItem>(`http://localhost:8081/itens/${idItem}`, {
       headers: this.auth.getHeaderWithToken()
     })
