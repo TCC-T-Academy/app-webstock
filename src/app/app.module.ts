@@ -12,7 +12,6 @@ import { ItemComponent } from './item/item.component';
 import { ReservaComponent } from './reserva/reserva.component';
 import { PrevisaoComponent } from './previsao/previsao.component';
 import { ErroComponent } from './erro/erro.component';
-import { HomeComponent } from './home/home.component';
 import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -67,7 +66,6 @@ import { HeaderComponent } from './header/header.component';
     ReservaComponent,
     PrevisaoComponent,
     ErroComponent,
-    HomeComponent,
     NovaMovimentacaoComponent,
     LogComponent,
     LoginComponent,
