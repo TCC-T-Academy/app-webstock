@@ -13,7 +13,7 @@ usuarioNovo: IUsuarioNovo = {
     nome: '',
     senha: '',
     email: '',
-    role: '' 
+    role: ''
 }
 
 
@@ -34,15 +34,20 @@ usuarioPublico: IUsuarioPublico = {
   }
 
   consultarUsuarioByEmail(email:string){
-    return this.http.get<IUsuarioPublico>(`http://localhost:8081/usuarios/${email}`, {
+    return this.http.get<IUsuarioNovo>(`http://localhost:8081/usuarios/${email}`, {
       headers:this.auth.getHeaderWithToken()
     });
   }
 
-  cadastrarUsuarios(usuario: IUsuarioNovo){
+  cadastrarUsuario(usuario: IUsuarioNovo){
     return this.http.post<IUsuarioPublico>(`http://localhost:8081/usuarios/novo`,usuario,{
       headers:this.auth.getHeaderWithToken()
     });
   }
 
+  alterarUsuarioByEmail(email:string, usuario: IUsuarioNovo){
+    return this.http.put<IUsuarioNovo>(`http://localhost:8081/usuarios/alterar/${email}`, usuario, {
+      headers:this.auth.getHeaderWithToken()
+    });
+  }
 }
