@@ -1,98 +1,85 @@
-
 <div class="formulario">
-        <form #f="ngForm" (submit)="enviar(f.value)">
-            <mat-card>
-                <mat-card-header>
-                    <mat-card-title>
-                        Cadastro de nova movimentação
-                    </mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <mat-form-field>
-                                <input matInput 
-                                       ngModel name="idItem"  
-                                       placeholder="ID Item" 
-                                       id="idItem" step="1" min="1" />
-                            </mat-form-field>
-                        </div>            
+    <form #f="ngForm" (submit)="enviar(f.value)">
+        <mat-card style="margin-bottom: 10px;">
+            <mat-card-header class="title_center">
+                <mat-card-title>
+                    NOVA MOVIMENTAÇÃO
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="card-content">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label for="">ID Item:</label>
+                        <mat-form-field>
+                            <input matInput ngModel name="idItem" placeholder="Ex.: 1500" id="idItem" step="1" min="1" />
+                        </mat-form-field>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <mat-form-field>
-                                <input matInput 
-                                        placeholder="Origem/Destino" 
-                                        ngModel name="origemDestino" 
-                                        id="idOrigem" 
-                                        [disabled]="disableCtrl"/>
-                            </mat-form-field>
-                        </div>            
+                    <div class="col-sm-4">
+                        <label for="">Ordem:</label>
+                        <mat-form-field>
+                            <input matInput placeholder="Ex.: PO1234/CP1234" ngModel name="origemDestino" id="idOrigem"
+                                [disabled]="disableCtrl" />
+                        </mat-form-field>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <mat-form-field>
-                                <input matInput 
-                                        placeholder="Quantidade" 
-                                        ngModel name="quantidade" 
-                                        id="idQtd" 
-                                        min="0" 
-                                        [disabled]="disableCtrl"/>
-                            </mat-form-field>
-                        </div>            
+                    <div class="col-sm-4">
+                        <label for="">Qtde:</label>
+                        <br>
+                        <mat-form-field>
+                            <input matInput placeholder="Ex.: 10" ngModel name="quantidade" id="idQtd" min="0"
+                                [disabled]="disableCtrl" />
+                        </mat-form-field>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-check" *ngFor="let tipo of tipos">
-                                <input class="form-check-input" 
-                                    type="radio" 
-                                    name="tipo" 
-                                    id="id{{tipo}}" 
-                                    value="{{tipo}}" 
-                                    [(ngModel)]="inOut" 
-                                    (change)="verSelecao(inOut)">
-                                <label class="form-check-label" for="id{{tipo}}">{{tipo}}</label>
-                            </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-check form-check-inline" *ngFor="let tipo of tipos">
+                            <input class="form-check-input" type="radio" name="tipo" id="id{{tipo}}" value="{{tipo}}"
+                                [(ngModel)]="inOut" (change)="verSelecao(inOut)">
+                            <label class="form-check-label" for="id{{tipo}}">{{tipo}}</label>
                         </div>
                     </div>
-                </mat-card-content>
-                <mat-card-actions>
-                    <button color="primary" class="btnPrimary" mat-raised-button>Salvar</button>
-                </mat-card-actions>
+                    <div class="col-sm-4">
+                        <mat-card-actions>
+                            <button color="primary" class="btnPrimary" mat-raised-button>Salvar</button>
+                        </mat-card-actions>
+                    </div>
+
+                </div>
+            </mat-card-content>
+
         </mat-card>
     </form>
 
     <form>
-        <mat-card>
-            <mat-card-header>
+        <mat-card style="height: 100%;">
+            <mat-card-header  class="title_center">
                 <mat-card-title>
-                    Pesquisa de movimentações
-                </mat-card-title>    
+                    PESQUISA
+                </mat-card-title>
             </mat-card-header>
-                <mat-card-content>  
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <mat-form-field>
-                                <input matInput 
-                                       [(ngModel)]="itemPesquisa" 
-                                       name="idItemPesquisa"  
-                                       placeholder="Pesquise por ID do item" 
-                                       id="idItem" 
-                                       step="1" min="1" />   
-                            </mat-form-field>
-                        </div>
+            <mat-card-content class="card-content">
+                <div class="row">
+                    <div class="col-sm-4">
+                        ID Item:
+                        <mat-form-field>
+                            <input matInput [(ngModel)]="itemPesquisa" name="idItemPesquisa"
+                                placeholder="Ex.: 1500" id="idItem" step="1" min="1" />
+                        </mat-form-field>
                     </div>
-                </mat-card-content> 
-                    <mat-card-actions>
-                        <button color="primary" class="btnPrimary"
-                                mat-raised-button 
-                                value="Pesquisar ID" 
+                    <div class="col-sm-8" style="justify-content: baseline;">
+                        <mat-card-actions>
+                            <button color="primary" class="button-pesquisa" mat-raised-button value="Pesquisar ID"
                                 (click)="buscar(itemPesquisa)">Pesquisar</button>
-                        <button color="primary" class="btnPrimary"
-                                mat-raised-button 
-                                value="Todas" 
-                                (click)="buscar('0')">Mostrar todos</button>
-                    </mat-card-actions>
+                            <button color="primary" class="button-pesquisa" mat-raised-button value="Todas"
+                                (click)="buscar('0')">Mostrar
+                                todos</button>
+                        </mat-card-actions>
+                    </div>
+                </div>
+            </mat-card-content>
+
+
         </mat-card>
     </form>
 
