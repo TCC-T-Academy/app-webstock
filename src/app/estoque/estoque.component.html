@@ -35,12 +35,14 @@
     </mat-card>
   </form>
 </div>
+
+<div class="table" *ngIf="!showAll">
 <app-item [item]="estoque.item" *ngIf="!showAll"></app-item>
 
     
 <div *ngIf="!showAll">
   <h2 class="subtitle">Estoque</h2>
-  <mat-table [dataSource]="dataSource" matSort>
+  <mat-table [dataSource]="dataSource2" matSort>
 
     <!-- Progress Column -->
     <ng-container matColumnDef="idItem">
@@ -92,9 +94,9 @@
 
 
 <app-log [logsDataSource]="logsDataSource"  *ngIf="!showAll"></app-log>
+</div>
 
-
-<div *ngIf="showAll">
+<div *ngIf="showAll" class="table">
 <mat-accordion  *ngFor="let item of dataSource.data; index as i">
       <mat-expansion-panel (opened)="openClose(true,item)"
                            (closed)="openClose(false,item)">
