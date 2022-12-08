@@ -1,9 +1,10 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { IEstoque, INovaReserva, IReserva } from 'src/interfaces/interface';
 import { EstoqueService } from '../estoque.service';
 import { NotificationService } from '../notification.service';
+import { ReservaAtualizarComponent } from '../reserva-atualizar/reserva-atualizar.component';
 import { ReservaService } from '../reserva.service';
 import { ReservaDataSource } from './nova-reserva-datasource';
 
@@ -28,6 +29,8 @@ export class NovaReservaComponent implements OnInit {
     this.dataSource = new ReservaDataSource(service);  
 
   }
+  @Output ("escrever") escrever: EventEmitter<any> = new EventEmitter();
+
   ngOnInit(): void {}
 
   cadastrar(nReserva:INovaReserva){
@@ -90,5 +93,12 @@ export class NovaReservaComponent implements OnInit {
     })
       
     }
+
+
+    escreve(res:INovaReserva) {
+      this.editar = res;
+    }
+    @Input('leo')
+  editar: INovaReserva | undefined;
 
 }

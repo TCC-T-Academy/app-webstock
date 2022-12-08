@@ -73,7 +73,7 @@
 
 </mat-grid-tile>
 <mat-grid-tile>
-  <app-reserva-atualizar style="width: 80%; height: 80%;"></app-reserva-atualizar>
+  <app-reserva-atualizar style="width: 80%; height: 80%;" [editar] = "editar"></app-reserva-atualizar>
 </mat-grid-tile>
 
 </mat-grid-list>
@@ -110,8 +110,8 @@
         <!-- Finalizada Column -->
         <ng-container matColumnDef="finalizada">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Finalizada </mat-header-cell>
-          <mat-cell *matCellDef="let r" data-label="finalizada"> <mat-icon *ngIf="r.finalizada">done</mat-icon> 
-            <mat-icon *ngIf="!r.finalizada">watch_later</mat-icon>  </mat-cell>
+          <mat-cell *matCellDef="let r" data-label="finalizada"> <mat-icon *ngIf="r.finalizada" title="Finalizada">done</mat-icon> 
+            <mat-icon *ngIf="!r.finalizada" title="Não Finalizada">watch_later</mat-icon>  </mat-cell>
         </ng-container>
   
         <!-- Item Column -->
@@ -135,7 +135,7 @@
             <!-- Color Column -->
             <ng-container matColumnDef="editar">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Editar </mat-header-cell>
-                <mat-cell *matCellDef="let r" data-label="editar"> <abbr title="oi"><mat-icon *ngIf="!r.finalizada" (click)="dataSource.excluir(r.idReserva)">edit</mat-icon></abbr>
+                <mat-cell *matCellDef="let r" data-label="editar"> <mat-icon *ngIf="!r.finalizada" (click)="escreve(r)" title="Editar">edit</mat-icon>
                     <mat-icon *ngIf="r.finalizada" >edit</mat-icon></mat-cell>
                 
             </ng-container>
