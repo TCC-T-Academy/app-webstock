@@ -1,3 +1,4 @@
+import { NotificationService } from './../notification.service';
 import { GestaoUsuariosService } from './../gestao-usuarios.service';
 import { UsuariosDatasource } from './usuarios-datasource';
 import { MatSort } from '@angular/material/sort';
@@ -15,9 +16,11 @@ export class GestaoUsuariosComponent implements AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   usuarios: UsuariosDatasource;
 
-  displayedColumns = ['id', 'email', 'nome',  'perfil'];
+  displayedColumns = ['id', 'email', 'nome',  'role', 'editar'];
 
-  constructor(private service:GestaoUsuariosService){
+  constructor(
+    private service:GestaoUsuariosService,
+    private notifier: NotificationService){
     this.usuarios = new UsuariosDatasource(service);
   }
 

@@ -1,7 +1,6 @@
-
-<mat-card class="entityTitle">
+<header class="header">
   <h1 class="title">USUÁRIOS</h1>
-</mat-card>
+</header>
 
 <div class="formulario">
   <form #f="ngForm">
@@ -12,14 +11,9 @@
             <h4>Gestão de usuários</h4>
           </mat-card-title>
         </mat-card-header>
-              <!-- <mat-form-field>
-                <input matInput/>
-              </mat-form-field> -->
       </mat-card-content>
         <mat-card-actions class="button">
-          <!-- <button  color="primary" mat-raised-button value="Pesquisar ID" (click)="dataSource.consultarPrevisoesPorIdItem()">Pesquisar</button> -->
-          <!-- <button  color="primary" mat-raised-button value="Todas" (click)="usuarios.consultarUsuarios()">Mostrar todos</button> -->
-          <button  color="primary" style="background: #335E89;" mat-raised-button routerLink="../novousuario">Gerenciar usuários</button>
+          <button  color="primary" style="background: #335E89;" mat-raised-button routerLink="../novousuario">Criar novo usuário</button>
         </mat-card-actions>
     </mat-card>
   </form>
@@ -48,10 +42,18 @@
           <mat-cell *matCellDef="let u" data-label="ordem"> {{u.nome}} </mat-cell>
         </ng-container>
 
-        <!-- Perfil Column -->
-        <ng-container matColumnDef="perfil">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Perfil </mat-header-cell>
-          <mat-cell *matCellDef="let u" data-label="perfil"> {{u.role}} </mat-cell>
+        <!-- Role Column -->
+        <ng-container matColumnDef="role">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Role </mat-header-cell>
+          <mat-cell *matCellDef="let u" data-label="role"> {{u.role}} </mat-cell>
+        </ng-container>
+
+        <!-- Edição Column -->
+        <ng-container matColumnDef="editar">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Editar </mat-header-cell>
+          <mat-cell  *matCellDef="let u">
+            <a [routerLink]="['/editarusuario',u.email]"><mat-icon class="mat-18" fontIcon="edit" color="primary" style="color: #2C4971;"> edit </mat-icon></a>
+          </mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
