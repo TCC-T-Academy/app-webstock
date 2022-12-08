@@ -1,7 +1,11 @@
 
-<mat-card class="entityTitle">
+<!-- <mat-card class="entityTitle">
   <h1 class="title">USUÁRIOS</h1>
-</mat-card>
+</mat-card> -->
+
+<header class="header">
+  <h1 class="title">USUÁRIOS</h1>
+</header>
 
 <div class="formulario">
   <form #f="ngForm">
@@ -19,7 +23,7 @@
         <mat-card-actions class="button">
           <!-- <button  color="primary" mat-raised-button value="Pesquisar ID" (click)="dataSource.consultarPrevisoesPorIdItem()">Pesquisar</button> -->
           <!-- <button  color="primary" mat-raised-button value="Todas" (click)="usuarios.consultarUsuarios()">Mostrar todos</button> -->
-          <button  color="primary" style="background: #335E89;" mat-raised-button routerLink="../novousuario">Gerenciar usuários</button>
+          <button  color="primary" style="background: #335E89;" mat-raised-button routerLink="../novousuario">Criar novo usuário</button>
         </mat-card-actions>
     </mat-card>
   </form>
@@ -52,6 +56,22 @@
         <ng-container matColumnDef="perfil">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Perfil </mat-header-cell>
           <mat-cell *matCellDef="let u" data-label="perfil"> {{u.perfil}} </mat-cell>
+        </ng-container>
+
+        <!-- Edição Column -->
+        <ng-container matColumnDef="editar">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Editar </mat-header-cell>
+          <mat-cell  *matCellDef="let u">
+              <mat-icon class="mat-18" fontIcon="edit" color="primary" style="color: #2C4971;"> edit </mat-icon>
+          </mat-cell>
+        </ng-container>
+
+        <!-- Desativar Column -->
+        <ng-container matColumnDef="desativar">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Desativar </mat-header-cell>
+          <mat-cell  *matCellDef="let u">
+              <mat-icon class="mat-18" fontIcon="block" color="secondary"> block </mat-icon>
+          </mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

@@ -1,11 +1,18 @@
 <header class="header">
-  <h1 class="title">NOVO USUÁRIO</h1>
+  <h1 class="title">EDITAR USUÁRIO</h1>
 </header>
 
 <div class="container" style="width: 60%;">
   <div class="row">
     <div class="col">
-      <form #f="ngForm" (submit)="cadastrar(f.value)">
+      <form #f="ngForm" (submit)="salvar(f.value)">
+        <div class="row">
+          <div class="col mb-3">
+            <label for="id" class="form-label">ID:</label>
+            <input type="text" class="form-control" ngModel name="id" id="id" readonly/>
+          </div>
+
+        </div>
         <div class="row">
           <div class="col mb-3">
             <label for="nome" class="form-label">Nome:</label>
@@ -37,3 +44,4 @@
         </div>
       </form>
     </div>
+

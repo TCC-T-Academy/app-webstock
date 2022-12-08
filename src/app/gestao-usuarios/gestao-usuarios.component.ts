@@ -15,7 +15,7 @@ export class GestaoUsuariosComponent implements AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   usuarios: UsuariosDatasource;
 
-  displayedColumns = ['id', 'email', 'nome',  'perfil'];
+  displayedColumns = ['id', 'email', 'nome',  'perfil', 'editar', 'desativar'];
 
   constructor(private service:GestaoUsuariosService){
     this.usuarios = new UsuariosDatasource(service);

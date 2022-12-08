@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { IUsuario } from './../interfaces/interface';
+import { INovoUsuario, IUsuario } from './../interfaces/interface';
 import { Injectable } from '@angular/core';
 import { AuthService } from './login/auth.service';
 
@@ -24,6 +24,12 @@ export class GestaoUsuariosService {
 
   consultarUsuarios(){
     return this.http.get<[IUsuario]>("http://localhost:8081/usuarios", {
+      headers:this.auth.getHeaderWithToken()
+    });
+  }
+
+  cadastrarUsuario(novoUsuario: INovoUsuario){
+    return this.http.post<IUsuario>("http://localhost:8081/usuarios/novo", {
       headers:this.auth.getHeaderWithToken()
     });
   }
