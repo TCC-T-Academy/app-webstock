@@ -8,7 +8,6 @@ export class LogDatasource extends MatTableDataSource<ILog>{
 
     constructor(private service:LogService){
         super();
-        this.consultarLogsIdItem();
     }
 
     consultarLogsIdItem(){
