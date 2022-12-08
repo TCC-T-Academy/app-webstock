@@ -2,49 +2,41 @@
   <h1 class="title">NOVA RESERVA </h1>
  </header>
 
-<mat-grid-list cols="2" rowHeight="2:2">
-    <mat-grid-tile>
-
-
-        <div class="formulario" style="width: 80%; height: 80%;">
- 
-            <form #a="ngForm" (submit)="cadastrar(a.value)" class="formulario">
-                <mat-card>
-                    <mat-card-header>
-                        <mat-card-title>
-                            Cadastrar nova reserva
-                        </mat-card-title>
-                    </mat-card-header>
-                    <mat-card-content>
-
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <mat-form-field>
-                                    <input matInput 
-                                           ngModel name="idItem" 
-                                           placeholder="ID Item" 
-                                           id="idItem" step="1" min="1" />
-                                </mat-form-field>
-                            </div>            
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <mat-form-field>
-                                    <input matInput 
-                                            placeholder="Quantidade" 
-                                            ngModel name="quantidadeReserva"
-                                            id="idOrigem" 
-                                            [disabled]="disableCtrl"/>
-                                </mat-form-field>
-                            </div>            
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <mat-form-field>
-                                    <mat-label>Choose a date</mat-label>
-                                    <input matInput 
-                                           [matDatepicker]="picker"
-                                           ngModel name="dataPrevista">
+    <div class="formulario">
+      <form #a="ngForm" (submit)="cadastrar(a.value)" class="formulario">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Cadastrado de nova reserva</mat-card-title>
+          </mat-card-header>
+            <mat-card-content>
+              <div class="row">
+                <div class="col-sm-6">
+                  <mat-form-field>
+                    <input matInput 
+                      ngModel name="idItem" 
+                      placeholder="ID Item" 
+                      id="idItem" step="1" min="1" />
+                  </mat-form-field>
+                  </div>            
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <mat-form-field>
+                      <input matInput 
+                        placeholder="Quantidade" 
+                        ngModel name="quantidadePrevista"
+                        id="idOrigem" 
+                        [disabled]="disableCtrl"/>
+                    </mat-form-field>
+                  </div>            
+                </div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <mat-form-field>
+                      <mat-label>Escolha uma data</mat-label>
+                        <input matInput 
+                               [matDatepicker]="picker"
+                                ngModel name="dataPrevista">
                                     <mat-hint>MM/DD/YYYY</mat-hint>
                                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                                     <mat-datepicker #picker></mat-datepicker>
@@ -68,19 +60,11 @@
                     </mat-card-actions>
                 </mat-card>
             </form>
-
+              <app-reserva-atualizar></app-reserva-atualizar>
           </div>
 
-</mat-grid-tile>
-<mat-grid-tile>
-  <app-reserva-atualizar style="width: 80%; height: 80%;"></app-reserva-atualizar>
-</mat-grid-tile>
-
-</mat-grid-list>
-
-
-<div class="example-container mat-elevation-z8">
-
+<mat-card class="table">
+  <mat-card-content>
     <mat-table [dataSource]="dataSource" matSort>
     
         <!-- ID Column -->
@@ -132,28 +116,25 @@
           <mat-cell *matCellDef="let r" data-label="usuario"> {{r.usuario.nome}} </mat-cell>
         </ng-container>
   
-            <!-- Color Column -->
-            <ng-container matColumnDef="editar">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Editar </mat-header-cell>
-                <mat-cell *matCellDef="let r" data-label="editar"> <abbr title="oi"><mat-icon *ngIf="!r.finalizada" (click)="dataSource.excluir(r.idReserva)">edit</mat-icon></abbr>
-                    <mat-icon *ngIf="r.finalizada" >edit</mat-icon></mat-cell>
+        <!-- Editar Column -->
+        <ng-container matColumnDef="editar">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Editar </mat-header-cell>
+            <mat-cell *matCellDef="let r" data-label="editar"> <abbr title="oi"><mat-icon *ngIf="!r.finalizada" (click)="dataSource.excluir(r.idReserva)">edit</mat-icon></abbr>
+              <mat-icon *ngIf="r.finalizada" >edit</mat-icon></mat-cell>
+        </ng-container>
                 
-            </ng-container>
-            
-            <!-- Color Column -->
-           <ng-container matColumnDef="excluir">
-              <mat-header-cell *matHeaderCellDef mat-sort-header> Excluir </mat-header-cell>
-              <mat-cell *matCellDef="let r" data-label="excluir"> <button class="btn btn-outline-danger mt-3" (click)="dataSource.excluir(r.idReserva)" [disabled]="(r.finalizada==false)? false:true">Apagar</button></mat-cell>
-              
-            </ng-container>
-
-            
+        <!-- Excluir Column -->
+        <ng-container matColumnDef="excluir">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Excluir </mat-header-cell>
+            <mat-cell *matCellDef="let r" data-label="excluir"> <button class="btn btn-outline-danger mt-3" (click)="dataSource.excluir(r.idReserva)" [disabled]="(r.finalizada==false)? false:true">Apagar</button></mat-cell>
+        </ng-container>
   
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;">
-        </mat-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
     <mat-paginator #paginator
                    [pageSizeOptions]="[4, 8, 10]"
                    aria-label="Select page" showFirstLastButtons>
     </mat-paginator>
+  </mat-card-content>
+</mat-card>
