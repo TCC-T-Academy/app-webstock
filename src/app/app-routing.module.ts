@@ -18,7 +18,7 @@ import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.componen
 const routes: Routes = [
   {
     path:'',
-    component: HomeComponent,
+    component: EstoqueComponent,
     canActivate:[AuthUsuarioService]
   },
   {
