@@ -13,9 +13,9 @@
                 <div class="col-sm-6">
                   <mat-form-field>
                     <input matInput 
-                           ngModel name="idItem" 
-                           placeholder="ID Item" 
-                           id="idItem" step="1" min="1" />
+                      ngModel name="idItem" 
+                      placeholder="ID Item" 
+                      id="idItem" step="1" min="1" />
                   </mat-form-field>
                   </div>            
                 </div>
@@ -23,10 +23,10 @@
                   <div class="col-sm-6">
                     <mat-form-field>
                       <input matInput 
-                             placeholder="Quantidade" 
-                             ngModel name="quantidadePrevista"
-                             id="idOrigem" 
-                             [disabled]="disableCtrl"/>
+                        placeholder="Quantidade" 
+                        ngModel name="quantidadePrevista"
+                        id="idOrigem" 
+                        [disabled]="disableCtrl"/>
                     </mat-form-field>
                   </div>            
                 </div>
@@ -37,9 +37,9 @@
                         <input matInput 
                                [matDatepicker]="picker"
                                 ngModel name="dataPrevista">
-                                <mat-hint>MM/DD/YYYY</mat-hint>
-                                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                                <mat-datepicker #picker></mat-datepicker>
+                                    <mat-hint>MM/DD/YYYY</mat-hint>
+                                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
                       </mat-form-field>
                     </div>            
                   </div>
@@ -56,7 +56,7 @@
                   </div>
                   </mat-card-content>
                     <mat-card-actions>
-                      <button color="primary" class="btnPrimary" mat-raised-button>Salvar</button>
+                      <button color="primary" mat-raised-button>Salvar</button>
                     </mat-card-actions>
                 </mat-card>
             </form>
@@ -94,7 +94,8 @@
         <!-- Finalizada Column -->
         <ng-container matColumnDef="finalizada">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Finalizada </mat-header-cell>
-          <mat-cell *matCellDef="let r" data-label="finalizada"> {{r.finalizada}} </mat-cell>
+          <mat-cell *matCellDef="let r" data-label="finalizada"> <mat-icon *ngIf="r.finalizada">done</mat-icon> 
+            <mat-icon *ngIf="!r.finalizada">watch_later</mat-icon>  </mat-cell>
         </ng-container>
   
         <!-- Item Column -->
@@ -115,20 +116,21 @@
           <mat-cell *matCellDef="let r" data-label="usuario"> {{r.usuario.nome}} </mat-cell>
         </ng-container>
   
-        <!-- Color Column -->
+        <!-- Editar Column -->
+        <ng-container matColumnDef="editar">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Editar </mat-header-cell>
+            <mat-cell *matCellDef="let r" data-label="editar"> <abbr title="oi"><mat-icon *ngIf="!r.finalizada" (click)="dataSource.excluir(r.idReserva)">edit</mat-icon></abbr>
+              <mat-icon *ngIf="r.finalizada" >edit</mat-icon></mat-cell>
+        </ng-container>
+                
+        <!-- Excluir Column -->
         <ng-container matColumnDef="excluir">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Excluir </mat-header-cell>
-          <mat-cell *matCellDef="let r" data-label="excluir"> 
-            <button class="btn btn-outline-danger mt-3" 
-                    (click)="dataSource.excluir(r.idReserva)" 
-                    [disabled]="(r.finalizada==false)? false:true">Apagar
-            </button>
-          </mat-cell>
+            <mat-cell *matCellDef="let r" data-label="excluir"> <button class="btn btn-outline-danger mt-3" (click)="dataSource.excluir(r.idReserva)" [disabled]="(r.finalizada==false)? false:true">Apagar</button></mat-cell>
         </ng-container>
   
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;">
-        </mat-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
     <mat-paginator #paginator
                    [pageSizeOptions]="[4, 8, 10]"

@@ -53,7 +53,7 @@ img{
 
 /* INSIDE TOOLBAR LAYOUT */
 
-.link{
+/* .link{
     color: white;
     text-decoration: none;
     height: 5ex;
@@ -79,7 +79,36 @@ img{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     color: white;
     padding: 10px;
+} */
+
+.linkteste{
+    color: white;
+    text-decoration: none;
 }
+
+/* .linkteste:hover{
+    color: white;
+    text-decoration: none;
+} */
+
+.headbtn{
+    border-radius: 5px;
+    color: white !important
+}
+
+.headbtn:hover{
+    border-radius: 5px;
+    background-color: #335E89;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
+}
+.headbtn:focus{
+    border-radius: 5px;
+    background-color: #335E89;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+}
+
 
 /* TEXT */
 
