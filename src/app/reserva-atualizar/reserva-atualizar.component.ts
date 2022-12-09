@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { INovaPrevisao, INovaReserva } from 'src/interfaces/interface';
+import { Component, EventEmitter, Output, Input, SimpleChange } from '@angular/core';
+import { INovaReserva } from 'src/interfaces/interface';
 import { NovaReservaComponent } from '../nova-reserva/nova-reserva.component';
 import { ReservaService } from '../reserva.service';
 import { ReservaDataSource } from '../reserva/reserva-datasource';
@@ -12,6 +12,12 @@ import { ReservaDataSource } from '../reserva/reserva-datasource';
 export class ReservaAtualizarComponent {
 
   disableCtrl: boolean = false
+  idReserva = "";
+  idItem = "";
+  quantidadeReserva = "";
+  dataPrevista = new Date('null');
+  ordem = "";
+
 
   reserva:INovaReserva = {
     finalizada: false, quantidadeReserva: 0, dataPrevista: new Date(), ordem: "", idUsuario: 0, idItem: 0
@@ -19,7 +25,9 @@ export class ReservaAtualizarComponent {
   constructor(private service:ReservaService, private novaReservaC:NovaReservaComponent){
     this.dataSource = new ReservaDataSource(service);
   }
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.limpar();
+  }
 
   dataSource: ReservaDataSource;
   reservaId: number = 0;
@@ -46,5 +54,31 @@ export class ReservaAtualizarComponent {
 
   }
   @Output("consultar") consultar: EventEmitter<any> = new EventEmitter();
+
+
+
+  escreve() {
+    this.idReserva = this.expectedProp.obj.idReserva?.toString() || '';
+    this.idItem = this.expectedProp.obj.idItem.toString() || '';
+    this.quantidadeReserva = this.expectedProp.obj.quantidadeReserva.toString();
+    this.dataPrevista = new Date(this.expectedProp.obj.dataPrevista);
+    this.ordem = this.expectedProp.obj.ordem;
+
+  }
+  limpar() {
+    this.idReserva = "";
+    this.idItem = "";
+    this.quantidadeReserva = "";
+    this.dataPrevista = new Date('null');
+    this.ordem = "";
+  }
   
+  // @Output() editar = new EventEmitter<{editar: string}>
+
+    ngOnChanges() {
+
+      this.escreve();
+    }
+  @Input()
+  expectedProp!: { obj: INovaReserva; };
 }
