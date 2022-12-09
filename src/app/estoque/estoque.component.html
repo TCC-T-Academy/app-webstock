@@ -35,8 +35,10 @@
 </form>
 </div>
 
+<!-- PARTE MOSTRADA APENAS QUANDO BUSCADO POR ITEM (showAll = false) -->
 <div class="table" *ngIf="!showAll">
 <app-item [item]="estoque.item" *ngIf="!showAll"></app-item>
+
 <div *ngIf="!showAll">
 
 <mat-card class="table">
@@ -96,32 +98,37 @@
 </mat-card>
 </div>
 
-
 <app-log [logsDataSource]="logsDataSource"  *ngIf="!showAll"></app-log>
 </div>
 
-
+<!-- PARTE MOSTRADA APENAS QUANDO BUSCADO POR VARIOS (showAll = true) -->
 <mat-card class="table">
   <mat-card-content class="card-content">
-    <div *ngIf="showAll">
-  <mat-accordion  *ngFor="let item of dataSource.data; index as i">
+<div *ngIf="showAll" class="table">
+<mat-accordion  *ngFor="let item of dataSource.data; index as i" >
       <mat-expansion-panel (opened)="openClose(true,item)"
-                           (closed)="openClose(false,item)">
-        <mat-expansion-panel-header>
+                           (closed)="openClose(false,item)" >
+        <mat-expansion-panel-header >
           <mat-panel-title>
-            ID: {{item.item.idItem}} - {{item.item.familia}}
+            <div class="example-spacer">
+              <abbr title="Estoque em nivel crítco">
+                <mat-icon *ngIf="item.estoqueFuturo && item.estoqueFuturo > item.item.estoqueSeguranca && item.estoqueReal > item.item.estoqueSeguranca" class="icon-ok">done</mat-icon>
+                <mat-icon *ngIf="item.estoqueReal <= item.item.estoqueSeguranca" class="icon-critico">priority_high</mat-icon>
+                <mat-icon *ngIf="item.estoqueFuturo && item.estoqueFuturo<=item.item.estoqueSeguranca && item.estoqueReal > item.item.estoqueSeguranca" class="icon-warning">warning</mat-icon>
+              </abbr>
+            </div>
+            <div class="example-spacer">
+              ID: {{item.item.idItem}} - {{item.item.familia}}
+            </div>
+            <div class="example-spacer"></div>
           </mat-panel-title>
           <mat-panel-description>
-            <div class="example-spacer">
-              <abbr title="Estoque em nivel crítco"><mat-icon *ngIf="item.estoqueReal<=item.item.estoqueSeguranca" style="color: red ;">priority_high</mat-icon></abbr>
-              <mat-icon *ngIf="item.estoqueFuturo && item.estoqueFuturo<=item.item.estoqueSeguranca">warning</mat-icon>
-            </div>
             <div class="example-spacer">
               {{item.item.descricao}}
             </div>
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <mat-table [dataSource]="dataSource" matSort>
+        <mat-table [dataSource]="dataSource" matSort >
     
             <!-- Progress Column -->
             <ng-container matColumnDef="localizacao">

@@ -73,6 +73,7 @@ constructor(private service:EstoqueService, private logService:LogService){
   } 
 
   consultarPorIdItem(idItem?:any){
+    this.dataSource.data = [];
 
     if(idItem){
       this.idItem = idItem.toString();
