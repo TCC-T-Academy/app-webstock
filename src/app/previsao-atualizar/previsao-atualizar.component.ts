@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { INovaPrevisao } from 'src/interfaces/interface';
 import { NovaPrevisaoComponent } from '../nova-previsao/nova-previsao.component';
 import { PrevisaoService } from '../previsao.service';
@@ -12,6 +12,12 @@ import { PrevisaoDataSource } from '../previsao/previsao-datasource';
 export class PrevisaoAtualizarComponent {
 
   disableCtrl: boolean = false
+  idPrevisao = "";
+  idItem = "";
+  quantidadePrevista = "";
+  dataPrevista = new Date('null');
+  ordem = "";
+
 
   prev:INovaPrevisao = {
     quantidadePrevista: 0, dataPrevista: new Date(), ordem: "", finalizada: false,
@@ -20,12 +26,13 @@ export class PrevisaoAtualizarComponent {
   constructor(private service:PrevisaoService, private novaPrevisaoC:NovaPrevisaoComponent){
     this.dataSource = new PrevisaoDataSource(service);
   }
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.limpar();
+  }
 
   dataSource: PrevisaoDataSource;
   previsao: number | undefined;
   altera(nPrev:INovaPrevisao){
-    console.log(nPrev);
     this.prev.ordem = nPrev.ordem;
     this.prev.quantidadePrevista = nPrev.quantidadePrevista;
     this.prev.idItem = nPrev.idItem;
@@ -50,4 +57,26 @@ export class PrevisaoAtualizarComponent {
   }
   @Output("consultar") consultar: EventEmitter<any> = new EventEmitter();
   
+  escreve() {
+    this.idPrevisao = this.expectedProp.obj.idPrevisao?.toString() || '';
+    this.idItem = this.expectedProp.obj.idItem.toString() || '';
+    this.quantidadePrevista = this.expectedProp.obj.quantidadePrevista.toString();
+    this.dataPrevista = new Date(this.expectedProp.obj.dataPrevista);
+    this.ordem = this.expectedProp.obj.ordem;
+
+  }
+  limpar() {
+    this.idPrevisao = "";
+    this.idItem = "";
+    this.quantidadePrevista = "";
+    this.dataPrevista = new Date('null');
+    this.ordem = "";
+  }
+
+  ngOnChanges() {
+
+    this.escreve();
+  }
+@Input()
+expectedProp!: { obj: INovaPrevisao; };
 }

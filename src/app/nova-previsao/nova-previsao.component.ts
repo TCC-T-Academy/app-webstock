@@ -35,7 +35,8 @@ export class NovaPrevisaoComponent implements OnInit {
     this.prev.ordem = nPrev.ordem;
     this.prev.quantidadePrevista = nPrev.quantidadePrevista;
     this.prev.idItem = nPrev.idItem;
-    this.prev.idUsuario = 1;
+    let usuario = JSON.parse(localStorage.getItem("usuarioLogado")!);
+    this.prev.idUsuario = usuario.idUsuario;
     this.prev.dataPrevista = nPrev.dataPrevista;
     this.prev.finalizada = false;
     this.enviar(this.prev);
@@ -55,6 +56,7 @@ export class NovaPrevisaoComponent implements OnInit {
                         this.notifier.showSuccess("Previsao criada com sucesso!")
                       }
                     }
+                    this.dataSource.consultarPrevisoes();
                     })
 
     }
@@ -64,12 +66,23 @@ export class NovaPrevisaoComponent implements OnInit {
     @ViewChild(MatSort) sort!: MatSort;
     dataSource: PrevisaoDataSource;
 
-    displayedColumns = ['id', 'data', 'ordem',  'quantidade', 'finalizada', 'item', 'idItem', 'usuario', 'excluir'];
+    displayedColumns = ['id', 'data', 'ordem',  'quantidade', 'finalizada', 'item', 'idItem', 'usuario', 'editar', 'excluir'];
 
     ngAfterViewInit(): void {
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;    
     }
-    
+    editar:INovaPrevisao = {
+      finalizada: false, quantidadePrevista: 0, dataPrevista: new Date(), ordem: "", idUsuario: 0, idItem: 0
+    };
+    escrever(r:INovaPrevisao, idItem:number) {
+
+      this.editar = r;
+      this.editar.idItem = idItem;
+      //this.teste.idItem = parseInt(item);
+      this.book = { obj: this.editar  }
+      }
+
+  book = { obj: this.editar }
 
   }

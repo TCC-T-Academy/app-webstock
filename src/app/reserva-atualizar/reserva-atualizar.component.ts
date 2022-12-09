@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { Component, EventEmitter, Output, Input, SimpleChange } from '@angular/core';
 import { INovaReserva } from 'src/interfaces/interface';
 import { NovaReservaComponent } from '../nova-reserva/nova-reserva.component';
 import { ReservaService } from '../reserva.service';
@@ -26,7 +26,7 @@ export class ReservaAtualizarComponent {
     this.dataSource = new ReservaDataSource(service);
   }
   ngOnInit() {
-    // this.escreve(this.editar);
+    this.limpar();
   }
 
   dataSource: ReservaDataSource;
@@ -55,17 +55,15 @@ export class ReservaAtualizarComponent {
   }
   @Output("consultar") consultar: EventEmitter<any> = new EventEmitter();
 
-  @Input() editar:any;
 
-  escreve(editar:INovaReserva) {
-    
-    this.idReserva = editar.idReserva!.toString();
-    this.idItem = editar.idItem.toString();
-    this.quantidadeReserva = editar.quantidadeReserva.toString();
-    this.dataPrevista = new Date(editar.dataPrevista);
-    this.ordem = editar.ordem;
 
-    console.log("777");
+  escreve() {
+    this.idReserva = this.expectedProp.obj.idReserva?.toString() || '';
+    this.idItem = this.expectedProp.obj.idItem.toString() || '';
+    this.quantidadeReserva = this.expectedProp.obj.quantidadeReserva.toString();
+    this.dataPrevista = new Date(this.expectedProp.obj.dataPrevista);
+    this.ordem = this.expectedProp.obj.ordem;
+
   }
   limpar() {
     this.idReserva = "";
@@ -73,6 +71,14 @@ export class ReservaAtualizarComponent {
     this.quantidadeReserva = "";
     this.dataPrevista = new Date('null');
     this.ordem = "";
-    console.log("oi");
   }
+  
+  // @Output() editar = new EventEmitter<{editar: string}>
+
+    ngOnChanges() {
+
+      this.escreve();
+    }
+  @Input()
+  expectedProp!: { obj: INovaReserva; };
 }

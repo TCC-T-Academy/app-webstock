@@ -73,7 +73,7 @@
 
 </mat-grid-tile>
 <mat-grid-tile>
-  <app-reserva-atualizar style="width: 80%; height: 80%;" [editar] = "editar"></app-reserva-atualizar>
+  <app-reserva-atualizar style="width: 80%; height: 80%;" [expectedProp]="book"></app-reserva-atualizar>
 </mat-grid-tile>
 
 </mat-grid-list>
@@ -135,7 +135,7 @@
             <!-- Color Column -->
             <ng-container matColumnDef="editar">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Editar </mat-header-cell>
-                <mat-cell *matCellDef="let r" data-label="editar"> <mat-icon *ngIf="!r.finalizada" (click)="escreve(r)" title="Editar">edit</mat-icon>
+                <mat-cell *matCellDef="let r" data-label="editar"> <mat-icon *ngIf="!r.finalizada" (click)="escrever(r, r.item.idItem)" title="Editar">edit</mat-icon>
                     <mat-icon *ngIf="r.finalizada" >edit</mat-icon></mat-cell>
                 
             </ng-container>
