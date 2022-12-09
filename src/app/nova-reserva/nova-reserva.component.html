@@ -60,11 +60,12 @@
                     </mat-card-actions>
                 </mat-card>
             </form>
-              <app-reserva-atualizar></app-reserva-atualizar>
+              <app-reserva-atualizar [expectedProp]="book"></app-reserva-atualizar>
           </div>
 
-<mat-card class="table">
-  <mat-card-content>
+
+<div class="example-container mat-elevation-z8">
+
     <mat-table [dataSource]="dataSource" matSort>
     
         <!-- ID Column -->
@@ -94,8 +95,8 @@
         <!-- Finalizada Column -->
         <ng-container matColumnDef="finalizada">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Finalizada </mat-header-cell>
-          <mat-cell *matCellDef="let r" data-label="finalizada"> <mat-icon *ngIf="r.finalizada">done</mat-icon> 
-            <mat-icon *ngIf="!r.finalizada">watch_later</mat-icon>  </mat-cell>
+          <mat-cell *matCellDef="let r" data-label="finalizada"> <mat-icon *ngIf="r.finalizada" title="Finalizada">done</mat-icon> 
+            <mat-icon *ngIf="!r.finalizada" title="Não Finalizada">watch_later</mat-icon>  </mat-cell>
         </ng-container>
   
         <!-- Item Column -->
@@ -116,12 +117,13 @@
           <mat-cell *matCellDef="let r" data-label="usuario"> {{r.usuario.nome}} </mat-cell>
         </ng-container>
   
-        <!-- Editar Column -->
-        <ng-container matColumnDef="editar">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Editar </mat-header-cell>
-            <mat-cell *matCellDef="let r" data-label="editar"> <abbr title="oi"><mat-icon *ngIf="!r.finalizada" (click)="dataSource.excluir(r.idReserva)">edit</mat-icon></abbr>
-              <mat-icon *ngIf="r.finalizada" >edit</mat-icon></mat-cell>
-        </ng-container>
+            <!-- Color Column -->
+            <ng-container matColumnDef="editar">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Editar </mat-header-cell>
+                <mat-cell *matCellDef="let r" data-label="editar"> <mat-icon *ngIf="!r.finalizada" (click)="escrever(r, r.item.idItem)" title="Editar">edit</mat-icon>
+                    <mat-icon *ngIf="r.finalizada" >edit</mat-icon></mat-cell>
+                
+            </ng-container>
                 
         <!-- Excluir Column -->
         <ng-container matColumnDef="excluir">
@@ -131,10 +133,8 @@
   
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+
     <mat-paginator #paginator
                    [pageSizeOptions]="[4, 8, 10]"
                    aria-label="Select page" showFirstLastButtons>
     </mat-paginator>
-  </mat-card-content>
-</mat-card>

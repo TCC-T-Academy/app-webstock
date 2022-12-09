@@ -11,7 +11,9 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <mat-form-field>
-                            <input matInput 
+                            <input matInput
+                                   type="text" 
+                                   [(ngModel)]="idReserva"
                                    ngModel name="idReserva" 
                                    placeholder="ID Reserva" 
                                    id="idReserva" step="1" min="1" />
@@ -22,6 +24,7 @@
                     <div class="col-sm-6">
                         <mat-form-field>
                             <input matInput 
+                                   [(ngModel)]="idItem"
                                    ngModel name="idItem" 
                                    placeholder="ID Item" 
                                    id="idItem" step="1" min="1" />
@@ -32,6 +35,7 @@
                     <div class="col-sm-6">
                         <mat-form-field>
                             <input matInput 
+                                    [(ngModel)]="quantidadeReserva"
                                     placeholder="Quantidade" 
                                     ngModel name="quantidadeReserva"
                                     id="idOrigem" 
@@ -44,6 +48,7 @@
                         <mat-form-field>
                             <mat-label>Escolha uma data</mat-label>
                             <input matInput 
+                                   [(ngModel)]="dataPrevista"
                                    [matDatepicker]="picker"
                                    ngModel name="dataPrevista">
                             <mat-hint>MM/DD/YYYY</mat-hint>
@@ -56,6 +61,7 @@
                     <div class="col-sm-6">
                         <mat-form-field>
                             <input matInput 
+                                    [(ngModel)]="ordem"
                                     placeholder="Ordem" 
                                     ngModel name="ordem"
                                     id="ordem" 
@@ -65,8 +71,9 @@
                 </div>
             </mat-card-content>
                 <mat-card-actions>
-                    <button color="primary" class="btnPrimary" mat-raised-button>Salvar</button>
+                    <button color="primary" mat-raised-button>Salvar</button>
+                    <mat-icon (click)="limpar()" title="Limpar Campos">clear</mat-icon>
                 </mat-card-actions>
-        </mat-card>
-    </form>
-  </div>
+            </mat-card>
+        </form>
+</div>
