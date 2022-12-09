@@ -1,6 +1,9 @@
-<h2 class="subtitle">Movimentações Futuras</h2>
 
-<mat-table [dataSource]="logsDataSource" matSort>
+
+<mat-card class="table">
+  <mat-card-content class="card-content">
+    <h2 class="subtitle">Movimentações Futuras</h2>
+  <mat-table [dataSource]="logsDataSource" matSort class="table">
 
   <!-- Progress Column -->
   <ng-container matColumnDef="id">
@@ -35,3 +38,5 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;">
     </mat-row>
   </mat-table>
+</mat-card-content>
+</mat-card>

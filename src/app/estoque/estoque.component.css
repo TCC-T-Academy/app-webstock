@@ -6,20 +6,18 @@
 }
 
 button{
-  margin: 10px;
+  margin: 5px;
 }
 
-mat-card-header,
-mat-form-field{
-  margin-left: 30%;
-  margin-top: 10px;
+.button-pesquisa{
+  margin-top: 25px;
+  background-color: #2C4971 !important;
 }
 
-mat-card-title{
-  margin-left:40%;
+.title_center {
   display: flex;
   text-align: center;
-  
+
 }
 
 .subtitle{
