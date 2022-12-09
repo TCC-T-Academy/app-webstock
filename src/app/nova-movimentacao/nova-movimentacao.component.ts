@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { INovaMovimentacao } from 'src/interfaces/interface';
 import { MovimentacaoService } from '../movimentacao.service';
+import { NotificationService } from '../notification.service';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class NovaMovimentacaoComponent implements OnInit{
   
 
   
-  constructor(private service:MovimentacaoService){
+  constructor(private service:MovimentacaoService, private notifier:NotificationService){
     this.inOut = ""
   }
 
@@ -37,16 +38,22 @@ export class NovaMovimentacaoComponent implements OnInit{
       
       this.service.entradaItem(mov)
       .subscribe(data => {
-                    this.consultar.emit();
+                    this.consultar.emit("");
                     this.ngOnInit();
-                    console.log(data)})
+                    if(data.idMovimentacao){
+                      this.notifier.showSuccess(`${this.tipos[0]} efetuada com sucesso!`)
+                    }
+                    console.log(data)});
 
     }else if(this.inOut == this.tipos[1]){
       
       this.service.saidaItem(mov).subscribe(data => {
-          this.consultar.emit();
+          this.consultar.emit("");
           this.ngOnInit();
-          console.log(data)
+          if(data.idMovimentacao){
+            this.notifier.showSuccess(`${this.tipos[1]} efetuada com sucesso!`)
+          }
+          console.log(data);
       })
     }
 
@@ -54,8 +61,7 @@ export class NovaMovimentacaoComponent implements OnInit{
 
 
   verSelecao(sel:string){
-    this.orgDest = (sel == this.tipos[1])? "Origem:" : "Destino:";
-    //this.disableCtrl = (sel == this.tipos[2])? true : false;
+    this.orgDest = (sel == this.tipos[0])? "Origem:" : "Destino:";
   }
 
   buscar(item:string){

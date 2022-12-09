@@ -1,16 +1,41 @@
-import { Component } from '@angular/core';
+import { ContentObserver } from '@angular/cdk/observers';
+import { AfterViewInit, Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { MatExpansionPanel } from '@angular/material/expansion';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { filter, Observable, Subject } from 'rxjs';
 import { IEstoque, IItem, ILog } from 'src/interfaces/interface';
 import { EstoqueService } from '../estoque.service';
 import { LogService } from '../log.service';
+import { LogDatasource } from '../log/log-datasource';
+import { LogComponent } from '../log/log.component';
+import { ReservaDataSource } from '../reserva/reserva-datasource';
+import { EstoqueDatasource } from './estoque-datasource';
 
 @Component({
   selector: 'app-estoque',
   templateUrl: './estoque.component.html',
   styleUrls: ['./estoque.component.css']
 })
-export class EstoqueComponent {
+export class EstoqueComponent{
+  @ViewChild(MatExpansionPanel) expansion!: MatExpansionPanel;
+  @ViewChild(LogComponent) logComponent!: LogComponent;
+  changingValue :  Subject<IEstoque> = new Subject();
 
-  idItem: number = 0
+  headerName:string = ""
+
+  dataSource: EstoqueDatasource;
+  dataSource2: EstoqueDatasource;
+  logsDataSource: LogDatasource;
+
+  panelOpenState:Boolean = false;
+  filter: string = "";
+
+  displayedColumns1 = ['idItem','localizacao', 'estoqueReal', 'estoqueSeguranca' , 'dataFutura', 'estoqueFuturo'];
+  displayedColumns = ['localizacao', 'estoqueReal', 'estoqueSeguranca' , 'dataFutura', 'estoqueFuturo', 'editar'];
+
+  idItem: string = ""
+  showAll: Boolean = true;
 
   estoque: IEstoque = {
     idEstoque: 0,
@@ -37,29 +62,61 @@ export class EstoqueComponent {
     }
   ]
 
-  itemEstoque: IItem = this.estoque.item;
-
-
-constructor(private service:EstoqueService, private service2:LogService){
+constructor(private service:EstoqueService, private logService:LogService){
+  this.dataSource = new EstoqueDatasource(service);
+  this.dataSource2 = new EstoqueDatasource(service); 
+  this.logsDataSource = new LogDatasource(logService);
+  this.consultarTodos();
 }
+  ngAfterViewInit(): void {
+    
+  } 
 
+  consultarPorIdItem(idItem?:any){
+    this.dataSource.data = [];
 
-  ngOnInit(): void {
+    if(idItem){
+      this.idItem = idItem.toString();
+    }    
+
+    //Apenas por que funciona
+    setTimeout(() => {
+      this.dataSource2.idItem = this.idItem;
+      this.dataSource2.consultarEstoquePorIdItem();      
+      this.logsDataSource.idItem = this.idItem;
+      this.logsDataSource.consultarLogsIdItem();
+    },300)    
+    
+
+    //Pega o estoque apenas para passar para o componente item
+    this.service.consultarEstoquePorIdItem(parseFloat(this.idItem)).subscribe({
+        next: (res) => {this.estoque = res;},
+        complete: () => {this.showAll = false;}
+      });           
   }
 
-  chamarFuncoes(){
-    this.consultarLogsPorIdItem(),
-    this.consultarEstoquePorIdItem()
+  consultarTodos(){
+    this.dataSource.consultarEstoque();
+    this.showAll = true;
+    this.idItem = "";
+  }
+
+  consultarEstoqueBaixo(){
+    this.dataSource.consultarEstoqueBaixo();
+    this.showAll = true;
+    this.idItem = "";
   }
 
 
-  consultarLogsPorIdItem(){
-    this.service2.consultarLogsPorIdItem(this.idItem).subscribe(data =>this.logs = data)
-  }
+  openClose(state:Boolean,estoque:IEstoque):Boolean{    
+    this.panelOpenState = state;
+    if(this.panelOpenState){
+      this.filter = (estoque.idEstoque) ? `${estoque.localizacao}` : "" ;
+      this.dataSource.filter = this.filter;
+      console.log(this.filter);
+    }
 
-consultarEstoquePorIdItem(){
-   this.service.consultarEstoquePorIdItem(this.idItem).subscribe(data =>this.estoque = data),
-   this.service.consultarEstoquePorIdItem(this.idItem).subscribe(data =>this.estoque.item = data.item)
-}
+    return this.panelOpenState;
+  }
 
 }

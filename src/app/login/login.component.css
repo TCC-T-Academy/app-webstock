@@ -1,0 +1,57 @@
+.principal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 83vh;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.formulario-login {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.form-field {
+  width: 100%;
+}
+
+img {
+  width: 90px;
+  height: 90px;
+}
+
+mat-card {
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #97B0C6;
+  border-style: solid;
+  border-color: #335E89 20px;
+  border-radius: 20px;
+}
+
+button {
+  width: 100%;
+}
+
+p {
+  text-align: center;
+  padding-top: 5px;
+  margin: 5px 0 0 0;
+
+}
+
+a {
+  text-decoration: none;
+  color: #335E89;
+  font-size: 14px;
+}
+

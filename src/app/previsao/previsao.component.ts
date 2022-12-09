@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { PrevisaoService } from '../previsao.service';
-import { IPrevisao } from 'src/interfaces/interface';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { PrevisaoDataSource } from './previsao-datasource';
 
 @Component({
   selector: 'app-previsao',
@@ -8,47 +10,20 @@ import { IPrevisao } from 'src/interfaces/interface';
   styleUrls: ['./previsao.component.css']
 })
 
-export class PrevisaoComponent implements OnInit {
+export class PrevisaoComponent implements AfterViewInit {
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+  dataSource: PrevisaoDataSource;
 
-  idItem: string = ""
-
-  previsoes:IPrevisao [] = [
-    {
-      idPrevisao: 0,
-      dataPrevista: new Date(),
-      ordem: "",
-      quantidadePrevista: 0,
-      finalizada: false,
-      item: {
-        descricao:"",
-        estoqueSeguranca:0,
-        familia:"",
-        grupo:"",
-        unidade:""
-      },
-      usuario: {
-        email:"",
-        perfil:"",
-        senha:"",
-        nome:""
-      }
-    }
-  ]
+  displayedColumns = ['id', 'data', 'ordem',  'quantidade', 'finalizada', 'item', 'idItem', 'usuario'];
 
   constructor(private service:PrevisaoService){
-      
+    this.dataSource = new PrevisaoDataSource(service);
   }
 
-  ngOnInit(): void {
-    this.service.consultarPrevisoes().subscribe(data => this.previsoes = data)
-  }
-
-  consultarPrevisoes(){
-    this.service.consultarPrevisoes().subscribe(data =>this.previsoes = data)
-  }
-
-  consultarPrevisoesPorIdItem(){
-    this.service.consultarPrevisoesPorIdItem(parseFloat(this.idItem)).subscribe(data =>this.previsoes = data)
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;    
   }
 }
 

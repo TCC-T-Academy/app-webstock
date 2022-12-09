@@ -1,43 +1,29 @@
+/* CSS REFERENTE FORMULÁRIO DE PESQUISA DE NOVA-MOVIMENTAÇÃO */
+  .formulario{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: grid;
+    justify-content: center;
+    align-items: baseline;
+    width: 100%;
+  }
 
-.btn-outline-primary{
-    
-    margin-left: 280px;
-    color: black;
-    background-color: #93b7c9;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
-}
+  button{
+    margin: 5px;
+  }
 
-.btn-outline-secondary{
+  .button-pesquisa{
+    margin-top: 25px;
+    background-color: #2C4971 !important;
+  }
 
-    
-    margin-left: 280px;
-    color: black;
-    background-color: #93b7c9;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
+  .title_center {
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: top; /* align vertical */
+    background-color: #2C4971;
+    border-radius: 3px;
+    color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
 
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-input::placeholder {
-    color: #505050;;
-    font-size: small;
-}
-
-#idItem,
-#idOrigem,
-#idQtd
-{
-
-    text-align: center;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    background: #93b7c9;
-    color: #505050;
-    border-radius: 10px;
-}

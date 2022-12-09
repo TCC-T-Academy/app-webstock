@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ILog } from 'src/interfaces/interface';
+import { AuthService } from './login/auth.service';
 
 
 @Injectable({
@@ -19,10 +20,15 @@ export class LogService {
     }
   ]
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private auth: AuthService) { }
 
   consultarLogsPorIdItem(idItem: number){
-    return this.http.get<[ILog]>(`http://localhost:8081/log/${idItem}`);
+    if(isNaN(idItem)){
+      throw Error("ID Inválido!")
+    }
+    return this.http.get<[ILog]>(`http://localhost:8081/log/${idItem}`, {
+      headers: this.auth.getHeaderWithToken()
+  });
   }
 
 }

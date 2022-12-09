@@ -1,28 +1,5 @@
-<!-- !!SIDEBAR COMENTADO POIS POR ENQUANTO VAMOS DEIXAR FIXO!! -->
-
-<!-- <div class="sidebar-opener" (click)="sidebarShow = !sidebarShow">
-    Click me to open/close the sidebar
-</div> -->
-
-<div class="sidebar-slider" [class.sidebar-slide-in]="sidebarShow">
-  <!-- <div
-      class="sidebar-close"
-      (click)="sidebarShow = !sidebarShow"
-  >
-  X    
-  </div> -->
-
-    <div class="sidebar-content">
-      <h2 class="title">Webstock</h2>
-      <p class="paragraph">O controle do seu estoque em poucos cliques</p>
-      <div class="link">Início</div>
-      <a class="link" routerLink="estoque">Estoque</a>
-      <a class="link" routerLink="movimentacoes">Movimentação</a>
-      <a class="link" routerLink="reservas">Reserva</a>
-      <a class="link" routerLink="previsoes">Previsão</a>
-    </div>
-</div>
-
-<div>
-    <router-outlet></router-outlet>
-</div> 
+  <app-header></app-header>
+  <div style="min-height: 85vh;">
+  <router-outlet (activate)="onOutletLoaded($event)"></router-outlet>  
+  </div>
+  <app-footer fxFlexOffset="0px"></app-footer>

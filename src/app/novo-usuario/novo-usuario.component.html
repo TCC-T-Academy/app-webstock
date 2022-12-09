@@ -1,0 +1,53 @@
+<header class="header">
+  <h1 class="title">NOVO USUÁRIO </h1>
+</header>
+<div class="formulario">
+  <form #f="ngForm" (submit)="cadastrar(f.value)" class="formulario">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title> Cadastro de novo usuário</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field>
+              <mat-label>Nome:</mat-label>
+              <input matInput ngModel name="nome" placeholder="Nome" id="nome" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field>
+              <mat-label>E-mail:</mat-label>
+              <input matInput placeholder="nome@email.com" ngModel name="email" id="email" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field>
+              <mat-label>Role:</mat-label>
+              <mat-select [(ngModel)]="role" name="role">
+                <mat-option value="ROLE_ADMIN">ROLE_ADMIN</mat-option>
+                <mat-option value="ROLE_USUARIO">ROLE_USUARIO</mat-option>
+                <mat-option value="ROLE_GERENTE">ROLE_GERENTE</mat-option>
+                <mat-option value="ROLE_DESABILITADO">ROLE_DESABILITADO</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field>
+              <input type="password" matInput placeholder="******" ngModel name="senha" id="senha" required />
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button color="primary" mat-raised-button>Salvar</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

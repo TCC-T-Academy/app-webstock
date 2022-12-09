@@ -1,0 +1,11 @@
+.formulario{
+  margin-bottom: 10px;
+  margin-top: 10px;
+  display:flex;
+  justify-content: space-evenly;
+  align-items: baseline;;    
+}
+
+button{
+  margin: 10px;
+}

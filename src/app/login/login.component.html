@@ -1,0 +1,30 @@
+<div class="principal">
+  <div class="conteudo">
+    <div class="logo">
+      <div class="example-spacer"></div>
+      <img src="..\assets\logo-webstock.svg" alt="Logotipo WebStock">
+      <div class="example-spacer"></div>
+    </div>
+    <mat-card>
+      <mat-card-content>
+        <form #f="ngForm" class="formulario-login" (submit)="fazerLogin(f.value)">
+          <mat-form-field class="form-field">
+            <mat-label>E-mail</mat-label>
+            <input type="email" 
+                   ngModel name="email" 
+                   matInput
+                   placeholder="Ex. nome@email.com">
+          </mat-form-field>
+          <mat-form-field class="form-field">
+            <mat-label>Senha</mat-label>
+            <input type="password" 
+                   ngModel name="senha" 
+                   matInput
+                   placeholder="********">
+          </mat-form-field>
+          <button mat-raised-button color="primary" class="btnPrimary">LOGIN</button>
+          </form> 
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

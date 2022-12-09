@@ -1,6 +1,9 @@
-import { Component, Input } from '@angular/core';
-import { ILog } from 'src/interfaces/interface';
+import { InvokeFunctionExpr } from '@angular/compiler';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Subject } from 'rxjs';
+import { IEstoque, ILog } from 'src/interfaces/interface';
 import { LogService } from '../log.service';
+import { LogDatasource } from './log-datasource';
 
 @Component({
   selector: 'app-log',
@@ -8,35 +11,16 @@ import { LogService } from '../log.service';
   styleUrls: ['./log.component.css']
 })
 export class LogComponent {
+  @Input() logsDataSource:LogDatasource;
 
-  @Input() logs: any;
-
-
-  /*logs:ILog [] = [
-    {
-      idItem: 0,
-      tipoMovimentacao: "",
-      origemDestino: "",
-      data: new Date(),
-      quantidade: 0,
-      estoqueMomento: 0
-    }
-  ]*/
+  displayedColumns = ['id','tipoMovimentacao', 'origemDestino', 'qtd', 'data',  'estoqueMomento'];
 
   constructor(private service:LogService){
+    this.logsDataSource = new LogDatasource(service);
   }
-  /*ngOnChanges(changes: SimpleChanges): void {
-    console.warn(this.iditem)
-    this.consultarLogsPorIdItem()
-  }
-
-  ngOnInit(): void {
-    console.warn(this.iditem)
-    this.consultarLogsPorIdItem()
-  }
-
-  consultarLogsPorIdItem(){
-    this.service.consultarLogsPorIdItem(this.iditem).subscribe(data =>this.logs = data)
-  }*/
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   console.warn(this.iditem)
+  //   this.consultarLogsPorIdItem()
+  // }
 
 }

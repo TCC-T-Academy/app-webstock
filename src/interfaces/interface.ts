@@ -10,17 +10,26 @@ export interface IItem{
 export interface IEstoque{
     idEstoque?: number,
     estoqueReal: number,
-    localizacao: String,
-    //estoqueFuturo?: number, 
+    localizacao: string,
+    estoqueFuturo?: number,
+    dataFutura?: Date, 
     item: IItem
 }
 
-export interface IUsuario{
+export interface IUsuarioNovo{
     idUsuario?: number,
-    email: string,
     nome: string,
-    perfil: string,
-    senha: string
+    senha: string,
+    email: string,
+    role: string 
+}
+
+
+export interface IUsuarioPublico{
+    idUsuario?: number,
+    nome: string,
+    email: string,
+    role: string
 }
 
 export interface IMovimentacao{
@@ -31,7 +40,7 @@ export interface IMovimentacao{
     tipo: string,
     item: IItem,
     estoque: IEstoque,
-    usuario: IUsuario
+    usuario: IUsuarioPublico
 }
 
 export interface INovaMovimentacao{
@@ -48,7 +57,17 @@ export interface IReserva{
     quantidadeReserva: number,
     finalizada: boolean,
     item: IItem,
-    usuario: IUsuario
+    usuario: IUsuarioPublico
+}
+
+export interface INovaReserva{
+    idReserva?: number,
+    finalizada: boolean,
+    quantidadeReserva: number,
+    dataPrevista: Date,
+    ordem: string,
+    idUsuario: number,
+    idItem: number,
 }
 
 export interface IPrevisao{
@@ -58,7 +77,17 @@ export interface IPrevisao{
     quantidadePrevista: number,
     finalizada: boolean,
     item: IItem,
-    usuario: IUsuario
+    usuario: IUsuarioPublico
+}
+
+export interface INovaPrevisao{
+    idPrevisao?: number,
+    ordem: string,
+    quantidadePrevista: number,
+    idItem: number,
+    idUsuario: number,
+    dataPrevista: Date,
+    finalizada: boolean,
 }
 
 export interface ILog{
@@ -69,3 +98,15 @@ export interface ILog{
     quantidade: number,
     estoqueMomento: number
 }
+
+export interface IError{
+    error:string,
+    message:string,
+    path:string
+}
+
+export interface ILoginError{
+    error:string,
+    error_description:string
+}
+

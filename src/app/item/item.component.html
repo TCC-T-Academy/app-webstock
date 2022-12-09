@@ -1,22 +1,42 @@
+
+<mat-card class="table">
+    <mat-card-content class="card-content">
 <h2 class="subtitle">Detalhes Item</h2>
 
-<table class="styled-table">
-    <thead>
-        <tr>
-            <th>DESCRIÇÃO</th>
-            <th>GRUPO</th>
-            <th>FAMÍLIA</th>
-            <th>UNIDADE</th>
-            <th>ESTOQUE SEGURANÇA</th>
-        </tr>
-    </thead>
- <tbody>
-        <tr class="active-row">
-            <td>{{item.descricao}}</td>
-            <td>{{item.grupo}}</td>
-            <td>{{item.familia}}</td>
-            <td>{{item.unidade}}</td>
-            <td>{{item.estoqueSeguranca}}</td>
-        </tr>
-    </tbody> 
-</table>
+<mat-table [dataSource]="dataSource" matSort>
+
+    <!-- Progress Column -->
+<ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>ID Item</mat-header-cell>
+    <mat-cell *matCellDef="let r" data-label="data"> {{item.idItem}} </mat-cell>
+    </ng-container>
+
+<!-- Progress Column -->
+<ng-container matColumnDef="descricao">
+<mat-header-cell *matHeaderCellDef mat-sort-header>Descrição</mat-header-cell>
+<mat-cell *matCellDef="let r" data-label="data"> {{item.descricao}} </mat-cell>
+</ng-container>
+
+<!-- Progress Column -->
+<ng-container matColumnDef="familia">
+<mat-header-cell *matHeaderCellDef mat-sort-header> Familia </mat-header-cell>
+<mat-cell *matCellDef="let r" data-label="data"> {{item.familia}} </mat-cell>
+</ng-container>
+
+<ng-container matColumnDef="grupo">
+<mat-header-cell *matHeaderCellDef mat-sort-header> Grupo </mat-header-cell>
+<mat-cell *matCellDef="let r" data-label="data"> {{item.grupo}} </mat-cell>
+</ng-container>
+
+<!-- Progress Column -->
+<ng-container matColumnDef="unidade">
+<mat-header-cell *matHeaderCellDef mat-sort-header> Unidade </mat-header-cell>
+<mat-cell *matCellDef="let r" data-label="data"> {{item.unidade}} </mat-cell>
+</ng-container>
+
+<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+<mat-row *matRowDef="let row; columns: displayedColumns;">
+</mat-row>
+</mat-table>
+</mat-card-content>
+</mat-card>
