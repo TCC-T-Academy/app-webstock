@@ -22,6 +22,11 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header> Origem Destino </mat-header-cell>
         <mat-cell *matCellDef="let r" data-label="data"> {{r.origemDestino}} </mat-cell>
       </ng-container>
+
+      <ng-container matColumnDef="qtd">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Quantidade </mat-header-cell>
+        <mat-cell *matCellDef="let r" data-label="data"> {{r.quantidade}} </mat-cell>
+      </ng-container>
     
       <ng-container matColumnDef="data">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Data </mat-header-cell>
