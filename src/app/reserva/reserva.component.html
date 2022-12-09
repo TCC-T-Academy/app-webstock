@@ -4,39 +4,49 @@
 
 <div class="formulario">
   <form #f="ngForm">
-    <mat-card class="card">
-      <mat-card-content>
-        <mat-card-header>
+    <mat-card style="margin-bottom: 10px;">
+        <mat-card-header class="title_center">
           <mat-card-title>
             <h4>Pesquisa</h4> 
           </mat-card-title>    
         </mat-card-header>
+      <mat-card-content class="card-content">
+          <div class="row">
+            <div class="col-sm-4">
+              ID Item:
               <mat-form-field>
-                <input matInput [(ngModel)]="dataSource.idItem" name="idItem"  placeholder="Pesquise por ID do item" id="idItem" step="1" min="1" />   
+                <input matInput [(ngModel)]="dataSource.idItem" name="idItem"  
+                       placeholder="Ex.: 1500" id="idItem" step="1" min="1" />   
               </mat-form-field>
-      </mat-card-content> 
-        <mat-card-actions class="button">
-          <button  color="primary" mat-raised-button value="Pesquisar ID" (click)="dataSource.consultarReservasPorIdItem()">Pesquisar</button>
-          <button  color="primary" mat-raised-button value="Todas" (click)="dataSource.consultarReservas()">Mostrar todos</button>
-          <button  color="warn" mat-raised-button routerLink="../novareserva">Gerenciar reservas</button>
+            </div>
+          <div class="col-sm-8">
+              <mat-card-actions class="button">
+                <button  color="primary" class="btnPrimary" mat-raised-button value="Pesquisar ID" (click)="dataSource.consultarReservasPorIdItem()">Pesquisar</button>
+                <button  color="primary" class="btnPrimary" mat-raised-button value="Todas" (click)="dataSource.consultarReservas()">Mostrar todos</button>
+                <button  color="warn" mat-raised-button routerLink="../novareserva">Gerenciar reservas</button>
         </mat-card-actions>
+      </div>
+    </div>
+      </mat-card-content>
     </mat-card>
   </form>
 </div>
 
+
+
 <mat-card class="table">
-  <mat-card-content>
+  <mat-card-content class="card-content">
       <mat-table [dataSource]="dataSource" matSort>
   
         <!-- ID Column -->
         <ng-container matColumnDef="id">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
           <mat-cell *matCellDef="let r" data-label="id"> {{r.idReserva}} </mat-cell>
         </ng-container>
   
         <!-- Data previsão Column -->
         <ng-container matColumnDef="data">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Data prevista </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Data prevista </mat-header-cell>
           <mat-cell *matCellDef="let r" data-label="data"> {{r.dataPrevista}} </mat-cell>
         </ng-container>
   
@@ -48,7 +58,7 @@
   
         <!-- Quantidade Column -->
         <ng-container matColumnDef="quantidade">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Quantidade </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Quantidade </mat-header-cell>
           <mat-cell *matCellDef="let r" data-label="quantidade"> {{r.quantidadeReserva}} </mat-cell>
         </ng-container>
 
@@ -61,19 +71,19 @@
 
         <!-- Item Column -->
         <ng-container matColumnDef="item">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Item </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Item </mat-header-cell>
           <mat-cell  *matCellDef="let r" data-label="item"> {{r.item.descricao}} </mat-cell>
         </ng-container>
 
         <!-- ID Item Column -->
         <ng-container matColumnDef="idItem">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> ID Item </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> ID Item </mat-header-cell>
           <mat-cell *matCellDef="let r" data-label="idItem"> {{r.item.idItem}} </mat-cell>
         </ng-container>
 
         <!-- Usuário Column -->
         <ng-container matColumnDef="usuario">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Usuário </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Usuário </mat-header-cell>
           <mat-cell *matCellDef="let r" data-label="usuario"> {{r.usuario.nome}} </mat-cell>
         </ng-container>
 
@@ -83,7 +93,7 @@
 
       <mat-paginator #paginator
         [pageSizeOptions]="[4, 8, 10]"
-        aria-label="Select page" showFirstLastButtons>
+        aria-label="Select page" showFirstLastButtons class="">
       </mat-paginator>
   </mat-card-content>
 </mat-card>

@@ -13,9 +13,9 @@
                   <div class="col-sm-6">
                     <mat-form-field>
                       <input matInput 
-                        ngModel name="idItem" 
-                        placeholder="ID Item" 
-                        id="idItem" step="1" min="1" />
+                             ngModel name="idItem" 
+                             placeholder="ID Item" 
+                             id="idItem" step="1" min="1" />
                     </mat-form-field>
                     </div>            
                   </div>
@@ -23,10 +23,10 @@
                     <div class="col-sm-6">
                       <mat-form-field>
                         <input matInput 
-                          placeholder="Quantidade" 
-                          ngModel name="quantidadePrevista"
-                          id="idOrigem" 
-                          [disabled]="disableCtrl"/>
+                               placeholder="Quantidade" 
+                               ngModel name="quantidadePrevista"
+                               id="idOrigem" 
+                               [disabled]="disableCtrl"/>
                       </mat-form-field>
                     </div>            
                   </div>
@@ -35,8 +35,8 @@
                       <mat-form-field>
                         <mat-label>Escolha uma data</mat-label>
                           <input matInput 
-                            [matDatepicker]="picker"
-                            ngModel name="dataPrevista">
+                                 [matDatepicker]="picker"
+                                 ngModel name="dataPrevista">
                               <mat-hint>MM/DD/YYYY</mat-hint>
                               <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                               <mat-datepicker #picker></mat-datepicker>
@@ -47,16 +47,16 @@
                     <div class="col-sm-6">
                       <mat-form-field>
                         <input matInput 
-                          placeholder="Ordem" 
-                          ngModel name="ordem"
-                          id="ordem" 
-                          [disabled]="disableCtrl"/>
+                               placeholder="Ordem" 
+                               ngModel name="ordem"
+                               id="ordem" 
+                               [disabled]="disableCtrl"/>
                       </mat-form-field>
                     </div>
                   </div>
                 </mat-card-content>
                   <mat-card-actions>
-                    <button color="primary" mat-raised-button>Salvar</button>
+                    <button color="primary" class="btnPrimary" mat-raised-button>Salvar</button>
                   </mat-card-actions>
         </mat-card>
       </form>
@@ -127,7 +127,12 @@
       <!-- Excluir Column -->
       <ng-container matColumnDef="excluir">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Excluir </mat-header-cell>
-        <mat-cell *matCellDef="let r" data-label="excluir"> <button class="btn btn-outline-danger mt-3" (click)="dataSource.excluir(r.idPrevisao)" [disabled]="(r.finalizada==false)? false:true">Apagar</button></mat-cell>
+        <mat-cell *matCellDef="let r" data-label="excluir"> 
+          <button class="btn btn-outline-danger mt-3" 
+                  (click)="dataSource.excluir(r.idPrevisao)" 
+                  [disabled]="(r.finalizada==false)? false:true">Apagar
+          </button>
+        </mat-cell>
       </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

@@ -11,29 +11,43 @@ export class HeaderComponent {
   @Input("headerName") headerName: string = ""
 
   title = 'app-webstock';
-  shouldRun: any;  
-  isLogin:Boolean = false;
-  
+  shouldRun: any;
+  isLogin: Boolean = false;
+  tabIndex = "";
 
-  
-  constructor(private router: Router){
-  
+
+  constructor(private router: Router) {
+
     router.events.subscribe((res) => {
-      if(res instanceof NavigationEnd){
-        if(this.router.url == "/login"){
-          this.isLogin=true;
-       } else{
+      if (res instanceof NavigationEnd) {
+        if (this.router.url == "/login") {
+          this.isLogin = true;
+        } else {
           this.headerName = this.router.url
           console.log(this.router);
-          this.isLogin=false;
-       }
+          this.isLogin = false;
+        }
       }
     })
   }
-  
-  deslogar(){
-      if(localStorage.getItem('token')!= ""){
-        localStorage.clear();
-      }
-   }
+
+  deslogar() {
+    if (localStorage.getItem('token') != "") {
+      localStorage.clear();
+    }
+  }
+
+
+  onTabClick(index:string) {
+    this.tabIndex = index;
+    console.log(this.tabIndex);
+  }
+
+  eAdmin(){
+    let usuario = JSON.parse(localStorage.getItem("usuarioLogado")!);
+    if(usuario.role == 'ROLE_ADMIN') {
+      return true;
+    }
+    return false;
+  }
 }

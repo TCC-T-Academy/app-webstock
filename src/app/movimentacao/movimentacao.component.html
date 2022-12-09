@@ -1,22 +1,22 @@
 <header class="header">
-    <h1 class="title">PAINEL DE MOVIMENTAÇÕES</h1>
+    <h1 class="title">PAINEL DE MOVIMENTAÇÕES </h1>
 </header>
 
 <app-nova-movimentacao (consultar)="consultar($event)"></app-nova-movimentacao>
 
 <mat-card class="table">
-    <mat-card-content>
-            <mat-table [dataSource]="movimentacoes" matSort>
+    <mat-card-content class="card-content">
+            <mat-table [dataSource]="movimentacoes" matSort class="table">
 
                 <!-- Data Column -->
                 <ng-container matColumnDef="data">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Data </mat-header-cell>
+                    <mat-header-cell *matHeaderCellDef> Data </mat-header-cell>
                     <mat-cell *matCellDef="let mov" data-label="data"> {{mov.dataMovimentacao | date:'dd/MM/yyyy'}} </mat-cell>
                 </ng-container>
     
                 <!-- Origem/Destino Column -->
                 <ng-container matColumnDef="origem">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Origem Destino </mat-header-cell>
+                    <mat-header-cell *matHeaderCellDef> Origem Destino </mat-header-cell>
                     <mat-cell *matCellDef="let mov" data-label="origem"> {{mov.origemDestino}} </mat-cell>
                 </ng-container>
     
@@ -34,13 +34,13 @@
   
                 <!-- Localização Column -->
                 <ng-container matColumnDef="localizacao">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Localização </mat-header-cell>
+                    <mat-header-cell *matHeaderCellDef> Localização </mat-header-cell>
                     <mat-cell *matCellDef="let mov" data-label="localizacao"> {{mov.estoque.localizacao}} </mat-cell>
                 </ng-container>
   
                 <!-- ID Item Column -->
                 <ng-container matColumnDef="idItem">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> ID Item </mat-header-cell>
+                    <mat-header-cell *matHeaderCellDef> ID Item </mat-header-cell>
                     <mat-cell *matCellDef="let mov" data-label="idItem"> {{mov.estoque.item.idItem}} </mat-cell>
                 </ng-container>
   
@@ -50,7 +50,7 @@
 
             <mat-paginator #paginator
             [pageSizeOptions]="[4, 8, 10]"
-            aria-label="Select page" showFirstLastButtons>
+            aria-label="Select page" showFirstLastButtons class="">
          </mat-paginator>
 
     </mat-card-content>

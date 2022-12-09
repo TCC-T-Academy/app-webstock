@@ -9,15 +9,15 @@ import { ReservaComponent } from './reserva/reserva.component';
 import { LoginComponent } from './login/login.component';
 import { AuthAdmService } from './auth.adm.service';
 import { AuthUsuarioService } from './auth.usuario.service';
-import { HomeComponent } from './home/home.component';
 import { NovaPrevisaoComponent } from './nova-previsao/nova-previsao.component';
 import { NovaReservaComponent } from './nova-reserva/nova-reserva.component';
 import { AuthGerenteService } from './auth.gerente.service';
+import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 
 const routes: Routes = [
   {
     path:'',
-    component: HomeComponent,
+    component: EstoqueComponent,
     canActivate:[AuthUsuarioService]
   },
   {
@@ -62,6 +62,11 @@ const routes: Routes = [
   {
     path:'novousuario',
     component: NovoUsuarioComponent,
+    canActivate:[AuthAdmService]
+  },
+  {
+    path:'editarusuario/:email',
+    component: EditarUsuarioComponent,
     canActivate:[AuthAdmService]
   }
 

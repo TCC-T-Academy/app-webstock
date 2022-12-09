@@ -1,10 +1,14 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ErrorService {
+
+  constructor(private router: Router){}
+
 
   getClientErrorMessage(error: Error): string {
     return error.message ? 
@@ -19,6 +23,9 @@ export class ErrorService {
       return "Senha incorreta!";  
     }else if(error.error.error == "access_denied"){
       return "Acesso negado!";  
+    }else if(error.error.error == "invalid_token"){
+      this.router.navigateByUrl("/login");
+      localStorage.clear();
     }
 
     return navigator.onLine ?    
