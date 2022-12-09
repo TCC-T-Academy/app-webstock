@@ -77,14 +77,7 @@
     <ng-container matColumnDef="estoqueFuturo">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Futuro </mat-header-cell>
         <mat-cell *matCellDef="let r" data-label="data"> {{r.estoqueFuturo}} </mat-cell>
-      </ng-container>
-      
-    <ng-container matColumnDef="editar">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Detalhes </mat-header-cell>
-    <mat-cell *matCellDef="let r" data-label="editar"> <abbr title="oi"><mat-icon (click)="consultarPorIdItem(r.item.idItem)">list_alt</mat-icon></abbr>
-    <mat-icon *ngIf="r.finalizada" >edit</mat-icon></mat-cell>
-        
-    </ng-container>
+      </ng-container>        
 
     <mat-header-row *matHeaderRowDef="displayedColumns1"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns1;">
@@ -103,11 +96,9 @@
         <mat-expansion-panel-header >
           <mat-panel-title>
             <div class="example-spacer">
-              <abbr title="Estoque em nivel crítco">
-                <mat-icon *ngIf="item.estoqueFuturo && item.estoqueFuturo > item.item.estoqueSeguranca && item.estoqueReal > item.item.estoqueSeguranca" class="icon-ok">done</mat-icon>
-                <mat-icon *ngIf="item.estoqueReal <= item.item.estoqueSeguranca" class="icon-critico">priority_high</mat-icon>
-                <mat-icon *ngIf="item.estoqueFuturo && item.estoqueFuturo<=item.item.estoqueSeguranca && item.estoqueReal > item.item.estoqueSeguranca" class="icon-warning">warning</mat-icon>
-              </abbr>
+                <mat-icon title="Estoque OK" *ngIf="item.estoqueFuturo && item.estoqueFuturo > item.item.estoqueSeguranca && item.estoqueReal > item.item.estoqueSeguranca" class="icon-ok">done</mat-icon>
+                <mat-icon title="Estoque real em nível crítico" *ngIf="item.estoqueReal <= item.item.estoqueSeguranca" class="icon-critico">priority_high</mat-icon>
+                <mat-icon title="Estoque futuro baixo" *ngIf="item.estoqueFuturo && item.estoqueFuturo<=item.item.estoqueSeguranca && item.estoqueReal > item.item.estoqueSeguranca" class="icon-warning">warning</mat-icon>            
             </div>
             <div class="example-spacer">
               ID: {{item.item.idItem}} - {{item.item.familia}}
@@ -121,7 +112,6 @@
           </mat-panel-description>
         </mat-expansion-panel-header>
         <mat-table [dataSource]="dataSource" matSort >
-    
             <!-- Progress Column -->
             <ng-container matColumnDef="localizacao">
               <mat-header-cell *matHeaderCellDef mat-sort-header> Localizacao </mat-header-cell>
@@ -153,8 +143,9 @@
               
             <ng-container matColumnDef="editar">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Detalhes </mat-header-cell>
-            <mat-cell *matCellDef="let r" data-label="editar"> <abbr title="oi"><mat-icon (click)="consultarPorIdItem(item.item.idItem)">list_alt</mat-icon></abbr>
-            <mat-icon *ngIf="r.finalizada" >edit</mat-icon></mat-cell>
+            <mat-cell *matCellDef="let r" data-label="editar"> 
+              <mat-icon (click)="consultarPorIdItem(item.item.idItem)" title="Detalhes">list_alt</mat-icon>
+            </mat-cell>
                 
             </ng-container>
 

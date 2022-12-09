@@ -31,7 +31,7 @@ export class EstoqueComponent{
   panelOpenState:Boolean = false;
   filter: string = "";
 
-  displayedColumns1 = ['idItem','localizacao', 'estoqueReal', 'estoqueSeguranca' , 'dataFutura', 'estoqueFuturo', 'editar'];
+  displayedColumns1 = ['idItem','localizacao', 'estoqueReal', 'estoqueSeguranca' , 'dataFutura', 'estoqueFuturo'];
   displayedColumns = ['localizacao', 'estoqueReal', 'estoqueSeguranca' , 'dataFutura', 'estoqueFuturo', 'editar'];
 
   idItem: string = ""
