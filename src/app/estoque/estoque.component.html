@@ -3,82 +3,83 @@
 </header>
 
 <div class="formulario">
-  <form #f="ngForm">
-    <mat-card class="card">
-      <mat-card-content>
-        <mat-card-header>
-          <mat-card-title><h4>Pesquisa</h4></mat-card-title>    
+  <form>
+    <mat-card style="height: 100%;">
+        <mat-card-header  class="title_center">
+            <mat-card-title>
+                PESQUISA
+            </mat-card-title>
         </mat-card-header>
-        <mat-form-field>
-                <input matInput 
-                       [(ngModel)]="idItem" 
-                       name="idItem"  
-                       placeholder="Pesquise por ID do item" 
-                       id="idItem" 
-                       step="1" min="1"/>
-          </mat-form-field>
-      </mat-card-content>
-        <mat-card-actions>
-          <button  class="btnPrimary"
-                   color="primary" 
-                   mat-raised-button 
-                   value="Pesquisar ID" 
-                   (click)="consultarPorIdItem()">Pesquisar</button>
-          <button  class="btnPrimary"
-                   color="primary" 
-                   mat-raised-button 
-                   value="Todas" 
-                   (click)="consultarTodos()">Mostrar todos</button>
-          <button  color="warn" mat-raised-button value="Todas" 
-                   (click)="consultarEstoqueBaixo()">Mostrar estoque crítico</button>
-        </mat-card-actions>
+        <mat-card-content class="card-content">
+            <div class="row">
+                <div class="col-sm-4">
+                    ID Item:
+                    <mat-form-field>
+                        <input matInput [(ngModel)]="idItem" name="idItem"
+                            placeholder="Ex.: 1500" id="idItem" step="1" min="1" />
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-8" style="justify-content: baseline;">
+                    <mat-card-actions>
+                        <button color="primary" class="button-pesquisa" mat-raised-button value="Pesquisar ID"
+                            (click)="consultarPorIdItem()">Pesquisar</button>
+                        <button color="primary" class="button-pesquisa" mat-raised-button value="Todas"
+                            (click)="consultarTodos()">Mostrar todos</button>
+                        <button color="warn" class="button-pesquisa" mat-raised-button value="Todas"
+                            (click)="consultarEstoqueBaixo()">Mostrar estoque crítico</button>
+                    </mat-card-actions>
+                </div>
+            </div>
+        </mat-card-content>
     </mat-card>
-  </form>
+</form>
 </div>
 <app-item [item]="estoque.item" *ngIf="!showAll"></app-item>
-
-    
 <div *ngIf="!showAll">
-  <h2 class="subtitle">Estoque</h2>
-  <mat-table [dataSource]="dataSource" matSort>
 
-    <!-- Progress Column -->
+<mat-card class="table">
+  <mat-card-content class="card-content" style="text-align: center;">
+  <h2 class="subtitle">Estoque</h2>
+  <mat-table [dataSource]="dataSource" matSort class="table">
+
+    <!-- ID Item Column -->
     <ng-container matColumnDef="idItem">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Id Item </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> ID Item </mat-header-cell>
       <mat-cell *matCellDef="let r" data-label="data"> {{r.item.idItem}} </mat-cell>
     </ng-container>
     
-    <!-- Progress Column -->
+    <!-- Localização Column -->
     <ng-container matColumnDef="localizacao">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Localizacao </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> Localizacao </mat-header-cell>
       <mat-cell *matCellDef="let r" data-label="data"> {{r.localizacao}} </mat-cell>
     </ng-container>
 
-    <!-- Progress Column -->
+    <!-- Estoque real Column -->
     <ng-container matColumnDef="estoqueReal">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Real </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef> Estoque Real </mat-header-cell>
         <mat-cell *matCellDef="let r" data-label="data"> {{r.estoqueReal}} </mat-cell>
       </ng-container>
     
+      <!-- Estoque segurança Column -->
       <ng-container matColumnDef="estoqueSeguranca">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Segurança </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef> Estoque Segurança </mat-header-cell>
         <mat-cell *matCellDef="let r" data-label="data"> {{r.item.estoqueSeguranca}} </mat-cell>
       </ng-container>
 
-      <!-- Progress Column -->
+      <!-- Data futura Column -->
     <ng-container matColumnDef="dataFutura">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Data Futura </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef> Data Futura </mat-header-cell>
         <mat-cell *matCellDef="let r" data-label="data"> {{r.dataFutura}} </mat-cell>
       </ng-container>
 
-    <!-- Progress Column -->
+    <!-- Estoque futuro Column -->
     <ng-container matColumnDef="estoqueFuturo">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Futuro </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef> Estoque Futuro </mat-header-cell>
         <mat-cell *matCellDef="let r" data-label="data"> {{r.estoqueFuturo}} </mat-cell>
       </ng-container>
       
     <ng-container matColumnDef="editar">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Detalhes </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Detalhes </mat-header-cell>
     <mat-cell *matCellDef="let r" data-label="editar"> <abbr title="oi"><mat-icon (click)="consultarPorIdItem(r.item.idItem)">list_alt</mat-icon></abbr>
     <mat-icon *ngIf="r.finalizada" >edit</mat-icon></mat-cell>
         
@@ -88,14 +89,19 @@
     <mat-row *matRowDef="let row; columns: displayedColumns1;">
     </mat-row>
   </mat-table>
+
+</mat-card-content>
+</mat-card>
 </div>
 
 
 <app-log [logsDataSource]="logsDataSource"  *ngIf="!showAll"></app-log>
 
 
-<div *ngIf="showAll">
-<mat-accordion  *ngFor="let item of dataSource.data; index as i">
+<mat-card class="table">
+  <mat-card-content class="card-content">
+    <div *ngIf="showAll">
+  <mat-accordion  *ngFor="let item of dataSource.data; index as i">
       <mat-expansion-panel (opened)="openClose(true,item)"
                            (closed)="openClose(false,item)">
         <mat-expansion-panel-header>
@@ -116,35 +122,35 @@
     
             <!-- Progress Column -->
             <ng-container matColumnDef="localizacao">
-              <mat-header-cell *matHeaderCellDef mat-sort-header> Localizacao </mat-header-cell>
+              <mat-header-cell *matHeaderCellDef> Localizacao </mat-header-cell>
               <mat-cell *matCellDef="let r" data-label="data"> {{item.localizacao}} </mat-cell>
             </ng-container>
 
             <!-- Progress Column -->
             <ng-container matColumnDef="estoqueReal">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Real </mat-header-cell>
+                <mat-header-cell *matHeaderCellDef> Estoque Real </mat-header-cell>
                 <mat-cell *matCellDef="let r" data-label="data"> {{item.estoqueReal}} </mat-cell>
               </ng-container>
             
               <ng-container matColumnDef="estoqueSeguranca">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Segurança </mat-header-cell>
+                <mat-header-cell *matHeaderCellDef> Estoque Segurança </mat-header-cell>
                 <mat-cell *matCellDef="let r" data-label="data"> {{item.item.estoqueSeguranca}} </mat-cell>
               </ng-container>
 
               <!-- Progress Column -->
             <ng-container matColumnDef="dataFutura">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Data Futura </mat-header-cell>
+                <mat-header-cell *matHeaderCellDef> Data Futura </mat-header-cell>
                 <mat-cell *matCellDef="let r" data-label="data"> {{item.dataFutura}} </mat-cell>
               </ng-container>
 
             <!-- Progress Column -->
             <ng-container matColumnDef="estoqueFuturo">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Estoque Futuro </mat-header-cell>
+                <mat-header-cell *matHeaderCellDef> Estoque Futuro </mat-header-cell>
                 <mat-cell *matCellDef="let r" data-label="data"> {{item.estoqueFuturo}} </mat-cell>
               </ng-container>
               
             <ng-container matColumnDef="editar">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Detalhes </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef> Detalhes </mat-header-cell>
             <mat-cell *matCellDef="let r" data-label="editar"> <abbr title="oi"><mat-icon (click)="consultarPorIdItem(item.item.idItem)">list_alt</mat-icon></abbr>
             <mat-icon *ngIf="r.finalizada" >edit</mat-icon></mat-cell>
                 
@@ -157,4 +163,7 @@
           
       </mat-expansion-panel>
     </mat-accordion>
-  </div> 
+  </div>
+</mat-card-content>
+</mat-card>
+
