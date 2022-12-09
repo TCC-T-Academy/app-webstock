@@ -5,6 +5,12 @@
     <h2 class="subtitle">Movimentações Futuras</h2>
   <mat-table [dataSource]="logsDataSource" matSort class="table">
 
+  <!-- Progress Column -->
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Id Item </mat-header-cell>
+    <mat-cell *matCellDef="let r" data-label="data"> {{r.idItem}} </mat-cell>
+  </ng-container>
+
     <!-- Progress Column -->
     <ng-container matColumnDef="tipoMovimentacao">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Tipo Movimentacao </mat-header-cell>

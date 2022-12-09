@@ -34,13 +34,15 @@
     </mat-card>
 </form>
 </div>
+
+<div class="table" *ngIf="!showAll">
 <app-item [item]="estoque.item" *ngIf="!showAll"></app-item>
 <div *ngIf="!showAll">
 
 <mat-card class="table">
   <mat-card-content class="card-content" style="text-align: center;">
   <h2 class="subtitle">Estoque</h2>
-  <mat-table [dataSource]="dataSource" matSort class="table">
+  <mat-table [dataSource]="dataSource2" matSort class="table">
 
     <!-- ID Item Column -->
     <ng-container matColumnDef="idItem">
@@ -96,6 +98,7 @@
 
 
 <app-log [logsDataSource]="logsDataSource"  *ngIf="!showAll"></app-log>
+</div>
 
 
 <mat-card class="table">
