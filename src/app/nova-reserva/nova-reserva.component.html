@@ -45,7 +45,7 @@
         <div class="row">
           <div class="sol-sm-3">
             <mat-card-actions>
-              <button color="primary" mat-raised-button>Salvar</button>
+              <button mat-raised-button class="button-salvar-color">Salvar</button>
             </mat-card-actions>
           </div>
         </div>
@@ -59,7 +59,7 @@
 </div>
 
 <mat-card class="table">
-  <mat-card-content class="card-content">
+  <mat-card-content>
     <mat-table [dataSource]="dataSource" matSort>
 
       <!-- ID Column -->
@@ -89,8 +89,8 @@
       <!-- Finalizada Column -->
       <ng-container matColumnDef="finalizada">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Finalizada </mat-header-cell>
-        <mat-cell *matCellDef="let r" data-label="finalizada"> <mat-icon *ngIf="r.finalizada">done</mat-icon>
-          <mat-icon *ngIf="!r.finalizada">watch_later</mat-icon> </mat-cell>
+        <mat-cell *matCellDef="let r" data-label="finalizada"> <mat-icon *ngIf="r.finalizada" title="Finalizada">done</mat-icon> 
+          <mat-icon *ngIf="!r.finalizada" title="Não Finalizada">watch_later</mat-icon> </mat-cell>
       </ng-container>
 
       <!-- Item Column -->
