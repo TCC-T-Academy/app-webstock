@@ -8,12 +8,3 @@
     min-height: 80px; 
   }
   
-  button{
-    margin: 5px;
-    background-color: #2C4971 !important;
-  }
-
-  button:disabled{
-    background-color: white !important;
-    color: gray;
-  }
