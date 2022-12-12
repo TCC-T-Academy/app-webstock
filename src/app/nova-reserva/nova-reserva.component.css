@@ -8,42 +8,12 @@
     min-height: 80px; 
   }
   
-  .title {
-    text-align: center;
-    font-weight: bold;
-    font-size: xx-large;
-    margin-bottom: 10px;
-    /* margin-top: 10px; */
+  button{
+    margin: 5px;
+    background-color: #2C4971 !important;
   }
-  .title:before{
-    text-align: center;
-    display: inline-block;
-    margin: 0 20px 8px 0;
-    height: 3px;
-    content: " ";
-    text-shadow: none;
-    background-color: #999;
-    width: 140px;
-  }
-  .title:after{
-    display: inline-block;
-    margin: 0 20px 8px 0;
-    height: 3px;
-    content: " ";
-    text-shadow: none;
-    background-color: #999;
-    width: 140px;
-  
-  }
-  .formulario{
 
-    margin-bottom: 10px;
-
-    margin-top: 10px;
-
-    display:flex;
-
-    justify-content: space-evenly;
-
-
+  button:disabled{
+    background-color: white !important;
+    color: gray;
   }

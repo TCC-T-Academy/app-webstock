@@ -8,7 +8,7 @@
      
         <mat-card-header class="title_center">
           <mat-card-title>
-            <h4>Pesquisa</h4> 
+            PESQUISA
           </mat-card-title>    
         </mat-card-header>
         <mat-card-content class="card-content">
@@ -39,7 +39,7 @@
 
 <mat-card class="table">
   <mat-card-content class="card-content">
-      <mat-table [dataSource]="dataSource" matSort >
+      <mat-table [dataSource]="dataSource" matSort class="">
 
         <!-- ID Column -->
         <ng-container matColumnDef="id">
@@ -95,7 +95,7 @@
       </mat-table>
         <mat-paginator #paginator
           [pageSizeOptions]="[4, 8, 10]"
-          aria-label="Select page" showFirstLastButtons>
+          aria-label="Select page" showFirstLastButtons class="">
         </mat-paginator>
   </mat-card-content>
 </mat-card>

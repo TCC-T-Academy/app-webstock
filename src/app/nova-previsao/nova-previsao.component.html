@@ -1,90 +1,84 @@
 <header class="header">
-  <h1 class="title">NOVA PREVISÃO </h1>
- </header>
+  <h1 class="title">PAINEL DE GESTÃO DE PREVISÕES</h1>
+</header>
 
-    <div class="formulario">
-      <form #f="ngForm" (submit)="cadastrar(f.value)" class="formulario">
-        <mat-card>
-          <mat-card-header>
-            <mat-card-title> Cadastro de nova previsão</mat-card-title>
-          </mat-card-header>
-              <mat-card-content>
-                <div class="row">
-                  <div class="col-sm-6">
-                    <mat-form-field>
-                      <input matInput 
-                             ngModel name="idItem" 
-                             placeholder="ID Item" 
-                             id="idItem" step="1" min="1" />
-                    </mat-form-field>
-                    </div>            
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <mat-form-field>
-                        <input matInput 
-                               placeholder="Quantidade" 
-                               ngModel name="quantidadePrevista"
-                               id="idOrigem" 
-                               [disabled]="disableCtrl"/>
-                      </mat-form-field>
-                    </div>            
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <mat-form-field>
-                        <mat-label>Escolha uma data</mat-label>
-                          <input matInput 
-                                 [matDatepicker]="picker"
-                                 ngModel name="dataPrevista">
-                              <mat-hint>MM/DD/YYYY</mat-hint>
-                              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                              <mat-datepicker #picker></mat-datepicker>
-                      </mat-form-field>
-                    </div>            
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <mat-form-field>
-                        <input matInput 
-                               placeholder="Ordem" 
-                               ngModel name="ordem"
-                               id="ordem" 
-                               [disabled]="disableCtrl"/>
-                      </mat-form-field>
-                    </div>
-                  </div>
-                </mat-card-content>
-                  <mat-card-actions>
-                    <button color="primary" class="btnPrimary" mat-raised-button>Salvar</button>
-                  </mat-card-actions>
-        </mat-card>
-      </form>
-      <app-previsao-atualizar [expectedProp]="book"></app-previsao-atualizar>
-    </div>
+<div class="formulario">
+  <form #f="ngForm" (submit)="cadastrar(f.value)" class="">
+    <mat-card>
+      <mat-card-header class="title_center">
+        <mat-card-title>CADASTRO</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="card-content">
+        <div class="row">
+          <div class="col-sm-3">
+            <mat-label>ID Item:</mat-label>
+            <mat-form-field>
+              <input matInput ngModel name="idItem" placeholder="Ex.: 1500" id="idItem" step="1" min="1" />
+            </mat-form-field>
+          </div>
+          <div class="col-sm-3">
+            <mat-label>Qtde:</mat-label>
+            <br>
+            <mat-form-field>
+              <input matInput placeholder="Ex.: 10" ngModel name="quantidadePrevista" id="idOrigem"
+                [disabled]="disableCtrl" />
+            </mat-form-field>
+          </div>
+          <div class="col-sm-3">
+            <mat-label>Data:</mat-label>
+            <br>
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" ngModel name="dataPrevista" placeholder="MM/DD/YYYY">
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-3">
+            <mat-label>Ordem:</mat-label>
+            <mat-form-field>
+              <input matInput placeholder="Ex.: CP1234" ngModel name="ordem" id="ordem" [disabled]="disableCtrl" />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="row">
+          <mat-card-actions>
+            <button color="primary" class="btnPrimary" mat-raised-button>Salvar</button>
+          </mat-card-actions>
+        </div>
+
+      </mat-card-content>
+
+    </mat-card>
+  </form>
+
+</div>
+<div class="formulario">
+  <app-previsao-atualizar></app-previsao-atualizar>
+</div>
 
 <mat-card class="table">
   <mat-card-content>
     <mat-table [dataSource]="dataSource" matSort>
-  
+
       <!-- ID Column -->
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
         <mat-cell *matCellDef="let r" data-label="id"> {{r.idPrevisao}} </mat-cell>
       </ng-container>
-  
+
       <!-- Data Column -->
       <ng-container matColumnDef="data">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Data prevista </mat-header-cell>
         <mat-cell *matCellDef="let r" data-label="data"> {{r.dataPrevista}} </mat-cell>
       </ng-container>
-  
+
       <!-- Ordem Column -->
       <ng-container matColumnDef="ordem">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Ordem </mat-header-cell>
         <mat-cell *matCellDef="let r" data-label="ordem"> {{r.ordem}} </mat-cell>
       </ng-container>
-  
+
       <!-- Quantidade Column -->
       <ng-container matColumnDef="quantidade">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Quantidade </mat-header-cell>
@@ -94,8 +88,8 @@
       <!-- Finalizada Column -->
       <ng-container matColumnDef="finalizada">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Finalizada </mat-header-cell>
-        <mat-cell *matCellDef="let r" data-label="finalizada"> <mat-icon *ngIf="r.finalizada" title="Finalizada">done</mat-icon> 
-          <mat-icon *ngIf="!r.finalizada" title="Não Finalizada">watch_later</mat-icon>  </mat-cell>
+        <mat-cell *matCellDef="let r" data-label="finalizada"> <mat-icon *ngIf="r.finalizada">done</mat-icon>
+          <mat-icon *ngIf="!r.finalizada">watch_later</mat-icon> </mat-cell>
       </ng-container>
 
       <!-- Item Column -->
@@ -127,20 +121,17 @@
       <!-- Excluir Column -->
       <ng-container matColumnDef="excluir">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Excluir </mat-header-cell>
-        <mat-cell *matCellDef="let r" data-label="excluir"> 
-          <button class="btn btn-outline-danger mt-3" 
-                  (click)="dataSource.excluir(r.idPrevisao)" 
-                  [disabled]="(r.finalizada==false)? false:true">Apagar
+        <mat-cell *matCellDef="let r" data-label="excluir">
+          <button class="btn btn-outline-danger mt-3" (click)="dataSource.excluir(r.idPrevisao)"
+            [disabled]="(r.finalizada==false)? false:true">Apagar
           </button>
         </mat-cell>
       </ng-container>
 
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
-      <mat-paginator #paginator
-                     [pageSizeOptions]="[4, 8, 10]"
-                     aria-label="Select page" showFirstLastButtons>
-      </mat-paginator>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator #paginator [pageSizeOptions]="[4, 8, 10]" aria-label="Select page" showFirstLastButtons>
+    </mat-paginator>
   </mat-card-content>
- </mat-card>
+</mat-card>

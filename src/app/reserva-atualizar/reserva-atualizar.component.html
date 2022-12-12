@@ -2,78 +2,78 @@
  
     <form #a="ngForm" (submit)="altera(a.value)" class="formulario" >
         <mat-card>
-            <mat-card-header>
+            <mat-card-header class="title_center">
                 <mat-card-title>
-                    Atualizar reserva
+                    ATUALIZAÇÃO DE RESERVA
                 </mat-card-title>
             </mat-card-header>
-            <mat-card-content>
+            <mat-card-content class="card-content">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-3">
+                        <mat-label>ID Reserva:</mat-label>
+                        <br>
                         <mat-form-field>
                             <input matInput
                                    type="text" 
                                    [(ngModel)]="idReserva"
                                    ngModel name="idReserva" 
-                                   placeholder="ID Reserva" 
+                                   placeholder="Ex.: 10" 
                                    id="idReserva" step="1" min="1" />
                         </mat-form-field>
-                    </div>            
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
+                    </div> 
+                    <div class="col-sm-3">
+                        <mat-label>ID Item:</mat-label>
+                        <br>
                         <mat-form-field>
                             <input matInput 
                                    [(ngModel)]="idItem"
                                    ngModel name="idItem" 
-                                   placeholder="ID Item" 
+                                   placeholder="Ex.: 1500" 
                                    id="idItem" step="1" min="1" />
                         </mat-form-field>
-                    </div>            
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
+                    </div>  
+                    <div class="col-sm-3">
+                        <mat-label>Qtde:</mat-label>
                         <mat-form-field>
                             <input matInput 
-                                    [(ngModel)]="quantidadeReserva"
-                                    placeholder="Quantidade" 
+                                    placeholder="Ex.: 10" 
                                     ngModel name="quantidadeReserva"
                                     id="idOrigem" 
                                     [disabled]="disableCtrl"/>
                         </mat-form-field>
-                    </div>            
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
+                    </div>  
+                    <div class="col-sm-3">
+                        <mat-label>Data</mat-label>
                         <mat-form-field>
-                            <mat-label>Escolha uma data</mat-label>
                             <input matInput 
                                    [(ngModel)]="dataPrevista"
                                    [matDatepicker]="picker"
-                                   ngModel name="dataPrevista">
-                            <mat-hint>MM/DD/YYYY</mat-hint>
+                                   ngModel name="dataPrevista" placeholder="MM/DD/YYYY">
                             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                         </mat-form-field>
-                    </div>            
+                    </div>          
                 </div>
+
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-3">
+                        <mat-label>Ordem:</mat-label>
                         <mat-form-field>
                             <input matInput 
-                                    [(ngModel)]="ordem"
-                                    placeholder="Ordem" 
+                                    placeholder="Ex.: PO1234" 
                                     ngModel name="ordem"
                                     id="ordem" 
                                     [disabled]="disableCtrl"/>
                         </mat-form-field>
                     </div>
+                    <div class="col-sm-3">
+                        <mat-card-actions>
+                            <button color="primary" class="button-pesquisa" mat-raised-button>Salvar</button>
+                        </mat-card-actions>
+                    </div>
                 </div>
             </mat-card-content>
-                <mat-card-actions>
-                    <button color="primary" mat-raised-button>Salvar</button>
-                    <mat-icon (click)="limpar()" title="Limpar Campos">clear</mat-icon>
-                </mat-card-actions>
-            </mat-card>
-        </form>
-</div>
+
+        </mat-card>
+    </form>
+  </div>
