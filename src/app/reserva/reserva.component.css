@@ -1,25 +1,6 @@
 /* CSS REFERENTE FORMULÁRIO DE PESQUISA DE RESERVAS */
 
-.formulario{
-  margin-bottom: 10px;
-  margin-top: 10px;
-  display:flex;
-  justify-content: space-around;
-}
 
 button{
   margin: 10px;
-}
-
-mat-card-header,
-mat-form-field{
-  margin-left: 30%;
-  margin-top: 10px;
-}
-
-mat-card-title{
-  margin-left:40%;
-  display: flex;
-  text-align: center;
-  
 }

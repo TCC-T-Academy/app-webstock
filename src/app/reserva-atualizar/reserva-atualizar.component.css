@@ -1,12 +1,9 @@
-.formulario{
+.button-pesquisa{
+  margin-top: 25px;
+  background-color: #2C4971 !important;
+}
 
-    margin-bottom: 10px;
-
-    margin-top: 5px;
-
-    display:flex;
-
-    justify-content: space-evenly;
-
-
-  }
+button{
+  margin: 5px;
+  background-color: #2C4971 !important;
+}

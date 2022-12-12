@@ -1,73 +1,66 @@
 <div class="formulario">
- 
+
     <form #a="ngForm" (submit)="altera(a.value)" class="formulario">
         <mat-card>
-            <mat-card-header>
+            <mat-card-header class="title_center">
                 <mat-card-title>
-                    Atualizar previsão
+                    ATUALIZAÇÃO DE PREVISÕES
                 </mat-card-title>
             </mat-card-header>
-            <mat-card-content>
+            <mat-card-content class="card-content">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-3">
+                        <mat-label>ID Previsão:</mat-label>
                         <mat-form-field>
-                            <input matInput 
-                                   ngModel name="idPrevisao" 
-                                   placeholder="ID Previsão" 
-                                   id="idPrevisao" step="1" min="1" />
+                            <input matInput ngModel name="idPrevisao" placeholder="Ex.: 10" id="idPrevisao" step="1"
+                                min="1" />
                         </mat-form-field>
-                    </div>            
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-label>ID Item:</mat-label>
+                        <br>
                         <mat-form-field>
-                            <input matInput 
-                                   ngModel name="idItem" 
-                                   placeholder="ID Item" 
-                                   id="idItem" step="1" min="1" />
+                            <input matInput ngModel name="idItem" placeholder="Ex.: 1500" id="idItem" step="1"
+                                min="1" />
                         </mat-form-field>
-                    </div>            
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-label>Qtde:</mat-label>
+                        <br>
                         <mat-form-field>
-                            <input matInput 
-                                    placeholder="Quantidade" 
-                                    ngModel name="quantidadePrevista"
-                                    id="idOrigem" 
-                                    [disabled]="disableCtrl"/>
+                            <input matInput placeholder="Ex.: 10" ngModel name="quantidadePrevista" id="idOrigem"
+                                [disabled]="disableCtrl" />
                         </mat-form-field>
-                    </div>            
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-label>Data:</mat-label>
                         <mat-form-field>
-                            <mat-label>Escolha uma data</mat-label>
-                            <input matInput 
-                                   [matDatepicker]="picker"
-                                   ngModel name="dataPrevista">
-                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <input matInput [matDatepicker]="picker" ngModel name="dataPrevista"
+                                placeholder="MM/DD/YYYY">
                             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                         </mat-form-field>
-                    </div>            
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <mat-form-field>
-                            <input matInput 
-                                    placeholder="Ordem" 
-                                    ngModel name="ordem"
-                                    id="ordem" 
-                                    [disabled]="disableCtrl"/>
-                        </mat-form-field>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <mat-label>Ordem:</mat-label>
+                        <br>
+                        <mat-form-field>
+                            <input matInput placeholder="Ex.: CP1234" ngModel name="ordem" id="ordem"
+                                [disabled]="disableCtrl" />
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                    <mat-card-actions>
+                        <button color="primary" class="btnPrimary" mat-raised-button style="margin-top: 25px;">Salvar</button>
+                    </mat-card-actions>
+                    </div>
+                </div>
+
             </mat-card-content>
-                <mat-card-actions>
-                    <button color="primary" class="btnPrimary" mat-raised-button>Salvar</button>
-                </mat-card-actions>
+
         </mat-card>
     </form>
-  </div>
-
+</div>

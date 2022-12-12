@@ -1,15 +1,9 @@
 /* CSS REFERENTE FORMULÁRIO DE PESQUISA DE NOVA-MOVIMENTAÇÃO */
-  .formulario{
-    margin-bottom: 10px;
-    margin-top: 10px;
-    display: grid;
-    justify-content: center;
-    align-items: baseline;
-    width: 100%;
-  }
+
 
   button{
     margin: 5px;
+    background-color: #2C4971 !important;
   }
 
   .button-pesquisa{
@@ -17,13 +11,5 @@
     background-color: #2C4971 !important;
   }
 
-  .title_center {
-    display: flex;
-    justify-content: center; /* align horizontal */
-    align-items: top; /* align vertical */
-    background-color: #2C4971;
-    border-radius: 3px;
-    color: white;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
+
 
