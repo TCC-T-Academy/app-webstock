@@ -14,6 +14,10 @@ button{
   background-color: #2C4971 !important;
 }
 
+.button-margin-only{
+  margin-top: 25px;
+}
+
 .title_center {
   display: flex;
   text-align: center;
