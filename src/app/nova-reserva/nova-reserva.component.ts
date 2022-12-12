@@ -105,7 +105,6 @@ export class NovaReservaComponent implements OnInit {
       this.teste.idItem = idItem;
       //this.teste.idItem = parseInt(item);
       this.book = { obj: this.teste  }
-      console.log(this.teste);
     }
 
   book = { obj: this.teste }
