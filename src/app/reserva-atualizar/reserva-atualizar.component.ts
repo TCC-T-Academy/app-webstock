@@ -76,9 +76,15 @@ export class ReservaAtualizarComponent {
   // @Output() editar = new EventEmitter<{editar: string}>
 
     ngOnChanges() {
-
+      console.log(this.expectedProp.obj);
       this.escreve();
+      this.scrollTo("formulario");
     }
+    scrollTo(className: string):void {
+      const elementList = document.querySelectorAll('.' + className);
+      const element = elementList[0] as HTMLElement;
+      element.scrollIntoView({ behavior: 'smooth' });
+   }
   @Input()
   expectedProp!: { obj: INovaReserva; };
 }

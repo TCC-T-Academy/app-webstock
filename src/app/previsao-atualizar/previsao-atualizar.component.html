@@ -1,4 +1,4 @@
-<div class="formulario">
+<div class="formulario" #target>
 
     <form #a="ngForm" (submit)="altera(a.value)" class="formulario">
         <mat-card>
@@ -12,7 +12,12 @@
                     <div class="col-sm-3">
                         <mat-label>ID Previsão:</mat-label>
                         <mat-form-field>
-                            <input matInput ngModel name="idPrevisao" placeholder="Ex.: 10" id="idPrevisao" step="1"
+                            <input matInput
+                            ngModel name="idPrevisao"
+                            [(ngModel)]="idPrevisao"
+                            placeholder="Ex.: 10"
+                            id="idPrevisao"
+                            step="1"
                                 min="1" />
                         </mat-form-field>
                     </div>
@@ -20,7 +25,12 @@
                         <mat-label>ID Item:</mat-label>
                         <br>
                         <mat-form-field>
-                            <input matInput ngModel name="idItem" placeholder="Ex.: 1500" id="idItem" step="1"
+                            <input matInput
+                            ngModel name="idItem"
+                            [(ngModel)]="idItem"
+                            placeholder="Ex.: 1500"
+                            id="idItem"
+                            step="1"
                                 min="1" />
                         </mat-form-field>
                     </div>
@@ -28,14 +38,21 @@
                         <mat-label>Qtde:</mat-label>
                         <br>
                         <mat-form-field>
-                            <input matInput placeholder="Ex.: 10" ngModel name="quantidadePrevista" id="idOrigem"
+                            <input matInput
+                            placeholder="Ex.: 10"
+                            [(ngModel)]="quantidadePrevista"
+                            ngModel name="quantidadePrevista"
+                            id="quantidadePrevista"
                                 [disabled]="disableCtrl" />
                         </mat-form-field>
                     </div>
                     <div class="col-sm-3">
                         <mat-label>Data:</mat-label>
                         <mat-form-field>
-                            <input matInput [matDatepicker]="picker" ngModel name="dataPrevista"
+                            <input matInput
+                            [matDatepicker]="picker"
+                            [(ngModel)]="dataPrevista"
+                            ngModel name="dataPrevista"
                                 placeholder="MM/DD/YYYY">
                             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
@@ -48,13 +65,18 @@
                         <mat-label>Ordem:</mat-label>
                         <br>
                         <mat-form-field>
-                            <input matInput placeholder="Ex.: CP1234" ngModel name="ordem" id="ordem"
+                            <input matInput
+                            placeholder="Ex.: CP1234"
+                            [(ngModel)]="ordem"
+                            ngModel name="ordem"
+                            id="ordem"
                                 [disabled]="disableCtrl" />
                         </mat-form-field>
                     </div>
                     <div class="col-sm-3">
                     <mat-card-actions>
                         <button color="primary" class="btnPrimary" mat-raised-button style="margin-top: 25px;">Salvar</button>
+                        <mat-icon (click)="limpar()" title="Limpar Campos">clear</mat-icon>
                     </mat-card-actions>
                     </div>
                 </div>

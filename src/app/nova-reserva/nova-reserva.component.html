@@ -55,7 +55,7 @@
 </div>
 
 <div class="formulario">
-  <app-reserva-atualizar></app-reserva-atualizar>
+  <app-reserva-atualizar [expectedProp]="book"></app-reserva-atualizar>
 </div>
 
 <mat-card class="table">
@@ -114,8 +114,8 @@
       <!-- Editar Column -->
       <ng-container matColumnDef="editar">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Editar </mat-header-cell>
-        <mat-cell *matCellDef="let r" data-label="editar"> <abbr title="oi"><mat-icon *ngIf="!r.finalizada"
-              (click)="dataSource.excluir(r.idReserva)">edit</mat-icon></abbr>
+        <mat-cell *matCellDef="let r" data-label="editar"> <mat-icon *ngIf="!r.finalizada" title="Editar"
+              (click)="escrever(r, r.item.idItem)">edit</mat-icon>
           <mat-icon *ngIf="r.finalizada">edit</mat-icon></mat-cell>
       </ng-container>
 
