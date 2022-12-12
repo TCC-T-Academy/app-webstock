@@ -2,33 +2,33 @@
   <h1 class="title">NOVO USUÁRIO </h1>
 </header>
 <div class="formulario">
-  <form #f="ngForm" (submit)="cadastrar(f.value)" class="formulario">
+  <form #f="ngForm" (submit)="cadastrar(f.value)" class="">
     <mat-card>
-      <mat-card-header>
+      <mat-card-header class="title_center">
         <mat-card-title> Cadastro de novo usuário</mat-card-title>
       </mat-card-header>
-      <mat-card-content>
+      <mat-card-content class="card-content">
         <div class="row">
           <div class="col-sm-6">
+            <mat-label>Nome:</mat-label>
+            <br>
             <mat-form-field>
-              <mat-label>Nome:</mat-label>
-              <input matInput ngModel name="nome" placeholder="Nome" id="nome" />
+              <input matInput ngModel name="nome" placeholder="Nome" id="nome" step="1" min="1"/>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6">
+            <mat-label>E-mail:</mat-label>
+            <mat-form-field>
+              <input matInput placeholder="Ex.: nome@email.com" ngModel name="email" id="email" />
             </mat-form-field>
           </div>
         </div>
-        <div class="row">
+          <div class="row">
           <div class="col-sm-6">
+            <mat-label>Role:</mat-label>
+            <br>
             <mat-form-field>
-              <mat-label>E-mail:</mat-label>
-              <input matInput placeholder="nome@email.com" ngModel name="email" id="email" />
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6">
-            <mat-form-field>
-              <mat-label>Role:</mat-label>
-              <mat-select [(ngModel)]="role" name="role">
+              <mat-select [(ngModel)]="role" name="role"  placeholder="Selecione">
                 <mat-option value="ROLE_ADMIN">ROLE_ADMIN</mat-option>
                 <mat-option value="ROLE_USUARIO">ROLE_USUARIO</mat-option>
                 <mat-option value="ROLE_GERENTE">ROLE_GERENTE</mat-option>
@@ -36,18 +36,19 @@
               </mat-select>
             </mat-form-field>
           </div>
-        </div>
-        <div class="row">
           <div class="col-sm-6">
+            <mat-label>Senha:</mat-label>
             <mat-form-field>
               <input type="password" matInput placeholder="******" ngModel name="senha" id="senha" required />
             </mat-form-field>
           </div>
         </div>
-      </mat-card-content>
-      <mat-card-actions>
+        <div class="row">
+      <mat-card-actions class="button">
         <button color="primary" style="background-color: #335E89;" mat-raised-button>Salvar</button>
       </mat-card-actions>
+    </div>
+    </mat-card-content>
     </mat-card>
   </form>
 </div>
