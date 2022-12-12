@@ -13,7 +13,7 @@ import { LogDatasource } from './log-datasource';
 export class LogComponent {
   @Input() logsDataSource:LogDatasource;
 
-  displayedColumns = ['tipoMovimentacao', 'origemDestino', 'data' , 'estoqueMomento'];
+  displayedColumns = ['id','tipoMovimentacao', 'origemDestino', 'qtd', 'data',  'estoqueMomento'];
 
   constructor(private service:LogService){
     this.logsDataSource = new LogDatasource(service);

@@ -13,7 +13,9 @@
                         <mat-label>ID Reserva:</mat-label>
                         <br>
                         <mat-form-field>
-                            <input matInput 
+                            <input matInput
+                                   type="text" 
+                                   [(ngModel)]="idReserva"
                                    ngModel name="idReserva" 
                                    placeholder="Ex.: 10" 
                                    id="idReserva" step="1" min="1" />
@@ -24,6 +26,7 @@
                         <br>
                         <mat-form-field>
                             <input matInput 
+                                   [(ngModel)]="idItem"
                                    ngModel name="idItem" 
                                    placeholder="Ex.: 1500" 
                                    id="idItem" step="1" min="1" />
@@ -43,6 +46,7 @@
                         <mat-label>Data</mat-label>
                         <mat-form-field>
                             <input matInput 
+                                   [(ngModel)]="dataPrevista"
                                    [matDatepicker]="picker"
                                    ngModel name="dataPrevista" placeholder="MM/DD/YYYY">
                             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>

@@ -1,9 +1,10 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { IEstoque, INovaReserva, IReserva } from 'src/interfaces/interface';
 import { EstoqueService } from '../estoque.service';
 import { NotificationService } from '../notification.service';
+import { ReservaAtualizarComponent } from '../reserva-atualizar/reserva-atualizar.component';
 import { ReservaService } from '../reserva.service';
 import { ReservaDataSource } from './nova-reserva-datasource';
 
@@ -28,6 +29,8 @@ export class NovaReservaComponent implements OnInit {
     this.dataSource = new ReservaDataSource(service);  
 
   }
+
+
   ngOnInit(): void {}
 
   cadastrar(nReserva:INovaReserva){
@@ -35,7 +38,8 @@ export class NovaReservaComponent implements OnInit {
     this.reserva.quantidadeReserva = nReserva.quantidadeReserva;
     this.reserva.dataPrevista = nReserva.dataPrevista;
     this.reserva.ordem = nReserva.ordem;
-    this.reserva.idUsuario = 1;
+    let usuario = JSON.parse(localStorage.getItem("usuarioLogado")!);
+    this.reserva.idUsuario = usuario.idUsuario;
     this.reserva.idItem = nReserva.idItem;
     this.enviar(this.reserva);
   }
@@ -47,8 +51,10 @@ export class NovaReservaComponent implements OnInit {
       .subscribe(data => {
                     this.consultar.emit();
                     this.ngOnInit();
+                    this.dataSource.consultarReservas();
                     this.verificaEstoqueFuturo(data);
-                    console.log(data)})
+                    console.log(data)},
+                    )
 
     }
 
@@ -90,5 +96,18 @@ export class NovaReservaComponent implements OnInit {
     })
       
     }
+    teste:INovaReserva = {
+      finalizada: false, quantidadeReserva: 0, dataPrevista: new Date(), ordem: "", idUsuario: 0, idItem: 0
+    };
+    escrever(r:INovaReserva, idItem:number) {
 
+      this.teste = r;
+      this.teste.idItem = idItem;
+      //this.teste.idItem = parseInt(item);
+      this.book = { obj: this.teste  }
+      console.log(this.teste);
+    }
+
+  book = { obj: this.teste }
+  
 }

@@ -25,12 +25,13 @@ export class EstoqueComponent{
   headerName:string = ""
 
   dataSource: EstoqueDatasource;
+  dataSource2: EstoqueDatasource;
   logsDataSource: LogDatasource;
 
   panelOpenState:Boolean = false;
   filter: string = "";
 
-  displayedColumns1 = ['idItem','localizacao', 'estoqueReal', 'estoqueSeguranca' , 'dataFutura', 'estoqueFuturo', 'editar'];
+  displayedColumns1 = ['idItem','localizacao', 'estoqueReal', 'estoqueSeguranca' , 'dataFutura', 'estoqueFuturo'];
   displayedColumns = ['localizacao', 'estoqueReal', 'estoqueSeguranca' , 'dataFutura', 'estoqueFuturo', 'editar'];
 
   idItem: string = ""
@@ -63,6 +64,7 @@ export class EstoqueComponent{
 
 constructor(private service:EstoqueService, private logService:LogService){
   this.dataSource = new EstoqueDatasource(service);
+  this.dataSource2 = new EstoqueDatasource(service); 
   this.logsDataSource = new LogDatasource(logService);
   this.consultarTodos();
 }
@@ -71,27 +73,26 @@ constructor(private service:EstoqueService, private logService:LogService){
   } 
 
   consultarPorIdItem(idItem?:any){
+    this.dataSource.data = [];
+
     if(idItem){
       this.idItem = idItem.toString();
     }    
 
-    this.dataSource.idItem = this.idItem;
-
-    this.service.consultarEstoquePorIdItem(parseFloat(this.idItem)).subscribe((res) => {
-      //Apenas por que funciona
-      this.dataSource.consultarEstoquePorIdItem();      
-      this.estoque = res;
-      this.showAll = false;
-
-      this.logService.consultarLogsPorIdItem(parseFloat(this.idItem)).subscribe((res) => {
-        this.logsDataSource.data = res;
-        this.logsDataSource.idItem = this.idItem;
-        this.logsDataSource.consultarLogsIdItem();
-      })
-
-    });
-
+    //Apenas por que funciona
+    setTimeout(() => {
+      this.dataSource2.idItem = this.idItem;
+      this.dataSource2.consultarEstoquePorIdItem();      
+      this.logsDataSource.idItem = this.idItem;
+      this.logsDataSource.consultarLogsIdItem();
+    },300)    
     
+
+    //Pega o estoque apenas para passar para o componente item
+    this.service.consultarEstoquePorIdItem(parseFloat(this.idItem)).subscribe({
+        next: (res) => {this.estoque = res;},
+        complete: () => {this.showAll = false;}
+      });           
   }
 
   consultarTodos(){

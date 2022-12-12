@@ -110,6 +110,14 @@
         <mat-cell *matCellDef="let r" data-label="usuario"> {{r.usuario.nome}} </mat-cell>
       </ng-container>
 
+            <!-- Color Column -->
+            <ng-container matColumnDef="editar">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Editar </mat-header-cell>
+              <mat-cell *matCellDef="let r" data-label="editar"> <mat-icon *ngIf="!r.finalizada" (click)="escrever(r, r.item.idItem)" title="Editar">edit</mat-icon>
+                  <mat-icon *ngIf="r.finalizada" >edit</mat-icon></mat-cell>
+              
+          </ng-container>
+
       <!-- Excluir Column -->
       <ng-container matColumnDef="excluir">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Excluir </mat-header-cell>

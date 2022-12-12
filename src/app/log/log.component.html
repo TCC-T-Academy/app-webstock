@@ -1,6 +1,15 @@
-<h2 class="subtitle">Movimentações Futuras</h2>
 
-<mat-table [dataSource]="logsDataSource" matSort>
+
+<mat-card class="table">
+  <mat-card-content class="card-content">
+    <h2 class="subtitle">Movimentações Futuras</h2>
+  <mat-table [dataSource]="logsDataSource" matSort class="table">
+
+  <!-- Progress Column -->
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Id Item </mat-header-cell>
+    <mat-cell *matCellDef="let r" data-label="data"> {{r.idItem}} </mat-cell>
+  </ng-container>
 
     <!-- Progress Column -->
     <ng-container matColumnDef="tipoMovimentacao">
@@ -12,6 +21,11 @@
     <ng-container matColumnDef="origemDestino">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Origem Destino </mat-header-cell>
         <mat-cell *matCellDef="let r" data-label="data"> {{r.origemDestino}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="qtd">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Quantidade </mat-header-cell>
+        <mat-cell *matCellDef="let r" data-label="data"> {{r.quantidade}} </mat-cell>
       </ng-container>
     
       <ng-container matColumnDef="data">
@@ -29,3 +43,5 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;">
     </mat-row>
   </mat-table>
+</mat-card-content>
+</mat-card>
