@@ -2,6 +2,7 @@ import { IUsuarioNovo } from './../../interfaces/interface';
 import { Component, OnInit } from '@angular/core';
 import { GestaoUsuariosService } from '../gestao-usuarios.service';
 import { NotificationService } from '../notification.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-novo-usuario',
@@ -12,7 +13,8 @@ export class NovoUsuarioComponent implements OnInit {
 
   constructor(
     private service: GestaoUsuariosService,
-    private notifier: NotificationService){
+    private notifier: NotificationService,
+    private router: Router){
   }
 
   role: string = '';
@@ -31,12 +33,14 @@ export class NovoUsuarioComponent implements OnInit {
 
   enviar(usuario: IUsuarioNovo){
     console.log(this.usuario)
-    this.service.cadastrarUsuario(this.usuario).subscribe(data => {
-
-      this.ngOnInit();
-
-      console.log(data)})
-    this.notifier.showSuccess("Usuário cadastrado com sucesso!")
+    this.service.cadastrarUsuario(this.usuario).subscribe({
+      next: (data) => {
+        this.ngOnInit();
+        console.log(data);
+        this.notifier.showSuccess("Usuário cadastrado com sucesso!")
+        this.router.navigateByUrl("/usuarios");
+      }
+    })    
   }
 
   ngOnInit(): void {

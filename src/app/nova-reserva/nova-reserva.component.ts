@@ -87,7 +87,7 @@ export class NovaReservaComponent implements OnInit {
       this.serviceEstoque.consultarEstoquePorIdItem(this.reserva.idItem).subscribe(res => {estoque = res;
         if(estoque.estoqueFuturo){
           if(estoque.estoqueFuturo <= estoque.item.estoqueSeguranca){
-            this.notifier.showError(`Atenção! Estoque crítico a partir do dia ${this.reserva.dataPrevista}!`)
+            this.notifier.showWarn(`Atenção! Estoque crítico a partir do dia ${this.reserva.dataPrevista}!`)
           }else{
             this.notifier.showSuccess(`Reserva criada com sucesso!`)
           }

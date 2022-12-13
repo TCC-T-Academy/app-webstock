@@ -166,6 +166,12 @@ mat-cell{
     --mdc-snackbar-container-color: #33333300;
 }
 
+.yellow-snackbar{
+    background:goldenrod;
+    --mat-mdc-snack-bar-button-color: goldenrod;
+    --mdc-snackbar-container-color: #33333300;
+}
+
 .btnPrimary{
     background-color: #2C4971 !important;
 }

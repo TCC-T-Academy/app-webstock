@@ -45,7 +45,7 @@ export class HeaderComponent {
 
   eAdmin(){
     let usuario = JSON.parse(localStorage.getItem("usuarioLogado")!);
-    if(usuario.role == 'ROLE_ADMIN') {
+    if(usuario && usuario.role == 'ROLE_ADMIN') {
       return true;
     }
     return false;

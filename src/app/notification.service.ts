@@ -27,4 +27,13 @@ export class NotificationService {
       
      });
   }
+
+  showWarn(message: string): void {
+    this.zone.run(() => {
+         // The second parameter is the text in the button. 
+        // In the third, we send in the css class for the snack bar.
+       this.err.openWarningSnackBar(message);
+       
+      });
+   }
 }
