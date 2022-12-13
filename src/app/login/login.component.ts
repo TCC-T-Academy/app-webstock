@@ -28,7 +28,7 @@ export class LoginComponent implements AfterViewInit{
       user = JSON.stringify(user);
     }
     
-    if(token != ""){
+    if(token && token != ""){
       let jwtObj:any = jwt(token);
       if(jwtObj.user_name == user.email){
         this.router.navigate(['estoque'])

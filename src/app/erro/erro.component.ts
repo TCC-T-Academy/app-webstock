@@ -8,6 +8,20 @@ import { IError } from 'src/interfaces/interface';
 export class ErrorWindow {
   constructor(public snackBar:MatSnackBar) {}
 
+  openWarningSnackBar(msg:string) {
+
+    const config = new MatSnackBarConfig();
+    config.panelClass = ['yellow-snackbar'];
+    config.verticalPosition = 'top';
+    config.horizontalPosition = 'center';
+    config.duration = 3000; 
+    config.direction = 'ltr';
+    config.data = msg;
+
+    this.snackBar.open(msg,"x",config);
+  }
+
+
   openErrorSnackBar(msg:string) {
 
     const config = new MatSnackBarConfig();
