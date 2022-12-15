@@ -1,27 +1,26 @@
-# AppWebstock
+# Webstock
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
+Este repositório contém uma aplicação Angular como parte de um projeto *full-stack* usando *Spring* e *Angular*.
 
-## Development server
+O projeto é um trabalho avaliativo proposto pelo programa de treinamento *T-Academy*, ocorrido entre 03/10/2022 e 15/12/2022, e promovido pela [T-Systems do Brasil](https://www.t-systems.com/br/pt) em parceria com a [ProWay](https://www.proway.com.br/).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tecnologias e ferramentas necessárias
+- Java 17
+- Angular
+- Gerenciador de pacotes para Node.js (`npm`)
+- Maven
+- MySQL Workbench
 
-## Code scaffolding
+## Regras de negócio
+Confira regras de negócio no [repositório](https://github.com/TCC-T-Academy/EstoqueApi) complementar da API Spring.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Utilização do repositório
+- Após realizar o *fork* e *clone* do repositório localmente, recomenda-se abrir o projeto em uma IDE, como o Visual Studio Code.
+- Inicie a API Spring conforme instruções deste [repositório](https://github.com/TCC-T-Academy/EstoqueApi)
+- Execute o comando `npm install @angular/cli`
+- Execute o comando `ng serve --open`
+- Navegue para `http://localhost:4200/`. Faça login com um dos perfis:
+    - User: `maria@gmail.com`; senha: `123456`
+    - User: `joana@gmail.com`; senha: `123456`
+- Explore a aplicação.
+- Utilize o atalho `ctrl`+ `c` (em sistemas Windows) para interromper a execução do servidor.
